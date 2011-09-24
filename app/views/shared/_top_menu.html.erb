@@ -1,0 +1,11 @@
+<% @menu_entities ||= {'Главная' => root_path, "Новости" => '#',"Соревнования" => '#',
+                       "Форум" => '#',"Важная информация" => '#',"О нас" => '#'} %>
+<table id="top_menu">
+  <tr>
+    <% @menu_entities.each do |key,value|%>
+        <td>
+           <%= link_to  key, value %>
+        </td>
+    <% end%>
+  </tr>
+</table>

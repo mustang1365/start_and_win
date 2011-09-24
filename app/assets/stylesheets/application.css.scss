@@ -1,0 +1,139 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+$table-color: #05173d;
+$border-style: 1px solid white;
+$content-table-width: 675px;
+$content-table-height: 525px;
+$left-menu-width: 30%;
+$top-menu-height: 40px;
+
+@mixin body_parts{
+
+    background-color: #7598be;
+}
+
+@mixin full_table($height: 100%){
+     border:0px;
+     border-collapse:collapse;
+     border-spacing:0px !important;
+     width:100%;
+     height:$height;
+}
+
+@mixin content_table_color{
+    background-color: $table-color;
+    opacity:0.7;
+}
+body {
+    margin:0 !important;
+    color:white;
+}
+
+#main_body_part{
+      width:1010px;
+      height:663px;
+      background:  url("/assets/body_1010x672.jpg") no-repeat;
+      padding:0px;
+}
+
+#left_body_part{
+     @include body_parts;
+}
+#right_body_part{
+     @include body_parts;
+}
+
+#body_table {
+   @include full_table;
+}
+
+#align_center{
+    @include full_table;
+    #content_td{
+        width: $content-table-width;
+        height: $content-table-height;
+        padding:0px;
+    }
+}
+
+#content_table {
+   @include full_table;
+   #table_title{
+    @include full_table(45px);
+     #for_tile{
+         margin-bottom:-7px;
+        @include full_table(45px);
+        #left_td{
+          padding:0px;
+          background: url('/assets/left_header.gif') no-repeat;
+          height:45px;
+          width: 100px;
+        }
+        #right_td{
+          padding:0px;
+          height:45px;
+          width: 103px;
+          background: url('/assets/right_header.gif') no-repeat;
+        }
+        #middle_td{
+          vertical-align:middle;
+          text-align:center;
+          color:white;
+          background: url("/assets/midde_header.png") repeat-x;
+          height:45px;
+        }
+     }
+   }
+   .with_width{
+    width:5px;
+   }
+   #menu{
+      height: $top-menu-height;
+   }
+   #table_menu{
+      @include content_table_color;
+
+      #top_menu{
+       width:100%;
+       height:100%;
+       border-collapse:separate ;
+       border-spacing:13px !important;
+       a {
+           color:white;
+        }
+        font-weight:bolder;
+      }
+   }
+   #table_left_part{
+      @include content_table_color;
+      vertical-align:top;
+      /*border-right: $border-style;*/
+      width:$left-menu-width;
+      padding:10px;
+   }
+   #table_main_part{
+      @include content_table_color;
+      vertical-align:top;
+   }
+   #footer{
+     height:15px;
+     font-style:italic;
+     font-style:13px;
+     text-align:center
+   }
+   #table_footer{
+       border-top: $border-style;
+      @include content_table_color;
+   }
+}
+
+.bold_text {
+    font-weight:bold;
+    color:white;
+    font-size:16px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StartAndWin</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+<table id='body_table'>
+  <tr>
+    <td id='left_body_part'></td>
+    <td id="main_body_part">
+      <table id="align_center">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id='content_td'>
+            <table id="content_table">
+              <tr>
+                <td colspan="4" id='table_title'>
+                  <table id="for_tile">
+                    <tr>
+                      <td id="left_td"></td>
+                      <td id="middle_td">Start & Win</td>
+                      <td id="right_td"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr id='menu'>
+                <td class="with_width"></td>
+                <td colspan="2" id="table_menu">
+                  <%= render 'shared/top_menu' %>
+                </td>
+                <td class="with_width"></td>
+              </tr>
+              <tr>
+                <td class="with_width"></td>
+                <td id="table_left_part">
+                   <% if @current_user.present? %>
+                      <%= render 'shared/users_left_panel'%>
+                   <% else %>
+                      <%= render 'shared/login_panel'%>
+                   <% end %>
+                </td>
+                <td id='table_main_part'>
+                  <%= yield %>
+                </td>
+                <td class="with_width"></td>
+              </tr>
+              <tr id="footer">
+                <td class="with_width"></td>
+                <td colspan="2" id="table_footer">
+                  Минск, 2011
+                </td>
+                <td class="with_width"></td>
+              </tr>
+            </table>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+    </td>
+    <td id='right_body_part'></td>
+  </tr>
+</table>
+</body>
+</html>
