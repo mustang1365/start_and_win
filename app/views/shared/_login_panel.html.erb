@@ -1,1 +1,12 @@
-<div class="bold_text" style="margin-left:15px">Вход</div>
+<%= form_for(@user, :url => '/sign_in') do |f| %>
+    <div><%= f.label :email %>
+      <br/>
+      <%= f.email_field :email , :style => 'width:155px'%></div>
+
+    <div><%= f.label 'Пароль' %>
+      <br/>
+      <%= f.password_field :password, :style => 'width:155px' %></div>
+
+    <div><%= f.submit "Войти" %></div>
+<% end %>
+

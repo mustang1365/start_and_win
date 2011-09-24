@@ -1,5 +1,14 @@
 StartAndWin::Application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get "sign_in", :to => "user_sessions#new"
+    post "sign_in", :to => "user_sessions#create"
+    get "sign_out", :to => "user_sessions#destroy"
+  end
+  #resources :user_sessions , :only => [:new, :create, :destroy]
+
   root :to => 'home#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

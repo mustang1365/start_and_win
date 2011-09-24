@@ -43,14 +43,17 @@
               <tr>
                 <td class="with_width"></td>
                 <td id="table_left_part">
-                   <% if @current_user.present? %>
+                   <% if current_user.present? %>
                       <%= render 'shared/users_left_panel'%>
                    <% else %>
                       <%= render 'shared/login_panel'%>
                    <% end %>
                 </td>
                 <td id='table_main_part'>
+                  <div id='main_content_text' >
+
                   <%= yield %>
+                      </div>
                 </td>
                 <td class="with_width"></td>
               </tr>

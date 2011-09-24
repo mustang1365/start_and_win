@@ -11,6 +11,7 @@ $content-table-width: 675px;
 $content-table-height: 525px;
 $left-menu-width: 30%;
 $top-menu-height: 40px;
+$main-content-text-height: 425px;
 
 @mixin body_parts{
 
@@ -78,13 +79,13 @@ body {
           padding:0px;
           height:45px;
           width: 103px;
-          background: url('/assets/right_header.gif') no-repeat;
+          background: url('/assets/right_header.gif') no-repeat 0 1px;
         }
         #middle_td{
           vertical-align:middle;
           text-align:center;
           color:white;
-          background: url("/assets/midde_header.png") repeat-x;
+          background: url("/assets/midde_header.png") repeat-x 0 -1px;
           height:45px;
         }
      }
@@ -119,6 +120,10 @@ body {
    #table_main_part{
       @include content_table_color;
       vertical-align:top;
+      #main_content_text {
+          height:$main-content-text-height;
+          overflow-y:scroll;
+      }
    }
    #footer{
      height:15px;
