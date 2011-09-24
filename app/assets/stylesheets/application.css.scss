@@ -30,6 +30,12 @@ $main-content-text-height: 425px;
     background-color: $table-color;
     opacity:0.7;
 }
+
+@mixin white_link {
+       a {
+           color:white;
+        }
+}
 body {
     margin:0 !important;
     color:white;
@@ -93,6 +99,7 @@ body {
    .with_width{
     width:5px;
    }
+   @include white_link;
    #menu{
       height: $top-menu-height;
    }
@@ -104,9 +111,7 @@ body {
        height:100%;
        border-collapse:separate ;
        border-spacing:13px !important;
-       a {
-           color:white;
-        }
+
         font-weight:bolder;
       }
    }

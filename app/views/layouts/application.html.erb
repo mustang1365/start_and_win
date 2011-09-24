@@ -43,24 +43,26 @@
               <tr>
                 <td class="with_width"></td>
                 <td id="table_left_part">
-                   <% if current_user.present? %>
-                      <%= render 'shared/users_left_panel'%>
-                   <% else %>
-                      <%= render 'shared/login_panel'%>
-                   <% end %>
+                  <% if current_user.present? %>
+                      <% render 'shared/users_left_panel' %>
+                  <% elsif  @user_create_left_menu %>
+                      <%= render 'shared/left_tips' %>
+                  <% else %>
+                      <%= render 'shared/login_panel' %>
+                  <% end %>
                 </td>
                 <td id='table_main_part'>
-                  <div id='main_content_text' >
+                  <div id='main_content_text'>
 
-                  <%= yield %>
-                      </div>
+                    <%= yield %>
+                  </div>
                 </td>
                 <td class="with_width"></td>
               </tr>
               <tr id="footer">
                 <td class="with_width"></td>
                 <td colspan="2" id="table_footer">
-                  Минск, 2011
+                  &copy; 2011 M3_group.
                 </td>
                 <td class="with_width"></td>
               </tr>

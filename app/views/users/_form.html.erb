@@ -1,0 +1,17 @@
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label 'Пароль' %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label 'Подтверждение пароля' %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+    <div><%= f.label 'Пользовательское соглашение' %><br />
+  <%= text_area_tag 'terms_and_conditions', "#{ raw render '/shared/terms_and_conditions'}" ,:style => 'height:145px; width:340px; overflow-y:scroll;'%></div>
+      <div>
+  <%= f.input :agree_with_terms_and_conditions, :label => 'Я принимаю соглашение' %></div>
+
+  <div><%= f.submit (['new','create'].include?(action_name) ? "Зарегистрироваться" : "Сохранить") %></div>
