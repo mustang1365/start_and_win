@@ -14,4 +14,11 @@ class User < ActiveRecord::Base
     self.errors[:base] << 'Для регистрации необходимо принять пользовательское соглашение' unless self.agree_with_terms_and_conditions
   end
 
+  def self.agree_with_terms_and_conditions=(attributes)
+    a=1
+  end
+
+  def self.agree_with_terms_and_conditions
+    a=1
+  end
 end

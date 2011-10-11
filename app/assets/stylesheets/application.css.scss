@@ -127,7 +127,7 @@ body {
       vertical-align:top;
       #main_content_text {
           height:$main-content-text-height;
-          overflow-y:scroll;
+          overflow:auto;
       }
    }
    #footer{
