@@ -5,20 +5,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  has_one :profile
+
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   validate :check_agreement
 
+  before_save :set_full_name
+  after_create :set_user_name
+
   def check_agreement
     self.errors[:base] << 'Для регистрации необходимо принять пользовательское соглашение' unless self.agree_with_terms_and_conditions
   end
 
-  def self.agree_with_terms_and_conditions=(attributes)
-    a=1
+  def set_full_name
+    self.full_name = self.first_name.to_s + ' ' + self.last_name.to_s
   end
 
-  def self.agree_with_terms_and_conditions
-    a=1
+  def set_user_name
+    self.user_name = self.email.split('@').first
   end
 end

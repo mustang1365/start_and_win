@@ -1,7 +1,10 @@
 StartAndWin::Application.routes.draw do
 
-  #resources :users
+  #profile routes
+  match '/profile' => "profiles#show"
+  resources :profiles, :only =>[:edit,:update] do
 
+  end
   devise_for :users
   devise_scope :user do
     get "sign_in", :to => "user_sessions#new"
@@ -9,6 +12,7 @@ StartAndWin::Application.routes.draw do
     get "sign_out", :to => "user_sessions#destroy"
     get "sign_up", :to => 'users#new'
     post "sign_up", :to => 'users#create'
+    get "confirmation", :to => "my_confirmations#show"
   end
 
   root :to => 'home#index'
