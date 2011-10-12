@@ -4,25 +4,70 @@
       <%= buttons = render 'buttons', :f =>f %>
     </div>
 
-    <table border="1px solid black">
+    <table>
       <tr>
-        <td valign="top">FOTO</td>
+        <td valign="top">
+          <img src="/assets/default_avatar.gif" alt="" style="width:80px;">
+        </td>
         <td>
-          <%= f.input :first_name, :label => 'Имя:', :wrapper_html => { :class => 'standard_text_field' } %>
-          <%= f.input :last_name, :label => 'Фамилия:', :wrapper_html => { :class => 'standard_text_field' } %>
-          <%= f.input :user_name, :label => 'user_name*:', :wrapper_html => { :class => 'standard_text_field' } %>
+          <table>
+            <tr>
+              <td class="td_label">Имя:</td>
+              <td>
+                <%= f.input :first_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_label">Фамилия:</td>
+              <td>
+                <%= f.input :last_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_label">user_name*:</td>
+              <td>
+                <%= f.input :user_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
+
+              </td>
+            </tr>
+          </table>
+
         </td>
       </tr>
       <tr>
-        <td colspan="2">
-        <%= f.fields_for :profile do |profile_form| %>
-            <%= profile_form.input :date_of_birth, :label => 'Дата рождения:', :as => :date, :start_year => Date.today.year - 90,
-                                   :end_year => Date.today.year - 16, :discard_day => true,
-                                   :order => [:month, :year] %>
-            <%= profile_form.input :address, :label => 'Адресс:', :as => :text, :html =>{:cols => 10 , :rows => 20} , :cols => 10 , :rows => 20, :wrapper_html => {:cols => 10 , :rows => 20}%>
-            Favorite Teams:
-            <%= profile_form.input :self_description, :label => 'Обо мне:', :as => :text %>
-        <% end %>
+        <td></td>
+        <td>
+          <%= f.fields_for :profile do |profile_form| %>
+              <table>
+                <tr>
+                  <td class="td_label"> Дата рождения:</td>
+                  <td>
+                    <%= profile_form.input :date_of_birth, :label => false, :as => :date, :start_year => Date.today.year - 90,
+                                           :end_year => Date.today.year - 16,
+                                           :order => [:day,:month, :year] %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td_label">Адресс:</td>
+                  <td>
+                    <%= profile_form.input :address, :label => false, :as => :text,  :input_html =>{:cols => 20, :rows => 4} %>
+                  </td>
+                </tr>
+                 <tr>
+                  <td class="td_label">Любымые команды/спортсмены:</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td_label">Обо мне:</td>
+                  <td>
+                    <%= profile_form.input :self_description, :label => false, :as => :text, :input_html =>{:cols => 20, :rows => 10} %>
+                  </td>
+                </tr>
+              </table>
+
+
+          <% end %>
         </td>
       </tr>
     </table>

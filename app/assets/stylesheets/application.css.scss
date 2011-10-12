@@ -41,6 +41,9 @@ body {
     color:white;
 }
 
+table{
+    width:100%;
+}
 #main_body_part{
       width:1010px;
       height:663px;
@@ -147,3 +150,18 @@ body {
     color:white;
     font-size:16px;
 }
+
+.standard_text_field{
+    width: 145px;
+}
+
+.td_label{
+    vertical-align:top;
+    width:110px;
+}
+
+.butns{
+    text-align:right;
+    margin-right:15px;
+}
+
