@@ -1,2 +1,33 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/edit.html.erb</p>
+<%= simple_form_for(@user_to_edit, :url => url_for(:controller => :profiles, :action => :update)) do |f| %>
+
+    <div class="top_panel">
+      <%= buttons = render 'buttons', :f =>f %>
+    </div>
+
+    <table border="1px solid black">
+      <tr>
+        <td valign="top">FOTO</td>
+        <td>
+          <%= f.input :first_name, :label => 'Имя:', :wrapper_html => { :class => 'standard_text_field' } %>
+          <%= f.input :last_name, :label => 'Фамилия:', :wrapper_html => { :class => 'standard_text_field' } %>
+          <%= f.input :user_name, :label => 'user_name*:', :wrapper_html => { :class => 'standard_text_field' } %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+        <%= f.fields_for :profile do |profile_form| %>
+            <%= profile_form.input :date_of_birth, :label => 'Дата рождения:', :as => :date, :start_year => Date.today.year - 90,
+                                   :end_year => Date.today.year - 16, :discard_day => true,
+                                   :order => [:month, :year] %>
+            <%= profile_form.input :address, :label => 'Адресс:', :as => :text, :html =>{:cols => 10 , :rows => 20} , :cols => 10 , :rows => 20, :wrapper_html => {:cols => 10 , :rows => 20}%>
+            Favorite Teams:
+            <%= profile_form.input :self_description, :label => 'Обо мне:', :as => :text %>
+        <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="top_panel">
+      <%= buttons %>
+    </div>
+<% end %>
