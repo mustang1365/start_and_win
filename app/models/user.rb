@@ -26,5 +26,6 @@ class User < ActiveRecord::Base
 
   def set_user_name
     self.user_name = self.email.split('@').first
+    self.save
   end
 end
