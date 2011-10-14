@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem  'mysql2'
 gem "simple_form"
+gem "nested_form"
 gem 'devise'
 
 group :console do
