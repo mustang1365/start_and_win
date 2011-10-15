@@ -51,9 +51,9 @@
           <td>
             <%= f.fields_for :user_favorite_items do |item_form| %>
                 <%= item_form.text_field :name, :label => false, :text_field_html => {:class => 'standard_text_field'} %>
-                <%= item_form.link_to_remove "Удалить" %>
+                <%#= item_form.link_to_remove "Удалить" %>
             <% end %>
-            <%= f.link_to_add "Добавить еще", :user_favorite_items %>
+            <%#= f.link_to_add "Добавить еще", :user_favorite_items %>
           </td>
         </tr>
         <tr>

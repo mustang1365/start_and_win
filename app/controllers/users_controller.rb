@@ -1,3 +1,4 @@
+#encoding: utf-8
 class UsersController < Devise::RegistrationsController
   before_filter :user_create_left_menu, :only =>[:new, :create]
 
@@ -11,6 +12,7 @@ class UsersController < Devise::RegistrationsController
 
   def create
     build_resource
+    resource.agree_with_terms_and_conditions =  params[:user][:agree_with_terms_and_conditions]
     if resource.save
       session[:success_registration] = true
       if resource.active_for_authentication?
@@ -23,6 +25,7 @@ class UsersController < Devise::RegistrationsController
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
     else
+      #resource.errors[:base] << 'Для регистрации необходимо принять пользовательское соглашение' unless (params[:user][:agree_with_terms_and_conditions] == 1)
       clean_up_passwords(resource)
       respond_with_navigational(resource) { render_with_scope :new }
     end

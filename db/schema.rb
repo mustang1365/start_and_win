@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014222602) do
+ActiveRecord::Schema.define(:version => 20111015115015) do
 
   create_table "profiles", :force => true do |t|
     t.datetime "date_of_birth"
@@ -39,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20111014222602) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                          :default => "",   :null => false
-    t.string   "encrypted_password",              :limit => 128, :default => "",   :null => false
+    t.string   "email",                                          :default => "",    :null => false
+    t.string   "encrypted_password",              :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20111014222602) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "agree_with_terms_and_conditions",                :default => true
+    t.boolean  "agree_with_terms_and_conditions",                :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
