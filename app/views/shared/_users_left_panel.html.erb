@@ -19,6 +19,7 @@
   </tr>
 </table>
 <br/>
+<%= link_to 'Зайти как админ', admin_root_path, :style => 'color:red;' if current_user.administrator? %>
 <br/>
 <br/>
 <%= link_to '#Текущие соревнования', '#' %><br/>

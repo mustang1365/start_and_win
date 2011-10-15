@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StartAndWin</title>
+  <%= stylesheet_link_tag "admin/admin" %>
+  <%= javascript_include_tag "application", 'js/jquery-1.6.2.min' , 'js/jquery-ui-1.8.16.custom.min', "nested_form"%>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+<table id='main_admin_table'>
+  <tr id='admin_header'>
+    <td colspan="10">
+       Администрирования сайта StartAndWin
+    </td>
+  </tr>
+  <tr id='admin_menu'>
+    <td class="admin_menu_item"><%= link_to 'Главная', admin_root_path %></td>
+    <td class="admin_menu_item"><%= link_to '#Сообщения от пользователей', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Соревнования', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Результаты', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Новости', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Опросы', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Пользователи', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Роли', '#' %></td>
+    <td class="admin_menu_item"><%= link_to 'На пользовательскуб версию', root_path %></td>
+    <td class="admin_menu_item"><%= link_to 'Выйти', '/sign_out' %></td>
+  </tr>
+  <tr id="admin_content">
+    <td colspan="10">
+      <%= yield %>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+

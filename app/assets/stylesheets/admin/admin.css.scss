@@ -1,0 +1,38 @@
+// Place all the styles related to the admin/admin_home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin full_table($height: 100%){
+     border:0px;
+     border-collapse:collapse;
+     border-spacing:0px !important;
+     width:100%;
+     height:$height;
+}
+
+body {
+    margin:0 !important;
+    color:black;
+}
+
+table{
+    @include full_table;
+    width:100%;
+}
+
+#main_admin_table{
+    #admin_header{
+        height:50px;
+        text-align:center;
+        vertical-align:middle;
+    }
+    #admin_menu{
+        height:40px;
+        .admin_menu_item{
+            text-align:center;
+            border:1px solid black;
+        }
+    }
+    #admin_content{
+
+    }
+}

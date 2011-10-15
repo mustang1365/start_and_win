@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015115015) do
+ActiveRecord::Schema.define(:version => 20111015120630) do
 
   create_table "profiles", :force => true do |t|
     t.datetime "date_of_birth"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20111015115015) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "agree_with_terms_and_conditions",                :default => false
+    t.boolean  "administrator"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
