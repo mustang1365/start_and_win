@@ -1,0 +1,4 @@
+Standard User:
+  permissions: View Profile
+Global Admin:
+  permissions: Manage Roles

@@ -14,11 +14,11 @@ body {
 }
 
 table{
-    @include full_table;
     width:100%;
 }
 
 #main_admin_table{
+    @include full_table;
     color:black;
     #admin_header{
         height:50px;
