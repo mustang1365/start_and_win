@@ -3,7 +3,7 @@ StartAndWin::Application.routes.draw do
 
   #admin part
   scope :module => "admin" do
-    get "admin_home", :to => "admin_home#index", :as => :admin_root
+    get "admin_home", :to => "admin_home#index", :as => :my_admin_root
     resources :roles do end
   end
 
