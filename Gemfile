@@ -8,6 +8,9 @@ gem 'rails', '3.1.0'
 gem 'mysql2'
 gem 'simple_form'
 gem 'devise'
+gem 'rake', '0.8.7'
+#gem 'serialized-attributes'
+#serialized-attributes
 
 group :console do
   gem 'hirb'

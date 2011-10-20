@@ -10,7 +10,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011214747) do
+ActiveRecord::Schema.define(:version => 20111013181208) do
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "football_leagues", :force => true do |t|
+    t.string   "league_name"
+    t.integer  "country_id"
+    t.integer  "type_league_id"
+    t.text     "rounds"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "football_matches", :force => true do |t|
+    t.integer  "team1_id"
+    t.integer  "team2_id"
+    t.integer  "football_league_id"
+    t.string   "round"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+  end
+
+  create_table "football_teams", :force => true do |t|
+    t.integer  "football_league_id"
+    t.string   "team_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", :force => true do |t|
     t.datetime "date_of_birth"
