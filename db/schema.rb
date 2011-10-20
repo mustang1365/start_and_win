@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,6 +17,37 @@ ActiveRecord::Schema.define(:version => 20111020090018) do
     t.string   "action_name"
     t.string   "check_method"
     t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "football_leagues", :force => true do |t|
+    t.string   "league_name"
+    t.integer  "country_id"
+    t.integer  "type_league_id"
+    t.text     "rounds"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "football_matches", :force => true do |t|
+    t.integer  "team1_id"
+    t.integer  "team2_id"
+    t.integer  "football_league_id"
+    t.string   "round"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+  end
+
+  create_table "football_teams", :force => true do |t|
+    t.integer  "football_league_id"
+    t.string   "team_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

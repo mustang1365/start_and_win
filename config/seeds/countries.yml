@@ -1,0 +1,75 @@
+-
+  name: Англия
+  league:
+      -
+        name: second_league
+        football_teams:
+          -
+            team_name: Team1
+          -
+            team_name: Team2
+          -
+            team_name: Team3
+          -
+            team_name: Team4
+      -
+        name: second_league
+        football_teams:
+          -
+            team_name: Team5
+          -
+            team_name: Team6
+          -
+            team_name: Team7
+          -
+            team_name: Team8
+-
+  name: Франция
+  league:
+      -
+        name: first_franch_league
+        football_teams:
+          -
+            team_name: Team11
+          -
+            team_name: Team21
+          -
+            team_name: Team31
+          -
+            team_name: Team41
+      -
+        name: second_franch_league
+        football_teams:
+          -
+            team_name: Лион
+          -
+            team_name: Team6
+          -
+            team_name: Team7
+          -
+            team_name: Team8
+-
+  name: Италия
+  league:
+      -
+        name: first_league
+        football_teams:
+          -
+            team_name: Team1
+          -
+            team_name: Team2
+          -
+            team_name: Team3
+          -
+            team_name: Team4
+      -
+        name: second_league
+        football_teams:
+          -
+            team_name: Team5
+          -
+            team_name: Team6
+          -
+            team_name: Team7
+          -
+            team_name: Team8

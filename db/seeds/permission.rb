@@ -1,7 +1,7 @@
 Permission.destroy_all
 ModelArea.destroy_all
 ControllerArea.destroy_all
-permissions = YAML.load_file("#{Rails.root}/config/yml_for_seeds/permissions.yml")
+permissions = YAML.load_file("#{Rails.root}/config/seeds/permissions.yml")
 permissions.each do |key, value|
   new_permission = Permission.create(:name => key, :type => value['type'])
 #Set ability to access controllers
