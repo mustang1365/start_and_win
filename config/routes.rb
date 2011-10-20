@@ -4,6 +4,7 @@ StartAndWin::Application.routes.draw do
   #admin part
   scope :module => "admin" do
     get "admin_home", :to => "admin_home#index", :as => :admin_root
+    resources :roles do end
   end
 
   #profile routes

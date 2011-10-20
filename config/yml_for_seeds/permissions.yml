@@ -1,4 +1,5 @@
 'View Profile':
+  type: user
   controller_area:
     -
       controller: profile
@@ -9,6 +10,7 @@
       check_method: check_user_privacy_setting
 
 'Manage Roles':
+  type: admin
   controller_area:
     -
       controller: roles

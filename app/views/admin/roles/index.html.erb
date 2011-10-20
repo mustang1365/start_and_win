@@ -1,0 +1,16 @@
+<%= link_to 'Добавить новую роль', new_role_path %>
+<% if @roles.any? %>
+<table>
+  <tr>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Тип</th>
+    <th>Количество разрешениии</th>
+    <th>Количество пользователей </th>
+    <th>Действия</th>
+  </tr>
+  <%= render :partial => 'role', :collection =>@roles %>
+</table>
+<% else%>
+    Еще не создано ни одной роли
+<% end%>
