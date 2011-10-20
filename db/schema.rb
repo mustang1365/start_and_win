@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111013181208) do
+ActiveRecord::Schema.define(:version => 20111015230918) do
+
+  create_table "controller_areas", :force => true do |t|
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "check_method"
+    t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -43,6 +52,27 @@ ActiveRecord::Schema.define(:version => 20111013181208) do
     t.datetime "updated_at"
   end
 
+  create_table "model_areas", :force => true do |t|
+    t.string   "model_name"
+    t.string   "check_method"
+    t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_roles", :id => false, :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profiles", :force => true do |t|
     t.datetime "date_of_birth"
     t.text     "address"
@@ -50,6 +80,10 @@ ActiveRecord::Schema.define(:version => 20111013181208) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_name"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "user_name"
   end
 
   create_table "registration_tips", :force => true do |t|
@@ -58,9 +92,32 @@ ActiveRecord::Schema.define(:version => 20111013181208) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
+  create_table "user_favorite_items", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                                          :default => "",   :null => false
-    t.string   "encrypted_password",              :limit => 128, :default => "",   :null => false
+    t.string   "email",                                          :default => "",    :null => false
+    t.string   "encrypted_password",              :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -74,11 +131,8 @@ ActiveRecord::Schema.define(:version => 20111013181208) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "agree_with_terms_and_conditions",                :default => true
-    t.string   "user_name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "full_name"
+    t.boolean  "agree_with_terms_and_conditions",                :default => false
+    t.boolean  "administrator"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

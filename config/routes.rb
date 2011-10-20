@@ -1,10 +1,17 @@
 StartAndWin::Application.routes.draw do
+  root :to => 'home#index'
+
+  #admin part
+  scope :module => "admin" do
+    get "admin_home", :to => "admin_home#index", :as => :admin_root
+  end
 
   #profile routes
   match '/profile' => "profiles#show"
-  resources :profiles, :only =>[:edit,:update] do
-
+  resources :profiles, :only =>[:edit, :update] do
   end
+
+  #device settings and overrides
   devise_for :users
   devise_scope :user do
     get "sign_in", :to => "user_sessions#new"
@@ -15,7 +22,6 @@ StartAndWin::Application.routes.draw do
     get "confirmation", :to => "my_confirmations#show"
   end
 
-  root :to => 'home#index'
 
   namespace :admin do
     root :to => 'users#index'

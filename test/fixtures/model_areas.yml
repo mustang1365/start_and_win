@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  model_name: MyString
+  check_method: MyString
+  permission_id: 1
+
+two:
+  model_name: MyString
+  check_method: MyString
+  permission_id: 1

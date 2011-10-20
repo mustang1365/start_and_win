@@ -1,0 +1,68 @@
+<table>
+  <tr>
+    <td valign="top">
+      <img src="/assets/default_avatar.gif" alt="" style="width:80px;">
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td class="td_label">Имя:</td>
+          <td>
+            <%= f.input :first_name, :label => false, :input_html => {:class => 'standard_input'} %>
+          </td>
+        </tr>
+        <tr>
+          <td class="td_label">Фамилия:</td>
+          <td>
+            <%= f.input :last_name, :label => false, :input_html => {:class => 'standard_input'} %>
+          </td>
+        </tr>
+        <tr>
+          <td class="td_label">user_name*:</td>
+          <td>
+            <%= f.input :user_name, :label => false, :input_html => {:class => 'standard_input'} %>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <table>
+        <tr>
+          <td class="td_label"> Дата рождения:</td>
+          <td>
+            <%= f.input :date_of_birth, :label => false, :as => :date, :start_year => Date.today.year - 90,
+                        :end_year => Date.today.year - 16,
+                        :order => [:day, :month, :year] %>
+          </td>
+        </tr>
+        <tr>
+          <td class="td_label">Адресс:</td>
+          <td>
+            <%= f.input :address, :label => false, :as => :text, :input_html => {:class => 'standard_input', :style => 'height:50px'} %>
+          </td>
+        </tr>
+        <tr>
+          <td class="td_label">Любымые команды/спортсмены:</td>
+          <td>
+            <%= f.fields_for :user_favorite_items do |item_form| %>
+                <%= item_form.input :name, :label => false, :input_html => {:class => 'standard_input'} %>
+                <%#= item_form.link_to_remove "Удалить" %>
+            <% end %>
+            <%#= f.link_to_add "Добавить еще", :user_favorite_items %>
+          </td>
+        </tr>
+        <tr>
+          <td class="td_label">Обо мне:</td>
+          <td>
+            <%= f.input :self_description, :label => false, :as => :text,:input_html => {:class => 'standard_input', :style =>'height:90px'}%>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

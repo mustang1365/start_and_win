@@ -1,20 +1,28 @@
 #encoding: utf-8
 class ProfilesController < ApplicationController
+  after_filter :necessary_actions
+
   def show
-   @user_to_show = User.find(params[:id])
+    @profile = Profile.find(params[:id])
   end
 
   def edit
-    @user_to_edit = current_user
+    @profile = current_user.profile
+    @profile.build_associations_if_empty
   end
 
   def update
-    @user_to_edit = User.find(Profile.find(params[:id]).user.id)
-    if User.last.update_attributes(params[:user])
+    @profile = Profile.find(params[:id])
+    if @profile.update_attributes(params[:profile])
       flash[:notice] = 'Профиль успешно обновлен'
-      redirect_to :action => :show, :id => @user_to_edit.id
+      redirect_to :action => :show, :id => @profile.id
     else
+      @profile.build_associations_if_empty
       render :action => :edit
     end
+  end
+
+  def necessary_actions
+    a = 1
   end
 end

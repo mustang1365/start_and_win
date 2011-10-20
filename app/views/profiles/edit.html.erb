@@ -1,76 +1,10 @@
-<%= simple_form_for(@user_to_edit, :url => url_for(:controller => :profiles, :action => :update)) do |f| %>
+<%= simple_form_for(@profile, :url => url_for(:controller => :profiles, :action => :update)) do |f| %>
 
     <div class="top_panel">
       <%= buttons = render 'buttons', :f =>f %>
     </div>
 
-    <table>
-      <tr>
-        <td valign="top">
-          <img src="/assets/default_avatar.gif" alt="" style="width:80px;">
-        </td>
-        <td>
-          <table>
-            <tr>
-              <td class="td_label">Имя:</td>
-              <td>
-                <%= f.input :first_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
-              </td>
-            </tr>
-            <tr>
-              <td class="td_label">Фамилия:</td>
-              <td>
-                <%= f.input :last_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
-              </td>
-            </tr>
-            <tr>
-              <td class="td_label">user_name*:</td>
-              <td>
-                <%= f.input :user_name, :label => false, :input_html => {:class => 'standard_text_field'} %>
-
-              </td>
-            </tr>
-          </table>
-
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <%= f.fields_for :profile do |profile_form| %>
-              <table>
-                <tr>
-                  <td class="td_label"> Дата рождения:</td>
-                  <td>
-                    <%= profile_form.input :date_of_birth, :label => false, :as => :date, :start_year => Date.today.year - 90,
-                                           :end_year => Date.today.year - 16,
-                                           :order => [:day,:month, :year] %>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td_label">Адресс:</td>
-                  <td>
-                    <%= profile_form.input :address, :label => false, :as => :text,  :input_html =>{:cols => 20, :rows => 4} %>
-                  </td>
-                </tr>
-                 <tr>
-                  <td class="td_label">Любымые команды/спортсмены:</td>
-                  <td>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td_label">Обо мне:</td>
-                  <td>
-                    <%= profile_form.input :self_description, :label => false, :as => :text, :input_html =>{:cols => 20, :rows => 10} %>
-                  </td>
-                </tr>
-              </table>
-
-
-          <% end %>
-        </td>
-      </tr>
-    </table>
+    <%= render 'form', :f =>f %>
 
     <div class="top_panel">
       <%= buttons %>

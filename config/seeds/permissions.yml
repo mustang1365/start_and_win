@@ -1,0 +1,19 @@
+'View Profile':
+  controller_area:
+    -
+      controller: profile
+      action_names: show
+  model_area:
+    -
+      model: profile
+      check_method: check_user_privacy_setting
+
+'Manage Roles':
+  controller_area:
+    -
+      controller: roles
+      action_names: all
+  model_area:
+    -
+      model: role
+
