@@ -1,0 +1,15 @@
+<% if @permissions.present? && @permissions.any? %>
+    <% @permissions.each do |group_name, permissions_in_group| %>
+        <div class="permission_group_name">
+          <%= group_name %>
+        </div>
+        <% if permissions_in_group && permissions_in_group.any? %>
+            <% permissions_in_group.each do |permission| %>
+                <% if permission %>
+                    <%= check_box_tag "role_permissions_#{permission.id}", permission.id, false, :class => 'role_permissions_element' %>
+                    <%= permission.name %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

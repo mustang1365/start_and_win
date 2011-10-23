@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_and_belongs_to_many :roles
-  has_many :permissions, :through => :roles
   after_create :set_default_roles
 
   # Setup accessible (or protected) attributes for your model
@@ -24,22 +23,24 @@ class User < ActiveRecord::Base
   end
 
   def current_ability
-    ability_hash = {}
-    self.permissions.each do |permission|
-      p_name = permission.name
-      permission.controller_areas.each do |c_area|
-        if ability_hash[:controllers][c_area.controller_name].nil?
-           ability_hash[:controllers][c_area.controller_name] = {c_area.action_name =>c_area.check_method}
-        else
-          ability_hash[:controllers][c_area.controller_name].merge({c_area.action_name =>c_area.check_method})
+    ability_hash = {:controllers => {}, :permission => {}}
+    self.roles.each do |user_role|
+      user_role.permissions.each do |permission|
+        p_name = permission.name
+        permission.controller_areas.each do |c_area|
+          if ability_hash[:controllers][c_area.controller_name].nil?
+            ability_hash[:controllers][c_area.controller_name] = {c_area.action_name =>c_area.check_method}
+          else
+            ability_hash[:controllers][c_area.controller_name].merge({c_area.action_name =>c_area.check_method})
+          end
         end
-      end
-
-      permission.model_areas.each do |m_area|
-        if ability_hash[:permission][p_name].nil?
-           ability_hash[:permission][p_name] = {m_area.model_name => m_area}
+        permission.model_areas.each do |m_area|
+          if ability_hash[:permission][p_name].nil?
+            ability_hash[:permission][p_name] = {m_area.model_name => m_area.check_method}
+          end
         end
       end
     end
+    ability_hash
   end
 end

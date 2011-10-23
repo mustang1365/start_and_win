@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020090018) do
+ActiveRecord::Schema.define(:version => 20111023145542) do
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20111020090018) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "permission_type"
+    t.string   "group_name"
   end
 
   create_table "permissions_roles", :id => false, :force => true do |t|
@@ -98,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20111020090018) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "type"
+    t.string   "role_type"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|

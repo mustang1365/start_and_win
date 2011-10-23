@@ -9,7 +9,7 @@ gem  'mysql2'
 gem "simple_form"
 gem "nested_form"
 gem 'devise'
-gem 'rake', '0.8.7'
+gem 'rake'
 #gem 'serialized-attributes'
 #serialized-attributes
 
