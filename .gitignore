@@ -2,13 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/
-config/database.yml
 .sass-cache/
-<<<<<<< HEAD
 .idea/
 test/
-config/database.yml
-=======
 .idea/*
 .idea/*.*
->>>>>>> bf056a4ccd62124a24bfd2cda9dd54f6b916aff4
