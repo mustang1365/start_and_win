@@ -1,0 +1,3 @@
+class AccessException < StandardError
+
+end

@@ -4,6 +4,7 @@ class Admin::RolesController < Admin::AdminController
   before_filter :set_permissions, :only =>[:edit,:update, :show]
 
   def index
+    authorize!
     @roles = Role.all
   end
 
