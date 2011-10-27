@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   after_filter :necessary_actions
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = User.find_by_id(params[:id]).try(:profile)
   end
 
   def edit

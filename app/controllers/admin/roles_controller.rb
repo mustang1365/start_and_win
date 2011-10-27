@@ -1,10 +1,12 @@
 #encoding: utf-8
 class Admin::RolesController < Admin::AdminController
+
+  act_as_authorize
+
   before_filter :find_role, :only => [:edit, :show, :update, :destroy]
   before_filter :set_permissions, :only =>[:edit,:update, :show]
 
   def index
-    authorize!
     @roles = Role.all
   end
 
