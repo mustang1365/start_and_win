@@ -4,7 +4,9 @@ StartAndWin::Application.routes.draw do
   #admin part
   scope :module => "admin" do
     get "admin_home", :to => "admin_home#index", :as => :my_admin_root
-    resources :roles do end
+    resources :roles do
+      get :ajax_load_permissions
+    end
   end
 
   #profile routes

@@ -2,58 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d2b5e6a-bcc9-48a5-bb8f-ce45c42a0fce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/admin/roles.js.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/roles.css.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/roles_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/admin/roles_helper.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/competitions/index.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/football_matches/_form.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/football_matches/index.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/football_matches/league_matches.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/football_matches/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/_form.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/_role.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/index.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111019195243_add_fields_to_roles.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111020090018_add_type_to_permissions.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ALL_DIAGRAMM.dia.autosave" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/controller_areas.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/model_areas.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/permissions.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/roles.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/user_favorite_items.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/admin/admin_home_controller_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/controller_area_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/helpers/admin/admin_home_helper_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/model_area_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/permission_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/role_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/user_favorite_item_test.rb" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/ability_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ability.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/access_exception.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/authorize_methods.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/_permission_box.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/ajax_load_permissions.js.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/edit.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/roles/show.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111023145542_add_group_name_to_permission.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/plugins/act_as_autorize/init.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/plugins/act_as_autorize/lib/act_as_authorize.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/start_and_win.iml" afterPath="$PROJECT_DIR$/.idea/start_and_win.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ALL_DIAGRAMM.dia" afterPath="$PROJECT_DIR$/ALL_DIAGRAMM.dia" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin/admin.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin/admin.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/controller_area.rb" afterPath="$PROJECT_DIR$/app/models/controller_area.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/country.rb" afterPath="$PROJECT_DIR$/app/models/country.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/football_league.rb" afterPath="$PROJECT_DIR$/app/models/football_league.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/football_match.rb" afterPath="$PROJECT_DIR$/app/models/football_match.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/football_team.rb" afterPath="$PROJECT_DIR$/app/models/football_team.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/model_area.rb" afterPath="$PROJECT_DIR$/app/models/model_area.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/roles_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/roles_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/profiles_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/profiles_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/permission.rb" afterPath="$PROJECT_DIR$/app/models/permission.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/profile.rb" afterPath="$PROJECT_DIR$/app/models/profile.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/registration_tip.rb" afterPath="$PROJECT_DIR$/app/models/registration_tip.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/role.rb" afterPath="$PROJECT_DIR$/app/models/role.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user_favorite_item.rb" afterPath="$PROJECT_DIR$/app/models/user_favorite_item.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/roles/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/roles/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/roles/_role.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/roles/_role.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/roles/index.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/roles/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/roles/new.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/roles/new.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/admin.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_users_left_panel.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_users_left_panel.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/seeds/permissions.yml" afterPath="$PROJECT_DIR$/config/seeds/permissions.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/seeds/roles.yml" afterPath="$PROJECT_DIR$/config/seeds/roles.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20111019195243_add_fields_to_roles.rb" afterPath="$PROJECT_DIR$/db/migrate/20111019195243_add_fields_to_roles.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/permission.rb" afterPath="$PROJECT_DIR$/db/seeds/permission.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/roles.rb" afterPath="$PROJECT_DIR$/db/seeds/roles.rb" />
     </list>
     <ignored path="start_and_win.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,55 +59,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/football_matches/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="49" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="league_matches.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/football_matches/league_matches.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="22" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_favorite_item.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user_favorite_item.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/role.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="permission.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/permission.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20111021014714_create_football_table_results.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="20111021014714_create_football_table_results.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20111021014714_create_football_table_results.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.28896672">
+            <state line="11" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="313" selection-end="313" vertical-scroll-proportion="0.07103825">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20111023145542_add_group_name_to_permission.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20111023145542_add_group_name_to_permission.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20111021014559_create_table_results.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20111021014559_create_table_results.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20111015230918_create_controller_areas.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20111015230918_create_controller_areas.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20111015230439_create_model_areas.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20111015230439_create_model_areas.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -181,7 +164,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/controllers/admin/competitions_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/football_match.rb" />
         <option value="$PROJECT_DIR$/app/models/controller_area.rb" />
@@ -196,6 +178,7 @@
         <option value="$PROJECT_DIR$/app/models/football_table_result.rb" />
         <option value="$PROJECT_DIR$/app/models/football_league.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20111021014714_create_football_table_results.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -243,38 +226,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="start_and_win" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start_and_win" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start_and_win" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start_and_win" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="start_and_win" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,12 +487,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1366" height="769" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32662192" sideWeight="0.95337623" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32662192" sideWeight="0.95337623" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.69391024" sideWeight="0.980846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -551,7 +503,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33653846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -608,31 +559,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/admin/admin.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="14" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/football_matches/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="50" selection-end="50" vertical-scroll-proportion="-0.625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/football_matches_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/football_matches/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="27" selection-start="53" selection-end="53" vertical-scroll-proportion="-0.625" />
@@ -685,9 +611,44 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111015230918_create_controller_areas.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111015230439_create_model_areas.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111021014559_create_table_results.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20111023145542_add_group_name_to_permission.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20111021014714_create_football_table_results.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.28896672">
+        <state line="11" column="26" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="313" selection-end="313" vertical-scroll-proportion="0.07103825">
           <folding />
         </state>
       </provider>

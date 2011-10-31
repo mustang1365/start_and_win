@@ -1,13 +1,14 @@
 <tr>
   <td><%= role.name %></td>
   <td><%= role.description %></td>
-  <td><%= role.type %></td>
+  <td><%= role.role_type %></td>
   <td><%= role.permissions.count %></td>
   <td><%= role.users.count %></td>
   <td>
     <%= link_to 'Подробнее', role_path(role) , :class => 'show_link'%>
     <%= link_to 'Редактировать', edit_role_path(role), :class => 'edit_link'%>
-    <%= link_to 'Удалить', role_path(role),:method => :delete, :confirm => "Вы уверены
-                                            что хотите удалить роль с именем #{role.name}?", :class => 'delete_link' %>
+    <%= link_to 'Удалить', role_path(role),:method => :delete,
+                :confirm => "Вы уверены что хотите удалить роль с именем #{role.name}?",
+                :class => 'delete_link' %>
   </td>
 </tr>

@@ -1,5 +1,6 @@
 class Role < ActiveRecord::Base
-  TYPES = ['user','admin']
+  TYPES = ['admin', 'user']
+  validates :name, :role_type, :presence => true
   has_and_belongs_to_many :users
   has_and_belongs_to_many :permissions
 end

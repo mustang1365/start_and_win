@@ -1,18 +1,50 @@
 <table>
-    <tr>
-      <td>Название:*</td>
-      <td> <%= f.input :name, :label => false, :input_html =>{:class => 'admin_text_field' }%></td>
-    </tr>
-    <tr>
-      <td>Описание:*</td>
-      <td>
-        <%= f.input :description, :label => false, :input_html =>{:class => 'admin_text_area'} %>
-      </td>
-    </tr>
-    <tr>
-      <td>Тип:*</td>
-      <td>
-        <%= f.input :type, :as => :select, :collection => Role::TYPES, :label => false, :input_html =>{:class => 'admin_select'} %>
-      </td>
-    </tr>
-  </table>
+  <tr>
+    <td>Название:*</td>
+    <td> <%= f.input :name, :label => false, :input_html =>{:class => 'admin_text_field', :hint => false}, :hint => false, :required => false %></td>
+  </tr>
+  <tr>
+    <td>Описание:*</td>
+    <td>
+      <%= f.input :description, :label => false, :input_html =>{:class => 'admin_text_area'} %>
+    </td>
+  </tr>
+  <tr>
+    <td>Тип:*</td>
+    <td>
+      <%= f.input :role_type, :as => :select, :collection => Role::TYPES, :label => false, :input_html =>{:class => 'admin_select'}, :include_blank => false %>
+    </td>
+  </tr>
+</table>
+<div id="permissions_box">
+  <%= render 'permission_box', :f => f %>
+</div>
+<%= hidden_field_tag 'permissions_ids', f.object.permissions ?  f.object.permissions.map{|a| a.id}.join(',')  : '' %>
+
+
+<script type="text/javascript">
+    $(function() {
+        var permissions = [];
+
+        <% if @role.permissions %>
+        permissions =  <%= array_or_string_for_javascript(@role.permissions.map{|a| a.id}) %>
+            <% @role.permissions.each do |permission| %>
+                $("#role_permissions_<%= permission.id %>").attr('checked','checked');
+            <% end %>
+        <% end %>
+
+        $('.role_permissions_element').live('click',function(){
+           if ($(this).attr('checked')){
+              permissions.push($(this).val())
+           }
+           else{
+              permissions.splice(permissions.indexOf($(this).val()),1)
+           }
+            $('#permissions_ids').val(permissions.toString());
+        });
+        $('#role_role_type').live('change',function() {
+            var type =  $('#role_role_type').val();
+            $.get('/roles/roles/ajax_load_permissions', { role_type: type } )
+        });
+    });
+</script>

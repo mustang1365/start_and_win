@@ -1,21 +1,38 @@
-'View Profile':
-  type: user
-  controller_area:
-    -
-      controller: profile
-      action_names: show
-  model_area:
-    -
-      model: profile
-      check_method: check_user_privacy_setting
+Standard Permissions:
+  View Profile:
+    type: user
+    controller_area:
+      -
+        controller: profile
+        action_names: show
+    model_area:
+      -
+        model: profile
+        check_method: check_user_privacy_setting
 
-'Manage Roles':
-  type: admin
-  controller_area:
-    -
-      controller: roles
-      action_names: all
-  model_area:
-    -
-      model: role
-
+Roles:
+  Manage Roles:
+    type: admin
+    controller_area:
+      -
+        controller: roles
+        action_names: all
+    model_area:
+      -
+        model: role
+Users:
+  Create Users:
+    type: admin
+    model_area:
+      -
+        model: user
+  Watch Users:
+    type: admin
+    model_area:
+      -
+        model: user
+  Add Role to User:
+    type: admin
+    model_area:
+      -
+        model: user

@@ -1,4 +1,12 @@
 Standard User:
-  permissions: View Profile
+  -
+   View Profile
 Global Admin:
-  permissions: Manage Roles
+  -
+    Manage Roles
+  -
+    Create Users
+  -
+    Watch Users
+  -
+    Add Role to User
