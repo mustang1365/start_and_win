@@ -3,7 +3,8 @@ StartAndWin::Application.routes.draw do
 
   #admin part
   scope :module => "admin" do
-    get "admin_home", :to => "admin_home#index", :as => :admin_root
+    get "admin_home", :to => "admin_home#index", :as => :my_admin_root
+    resources :roles do end
   end
 
   #profile routes
@@ -25,6 +26,13 @@ StartAndWin::Application.routes.draw do
 
   namespace :admin do
     root :to => 'users#index'
+    resources :competitions, :only => [:index] do
+    end
+    resources :football_matches do
+      collection do
+        get :league_matches
+      end
+    end
 
   end
   # The priority is based upon order of creation:

@@ -21,3 +21,21 @@ class Profile < ActiveRecord::Base
      user_favorite_items.build if user_favorite_items.empty?
   end
 end
+
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id               :integer(4)      not null, primary key
+#  date_of_birth    :datetime
+#  address          :text
+#  self_description :text
+#  user_id          :integer(4)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  full_name        :string(255)
+#  last_name        :string(255)
+#  first_name       :string(255)
+#  user_name        :string(255)
+#
+

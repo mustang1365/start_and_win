@@ -1,0 +1,15 @@
+<h1> Лига <%= @league.league_name %></h1>
+<h2> Команды лиги </h2>
+<% for team in @league.football_teams do %>
+   <%= team.team_name %>
+<% end %>
+
+<h1> <%= "Matches for league #{@league.league_name}:" %></h1>
+<p><%= link_to "Create New Match", new_admin_football_match_url(:id => @league.id) %>
+
+</p>
+<% for match in @matches do %>
+    <%= match %>
+
+<% end %>
+<%= link_to "<< Back to Football Leagues", admin_football_matches_url %>

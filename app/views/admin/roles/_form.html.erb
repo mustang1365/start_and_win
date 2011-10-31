@@ -1,0 +1,18 @@
+<table>
+    <tr>
+      <td>Название:*</td>
+      <td> <%= f.input :name, :label => false, :input_html =>{:class => 'admin_text_field' }%></td>
+    </tr>
+    <tr>
+      <td>Описание:*</td>
+      <td>
+        <%= f.input :description, :label => false, :input_html =>{:class => 'admin_text_area'} %>
+      </td>
+    </tr>
+    <tr>
+      <td>Тип:*</td>
+      <td>
+        <%= f.input :type, :as => :select, :collection => Role::TYPES, :label => false, :input_html =>{:class => 'admin_select'} %>
+      </td>
+    </tr>
+  </table>

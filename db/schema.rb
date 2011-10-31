@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015230918) do
+ActiveRecord::Schema.define(:version => 20111020090018) do
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20111015230918) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permission_type"
   end
 
   create_table "permissions_roles", :id => false, :force => true do |t|
@@ -96,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20111015230918) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.string   "type"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|

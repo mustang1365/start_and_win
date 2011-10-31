@@ -36,3 +36,27 @@ table{
 
     }
 }
+
+.admin_text_field{
+    width:250px;
+}
+
+.admin_text_area{
+    width:250px;
+    height:70px;
+}
+
+.admin_select{
+    width:250px;
+}
+.admin_table th {
+  background-color: #999;
+}
+
+.admin_table .even {
+  background-color: #999;
+}
+
+.admin_table .odd {
+  background-color: #ddd;
+}

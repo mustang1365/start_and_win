@@ -1,0 +1,15 @@
+<h1>Футбольные лиги</h1>
+<table class="admin_table">
+  <tr>
+    <th>Название</th>
+    <th>Страна</th>
+    <th>Раунды</th>
+  </tr>
+  <% for league in @leagues do %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= link_to league.league_name, league_matches_admin_football_matches_url(:id => league.id) %></td>
+        <td><%= league.country.name %></td>
+        <td><%= league.rounds %>...</td>
+      </tr>
+  <% end %>
+</table>

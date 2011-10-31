@@ -1,0 +1,10 @@
+<%= form_tag ((@match.new_record? ? admin_football_matches_url(@match) : admin_football_match_url(@match)), :method => (@match.new_record? ? :post : :put)) do %>
+      <p>
+        <%= label :match, :team1_id %><br/>
+        <%= text_field :match, :team1_id %>
+      </p>
+      <div class="save_and_back">
+        <%= submit_tag "Save" %>
+        or  <%= link_to "Back to football matches table", admin_football_matches_url, :confirm => 'Are you sure?' %>
+      </div>
+  <% end %>
