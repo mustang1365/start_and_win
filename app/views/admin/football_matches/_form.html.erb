@@ -1,10 +1,44 @@
 <%= form_tag ((@match.new_record? ? admin_football_matches_url(@match) : admin_football_match_url(@match)), :method => (@match.new_record? ? :post : :put)) do %>
-      <p>
-        <%= label :match, :team1_id %><br/>
-        <%= text_field :match, :team1_id %>
-      </p>
-      <div class="save_and_back">
-        <%= submit_tag "Save" %>
-        or  <%= link_to "Back to football matches table", admin_football_matches_url, :confirm => 'Are you sure?' %>
-      </div>
-  <% end %>
+    <p>
+      <%= hidden_field_tag "match[football_league_id]", @league.id %>
+    </p>
+    <p>
+      <%= label :match, :team1_id %><br/>
+      <%= select_tag "match[team1_id]", options_from_collection_for_select(@teams, "id", "team_name") %>
+    </p>
+
+    <p>
+      <%= label :match, :team2_id %><br/>
+      <%= select_tag "match[team2_id]", options_from_collection_for_select(@teams, "id", "team_name") %>
+    </p>
+
+    <p>
+      <%= label :match, :round %><br/>
+      <%= select_tag "match[round]", options_for_select(@league.rounds) %>
+    </p>
+
+    <p>
+      <%= label :match, :started_at %><br/>
+      <%= datetime_select("match", "started_at") %>
+    </p>
+
+    <p>
+      <%= label :match, :finished %><br/>
+      <%= check_box_tag "match[finished]" %>
+    </p>
+
+    <p>
+      <%= label :match, :goals1 %><br/>
+      <%= text_field_tag "match[goals_1]" %>
+    </p>
+
+    <p>
+      <%= label :match, :goals2 %><br/>
+      <%= text_field_tag "match[goals_2]" %>
+    </p>
+
+    <div class="save_and_back">
+      <%= submit_tag "Save" %>
+      or  <%= link_to "Back to football matches table", admin_football_matches_url, :confirm => 'Are you sure?' %>
+    </div>
+<% end %>

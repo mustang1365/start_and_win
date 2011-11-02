@@ -1,15 +1,19 @@
 <h1> Лига <%= @league.league_name %></h1>
+
+<%= link_to "#Результаты","#" %>
+
 <h2> Команды лиги </h2>
 <% for team in @league.football_teams do %>
-   <%= team.team_name %>
+    <%=link_to team.team_name,"#" %>
 <% end %>
+<h2>Турнирная таблица</h2>
+<%= render :partial => "table_results" %>
 
-<h1> <%= "Matches for league #{@league.league_name}:" %></h1>
-<p><%= link_to "Create New Match", new_admin_football_match_url(:id => @league.id) %>
+<h1> <%= "Ближайшие матчи #{@league.league_name}:" %></h1>
+<%= link_to "Create New Match", new_admin_football_match_url(:id => @league.id) %>
 
-</p>
-<% for match in @matches do %>
-    <%= match %>
 
-<% end %>
+<%= render :partial => "matches" %>
+
+
 <%= link_to "<< Back to Football Leagues", admin_football_matches_url %>

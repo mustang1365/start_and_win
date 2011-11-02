@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023145542) do
+ActiveRecord::Schema.define(:version => 20111101195725) do
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -44,6 +43,23 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.string   "round"
     t.datetime "started_at"
     t.datetime "finished_at"
+    t.integer  "goals_1"
+    t.integer  "goals_2"
+    t.boolean  "finished",           :default => false
+  end
+
+  create_table "football_table_results", :force => true do |t|
+    t.integer  "football_league_id"
+    t.integer  "football_team_id"
+    t.integer  "play_matches",       :default => 0
+    t.integer  "goals_in",           :default => 0
+    t.integer  "goals_out",          :default => 0
+    t.integer  "wins",               :default => 0
+    t.integer  "draws",              :default => 0
+    t.integer  "loses",              :default => 0
+    t.integer  "goal_diff",          :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "football_teams", :force => true do |t|
@@ -100,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "role_type"
+    t.string   "type"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|

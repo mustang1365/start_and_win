@@ -1,4 +1,5 @@
 StartAndWin::Application.routes.draw do
+
   root :to => 'home#index'
 
   #admin part
@@ -30,6 +31,9 @@ StartAndWin::Application.routes.draw do
     root :to => 'users#index'
     resources :competitions, :only => [:index] do
     end
+
+    resources  :results, :only => [:index]
+
     resources :football_matches do
       collection do
         get :league_matches

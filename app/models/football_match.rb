@@ -16,5 +16,13 @@ class FootballMatch < ActiveRecord::Base
   belongs_to :team2, :class_name=> "FootballTeam"
   belongs_to :football_league, :class_name => "FootballLeague"
 
+  class << self
+    def create_and_update_stats(params)
+       FootballTableResult.update_stats(params)
+       create(params)
+
+    end
+  end
+
 end
 
