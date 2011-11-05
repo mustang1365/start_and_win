@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
 
   validate :check_agreement
 
+  scope :not_admins, where(:administrator => false)
+  scope :admins, where(:administrator => true)
+
+    delegate :first_name, :last_name, :full_name, :to => :profile
+
   def check_agreement
     self.errors[:base] << 'Для регистрации необходимо принять пользовательское соглашение' unless self.agree_with_terms_and_conditions
   end

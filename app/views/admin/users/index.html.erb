@@ -1,0 +1,16 @@
+<%= link_to 'Создать нового администратора', new_user_path %><br/> <br/><br/>
+
+
+<%= link_to 'Пользователи', users_path %>
+<%= link_to "Администраторы", users_path(:admin => true) %>
+
+<table>
+  <tr>
+    <th>Имя</th>
+    <th>email</th>
+    <th>Дата регистрации</th>
+    <th>Роли пользователя</th>
+    <th>Действия</th>
+  </tr>
+  <%= render :partial => 'user', :collection => @users %>
+</table>

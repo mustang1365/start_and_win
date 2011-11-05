@@ -7,6 +7,9 @@ StartAndWin::Application.routes.draw do
     resources :roles do
       get :ajax_load_permissions
     end
+    resources :users do
+       get :toggle_user_active_status_users
+    end
   end
 
   #profile routes
