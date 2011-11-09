@@ -1,0 +1,14 @@
+<% if defined?(user) && user %>
+    <tr id="<%= user.id %>">
+      <td><%= user.first_name + ' ' + user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.roles.map{|r| r.name}.join(', ') %></td>
+      <td>
+        <%= link_to 'Подробнее', user_path(user) , :class => 'show_link'%>
+        <%= link_to user.active? ? 'Деактивировать' : 'Активировать', user_toggle_user_active_status_users_path(user),:remote => true,
+                    :confirm => toggle_status_confirm_msg(user) if can? 'Activate/Deactivate Users'%>
+        <%= link_to_function "Добавить роль", 'open_add_role_dialog()' if can?('Add Standard Role to User') || can?('Add Any Role to User')%>
+      </td>
+    </tr>
+<% end %>

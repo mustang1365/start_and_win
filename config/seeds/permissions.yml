@@ -21,18 +21,48 @@ Roles:
       -
         model: role
 Users:
-  Create Users:
+  Create Admin Users:
     type: admin
+    controller_area:
+      -
+        controller: users
+        action_names: new, create
     model_area:
       -
         model: user
   Watch Users:
     type: admin
+    controller_area:
+      -
+        controller: users
+        action_names: index, show
     model_area:
       -
         model: user
-  Add Role to User:
+  Add Standard Role to User:
     type: admin
+    controller_area:
+      -
+        controller: users
+        action_names: add_role_to_user
+    model_area:
+      -
+        model: user
+  Add Any Role to User:
+    type: admin
+    controller_area:
+      -
+        controller: users
+        action_names: add_role_to_user
+    model_area:
+      -
+        model: user
+  Activate/Deactivate Users:
+    type: admin
+    controller_area:
+      -
+        controller: users
+        action_names: toggle_user_active_status
     model_area:
       -
         model: user

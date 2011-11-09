@@ -49,3 +49,10 @@ table{
 .admin_select{
     width:250px;
 }
+
+.admin_listing{
+    @include full_table;
+    td {
+        text-align:center;
+    }
+}

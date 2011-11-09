@@ -1,4 +1,6 @@
 StartAndWin::Application.routes.draw do
+
+
   root :to => 'home#index'
 
   #admin part
@@ -7,12 +9,18 @@ StartAndWin::Application.routes.draw do
     resources :roles do
       get :ajax_load_permissions
     end
+    resources :users do
+       get :toggle_user_active_status_users
+    end
+    resources :news_points
   end
 
-  #profile routes
-  match '/profile' => "profiles#show"
-  resources :profiles, :only =>[:edit, :update] do
-  end
+  #ROUTES WITHOUT NAMESPACE
+      match '/profile' => "profiles#show"
+
+      resources :profiles, :only =>[:edit, :update]
+
+      put "files/upload_file"
 
   #device settings and overrides
   devise_for :users

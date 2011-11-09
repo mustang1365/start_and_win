@@ -1,9 +1,9 @@
-.bundle
-db/*.sqlite3
-log/*.log
-tmp/
+.bundle  -f
+db/*.sqlite3 -f
+log/*.log -f
+tmp/ -f
 .sass-cache/
-.idea/
+.idea/ -f
 test/
-.idea/*
-.idea/*.*
+.idea/ -f
+public/uploads/* -f

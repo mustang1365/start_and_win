@@ -8,6 +8,7 @@ class Profile < ActiveRecord::Base
   after_create :set_user_name
 
 
+
   def set_full_name
     self.full_name = self.first_name.to_s + ' ' + self.last_name.to_s
   end

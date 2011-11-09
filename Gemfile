@@ -10,6 +10,9 @@ gem "simple_form"
 gem "nested_form"
 gem 'devise'
 gem 'rake'
+
+gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
+gem 'carrierwave'
 #gem 'serialized-attributes'
 #serialized-attributes
 

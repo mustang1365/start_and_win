@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @news_point.title %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @news_point.text.html_safe %>
+</p>
+
+<p>
+  <b>Expire date:</b>
+  <%= @news_point.expire_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_news_point_path(@news_point) %> |
+<%= link_to 'Back', news_points_path %>

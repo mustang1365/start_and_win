@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023145542) do
+ActiveRecord::Schema.define(:version => 20111108194521) do
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -53,12 +67,31 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.datetime "updated_at"
   end
 
+  create_table "images", :force => true do |t|
+    t.string   "file_content"
+    t.integer  "having_file_id"
+    t.string   "having_file_type"
+    t.boolean  "deleted"
+    t.string   "asset_file_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "model_areas", :force => true do |t|
     t.string   "model_name"
     t.string   "check_method"
     t.integer  "permission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "news_points", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "expire_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cover"
   end
 
   create_table "permissions", :force => true do |t|
@@ -138,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.datetime "updated_at"
     t.boolean  "agree_with_terms_and_conditions",                :default => false
     t.boolean  "administrator"
+    t.boolean  "active",                                         :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
