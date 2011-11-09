@@ -11,6 +11,10 @@ gem "nested_form"
 gem 'devise'
 gem 'rake', '0.8.7'
 gem 'annotate'
+
+
+gem 'execjs'
+gem 'therubyracer'
 gem 'pg'
 gem 'mini_magick'
 
