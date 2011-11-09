@@ -36,6 +36,16 @@ StartAndWin::Application.routes.draw do
 
   namespace :admin do
     root :to => 'users#index'
+    resources :competitions, :only => [:index] do
+    end
+
+    resources  :results, :only => [:index]
+
+    resources :football_matches do
+      collection do
+        get :league_matches
+      end
+    end
 
   end
   # The priority is based upon order of creation:

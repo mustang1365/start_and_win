@@ -1,0 +1,24 @@
+<table class="admin_table">
+  <tr>
+    <th>Команда</th>
+    <th>Сыгранно матчей</th>
+    <th>Побед</th>
+    <th>Ничей</th>
+    <th>Поражений</th>
+    <th>Забитых</th>
+    <th>Пропущенных</th>
+    <th>Разница</th>
+  </tr>
+  <% for team in @table_results %>
+      <tr class="<%= cycle("even", "odd") %>">
+        <td><%= team.football_team.team_name %></td>
+        <td><%= team.play_matches %></td>
+        <td><%= team.wins %></td>
+        <td><%= team.draws %></td>
+        <td><%= team.loses %></td>
+        <td><%= team.goals_in %></td>
+        <td><%= team.goals_out %></td>
+        <td><%= team.goal_diff %></td>
+      </tr>
+  <% end %>
+</table>
