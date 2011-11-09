@@ -4,6 +4,7 @@ log/*.log -f
 tmp/ -f
 .sass-cache/
 .idea/ -f
+public/uploads/ -f
 test/
 .idea/* -f
 .idea/*.* -f
