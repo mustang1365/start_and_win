@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111027205832) do
+ActiveRecord::Schema.define(:version => 20111023145542) do
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -138,7 +138,6 @@ ActiveRecord::Schema.define(:version => 20111027205832) do
     t.datetime "updated_at"
     t.boolean  "agree_with_terms_and_conditions",                :default => false
     t.boolean  "administrator"
-    t.boolean  "active",                                         :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

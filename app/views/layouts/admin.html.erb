@@ -16,18 +16,18 @@
   </tr>
   <tr id='admin_menu'>
     <td class="admin_menu_item"><%= link_to 'Главная', admin_root_path %></td>
-<!--    <td class="admin_menu_item"><%#= link_to '#Сообщения от пользователей', '#' %></td>-->
+    <td class="admin_menu_item"><%= link_to '#Сообщения от пользователей', '#' %></td>
     <td class="admin_menu_item"><%= link_to '#Соревнования', '#' %></td>
-<!--    <td class="admin_menu_item"><%#= link_to '#Результаты', '#' %></td>-->
+    <td class="admin_menu_item"><%= link_to '#Результаты', '#' %></td>
     <td class="admin_menu_item"><%= link_to '#Новости', '#' %></td>
-<!--    <td class="admin_menu_item"><%#= link_to '#Опросы', '#' %></td>
-    <td class="admin_menu_item"><%#= link_to 'Пользователи', users_path if can? 'Watch Users' %></td>-->
-    <!--<td class="admin_menu_item"><%#= link_to 'Роли', roles_path if can? 'Manage Roles'%></td>-->
+    <td class="admin_menu_item"><%= link_to '#Опросы', '#' %></td>
+    <td class="admin_menu_item"><%= link_to '#Пользователи', '#' %></td>
+    <td class="admin_menu_item"><%= link_to 'Роли', roles_path if can? 'Manage Roles'%></td>
     <td class="admin_menu_item"><%= link_to 'На пользовательскуб версию', root_path %></td>
     <td class="admin_menu_item"><%= link_to 'Выйти', '/sign_out' %></td>
   </tr>
   <tr id="admin_content">
-    <td colspan="5">
+    <td colspan="10">
       <% if flash[:notice] %>
           <div id="flash_notice">
             <%= flash[:notice] %>
