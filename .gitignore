@@ -5,5 +5,5 @@ tmp/ -f
 .sass-cache/
 .idea/ -f
 test/
-.idea/ -f
-public/uploads/* -f
+.idea/* -f
+.idea/*.* -f
