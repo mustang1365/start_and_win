@@ -9,13 +9,12 @@ gem  'mysql2'
 gem "simple_form"
 gem "nested_form"
 gem 'devise'
-gem 'rake'
+gem 'rake', '0.8.7'
 gem 'annotate'
 
 gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
 gem 'carrierwave'
-#gem 'serialized-attributes'
-#serialized-attributes
+
 
 group :console do
   gem 'hirb'

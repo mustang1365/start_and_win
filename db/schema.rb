@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023145542) do
+ActiveRecord::Schema.define(:version => 20111108194521) do
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "controller_areas", :force => true do |t|
     t.string   "controller_name"
@@ -44,11 +57,38 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.string   "round"
     t.datetime "started_at"
     t.datetime "finished_at"
+    t.integer  "goals_1"
+    t.integer  "goals_2"
+    t.boolean  "finished",           :default => false
+  end
+
+  create_table "football_table_results", :force => true do |t|
+    t.integer  "football_league_id"
+    t.integer  "football_team_id"
+    t.integer  "play_matches",       :default => 0
+    t.integer  "goals_in",           :default => 0
+    t.integer  "goals_out",          :default => 0
+    t.integer  "wins",               :default => 0
+    t.integer  "draws",              :default => 0
+    t.integer  "loses",              :default => 0
+    t.integer  "goal_diff",          :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "football_teams", :force => true do |t|
     t.integer  "football_league_id"
     t.string   "team_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "file_content"
+    t.integer  "having_file_id"
+    t.string   "having_file_type"
+    t.boolean  "deleted"
+    t.string   "asset_file_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +99,15 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.integer  "permission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "news_points", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "expire_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cover"
   end
 
   create_table "permissions", :force => true do |t|
@@ -100,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "role_type"
+    t.string   "type"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -138,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20111023145542) do
     t.datetime "updated_at"
     t.boolean  "agree_with_terms_and_conditions",                :default => false
     t.boolean  "administrator"
+    t.boolean  "active",                                         :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
