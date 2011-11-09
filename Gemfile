@@ -11,6 +11,7 @@ gem "nested_form"
 gem 'devise'
 gem 'rake', '0.8.7'
 gem 'annotate'
+gem 'pg'
 
 gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
 gem 'carrierwave'
