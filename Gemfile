@@ -12,6 +12,7 @@ gem 'devise'
 gem 'rake', '0.8.7'
 gem 'annotate'
 gem 'pg'
+gem 'mini_magick'
 
 gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
 gem 'carrierwave'

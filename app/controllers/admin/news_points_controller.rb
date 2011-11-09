@@ -6,7 +6,7 @@ class Admin::NewsPointsController < Admin::AdminController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @news_points }
+      format.json { render :json=> @news_points }
     end
   end
 
@@ -17,7 +17,7 @@ class Admin::NewsPointsController < Admin::AdminController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @news_point }
+      format.json { render :json=> @news_point }
     end
   end
 
@@ -28,7 +28,7 @@ class Admin::NewsPointsController < Admin::AdminController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @news_point }
+      format.json { render :json=> @news_point }
     end
   end
 
@@ -44,11 +44,11 @@ class Admin::NewsPointsController < Admin::AdminController
     @news_point.cover = Image.find_by_id(params[:image_id])
     respond_to do |format|
       if @news_point.save
-        format.html { redirect_to @news_point, notice: 'News point was successfully created.' }
-        format.json { render json: @news_point, status: :created, location: @news_point }
+        format.html { redirect_to @news_point, :notice=> 'News point was successfully created.' }
+        format.json { render :json=> @news_point, :status=> :created, :location=> @news_point }
       else
-        format.html { render action: "new" }
-        format.json { render json: @news_point.errors, status: :unprocessable_entity }
+        format.html { render :action=> "new" }
+        format.json { render :json=> @news_point.errors, :status=> :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class Admin::NewsPointsController < Admin::AdminController
 
     respond_to do |format|
       if @news_point.update_attributes(params[:news_point])
-        format.html { redirect_to @news_point, notice: 'News point was successfully updated.' }
+        format.html { redirect_to @news_point, :notice => 'News point was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @news_point.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json=> @news_point.errors, :status=> :unprocessable_entity }
       end
     end
   end
