@@ -96,8 +96,8 @@
     <orderEntry type="library" scope="PROVIDED" name="arel (v2.2.1, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.1, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v0.8.7, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.9.4, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.0.1, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdoc (v3.9.4, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v3.1.2, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.1.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_form (v1.5.2, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
@@ -108,15 +108,15 @@
     <orderEntry type="library" scope="PROVIDED" name="hirb (v0.5.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.1.7, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.29, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v3.1.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="awesome_print (v0.4.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.29, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.0.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="awesome_print (v0.4.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.14.6, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.0.3, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.1, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="devise (v1.4.7, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-ssl (v1.3.2, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="devise (v1.4.7, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turn (v0.8.2, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="annotate (v2.4.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.16, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
@@ -133,8 +133,8 @@
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v1.0.14, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.10, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.1.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mail (v2.3.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mail (v2.3.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.2, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.1.1, RVM: ree-1.8.7-2011.03) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ansi (v1.3.0, RVM: ree-1.8.7-2011.03) [gem]" level="application" />

@@ -1,0 +1,16 @@
+<table class="admin_table">
+  <tr>
+    <th>Команда 1</th>
+    <th>Команда 2</th>
+    <th>Раунд</th>
+    <th>Время Начала</th>
+  </tr>
+<% for match in @matches do %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%=match.team1.team_name  %></td>
+    <td><%=match.team2.team_name  %></td>
+    <td><%=match.round  %></td>
+    <td><%=match.started_at  %></td>
+  </tr>
+<% end %>
+</table>
