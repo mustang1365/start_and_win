@@ -3,8 +3,8 @@ db/*.sqlite3 -f
 log/*.log -f
 tmp/ -f
 .sass-cache/
-.idea/ -f
+.idea/
 public/uploads/ -f
 test/
-.idea/* -f
-.idea/*.* -f
+.idea/* 
+.idea/*.* 
