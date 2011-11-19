@@ -1,0 +1,27 @@
+<h1>Listing news_points</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @news_points.each do |news_point| %>
+  <tr>
+    <td><%= news_point.title %></td>
+    <td><%= news_point.description %></td>
+    <td><%= news_point.end_date %></td>
+    <td><%= link_to 'Show', news_point %></td>
+    <td><%= link_to 'Edit', edit_news_point_path(news_point) %></td>
+    <td><%= link_to 'Destroy', news_point, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New News point', new_news_point_path %>

@@ -13,7 +13,6 @@ $left-menu-width: 30%;
 $top-menu-height: 40px;
 
 @mixin body_parts{
-
     background-color: #7598be;
 }
 
@@ -31,7 +30,7 @@ $top-menu-height: 40px;
 }
 body {
     margin:0 !important;
-    color:white;
+    color:white !important;
 }
 
 #main_body_part{

@@ -1,0 +1,13 @@
+<%= simple_form_for(@news_point) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :end_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
