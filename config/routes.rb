@@ -1,5 +1,5 @@
 StartAndWin::Application.routes.draw do
-  get "image_uploader/async_upload_with_index"
+  put "image_uploader/async_upload_with_index"
 
   resources :news_points
 

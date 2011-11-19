@@ -3,7 +3,8 @@
 
   <div class="inputs">
     <%= f.input :title %>
-    <p>Please select *.pst outlook format file with contacts</p>
+    <p>Please select cover</p>
+    <img src="" alt="обложка" id="cover"> <br/>
     <%= f.hidden_field "image_id" %>
     <%= file_field_tag "file" %>
     <%= f.input :description, :as => :ckeditor , :input_html => { :toolbar => 'Full', :style => "width:400px" } , :label => false %>
@@ -55,9 +56,11 @@
                 var goodies = jQuery.parseJSON(response);
                 $('#remove_picture_div').show();
                 if (goodies.status == 1) {
+                    alert(goodies.file_id);
+                    alert(goodies.file_url);
                     $('#cover').attr('src',goodies.file_url);
                     $('#cover').show();
-                     $("#image_id").val(goodies.file_id);
+                     $("#news_point_image_id").val(goodies.file_id);
                 }
                 else {
 

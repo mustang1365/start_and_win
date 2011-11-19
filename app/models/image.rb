@@ -3,9 +3,9 @@ class Image < ActiveRecord::Base
 
   alias :image? :image_content?
 
-  def photo_url(sym = nil)
-    if File.exists?("public/"+ self.photo_content_url(sym))
-      self.photo_content_url(sym)
+  def image_url
+    if File.exists?("public/"+ self.image_content_url)
+      self.image_content_url
     else
       "default_url"
     end
