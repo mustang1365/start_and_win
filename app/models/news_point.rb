@@ -1,3 +1,3 @@
 class NewsPoint < ActiveRecord::Base
-  has_one :image, :as => :model, :dependent => :destroy
+  has_one :image, :dependent => :destroy
 end

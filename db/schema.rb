@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(:version => 20111119155731) do
 
   create_table "images", :force => true do |t|
     t.text     "image_content"
-    t.integer  "model_id"
-    t.string   "model_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20111119155731) do
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "image_id"
   end
 
 end

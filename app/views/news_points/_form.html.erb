@@ -3,6 +3,9 @@
 
   <div class="inputs">
     <%= f.input :title %>
+    <p>Please select *.pst outlook format file with contacts</p>
+    <%= f.hidden_field "image_id" %>
+    <%= file_field_tag "file" %>
     <%= f.input :description, :as => :ckeditor , :input_html => { :toolbar => 'Full', :style => "width:400px" } , :label => false %>
     <%= f.input :end_date %>
   </div>
@@ -11,3 +14,56 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    <% session_key = Rails.application.config.session_options[:key] %>
+    $(function() {
+        if ($('#cover').attr('src') == '') {
+           $('#cover').hide();
+        }
+
+
+        var uploadify_script_data = {};
+
+        // Fetch the CSRF meta tag data
+        var csrf_token = $('meta[name=csrf-token]').attr('content');
+        var csrf_param = $('meta[name=csrf-param]').attr('content');
+
+        // Now associate the data in the config, encoding the data safely
+        uploadify_script_data[csrf_token] = encodeURI(csrf_param);
+
+        // Associate the session information
+        uploadify_script_data['<%= session_key %>'] = '<%= cookies[session_key] %>';
+        $('#file').uploadify({
+            'uploader'  : '/javascripts/uploadify/uploadify.swf',
+            'script'    : '<%= image_uploader_async_upload_with_index_path %>.json',
+            'cancelImg' : '/images/cancel.png',
+            'fileExt'   : '*.jpg; *.jpeg; *.png; *.gif',
+            'fileDesc'  : 'Images',
+            'folder'    : '/uploads',
+            'auto'      : true,
+            //100Mb limit
+            'sizeLimit'   : 104857600,
+            'scriptData':
+            {
+                '_http_accept': 'application/javascript',
+                '_method': 'put',
+                '<%= session_key %>' : encodeURIComponent('<%= u cookies[session_key] %>'),
+                'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>')
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                var goodies = jQuery.parseJSON(response);
+                $('#remove_picture_div').show();
+                if (goodies.status == 1) {
+                    $('#cover').attr('src',goodies.file_url);
+                    $('#cover').show();
+                     $("#image_id").val(goodies.file_id);
+                }
+                else {
+
+                }
+            }
+        });
+    });
+
+</script>

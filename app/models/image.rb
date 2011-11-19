@@ -1,5 +1,4 @@
 class Image < ActiveRecord::Base
-  belongs_to :model, :polymorphic => true
   mount_uploader :image_content, ImageUploader
 
   alias :image? :image_content?
