@@ -3,10 +3,15 @@
 
   <div class="inputs">
     <%= f.input :title %>
-    <p>Please select cover</p>
-    <img src="" alt="обложка" id="cover"> <br/>
+    <div class="image_container">
+      <img src="" alt="обложка" id="cover"> <br/>
+      <%= link_to_function "удалить", "delete_image()" %>
+    </div>
+
     <%= f.hidden_field "image_id" %>
-    <%= file_field_tag "file" %>
+    <div id="file_select">
+      <%= file_field_tag "file" %>
+    </div>
     <%= f.input :description, :as => :ckeditor , :input_html => { :toolbar => 'Full', :style => "width:400px" } , :label => false %>
     <%= f.input :end_date %>
   </div>
@@ -18,9 +23,17 @@
 
 <script type="text/javascript">
     <% session_key = Rails.application.config.session_options[:key] %>
+    function delete_image(){
+        var data = 'id=' +  $("#news_point_image_id").val();
+        $.post('<%= image_uploader_delete_image_path %>',data);
+    }
+
     $(function() {
         if ($('#cover').attr('src') == '') {
-           $('#cover').hide();
+           $('.image_container').hide();
+        }
+        else{
+           $('#file_select').hide();
         }
 
 
@@ -56,11 +69,10 @@
                 var goodies = jQuery.parseJSON(response);
                 $('#remove_picture_div').show();
                 if (goodies.status == 1) {
-                    alert(goodies.file_id);
-                    alert(goodies.file_url);
                     $('#cover').attr('src',goodies.file_url);
-                    $('#cover').show();
-                     $("#news_point_image_id").val(goodies.file_id);
+                    $('.image_container').show();
+                    $("#news_point_image_id").val(goodies.file_id);
+                    $('#file_select').hide();
                 }
                 else {
 

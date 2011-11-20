@@ -1,5 +1,6 @@
 StartAndWin::Application.routes.draw do
   put "image_uploader/async_upload_with_index"
+  post "image_uploader/delete_image"
 
   resources :news_points
 

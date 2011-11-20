@@ -9,4 +9,14 @@ class ImageUploaderController < ApplicationController
       render :json => {:status => 1, :file_name => @upload.image_content.filename, :file_url => @upload.image_url, :file_id => @upload.id, :template_path => params[:Filedata].tempfile.path}.to_json
     end
   end
+
+  def delete_image
+    if (image = Image.find_by_id(params[:id])).present?
+      image.destroy
+      @success = true
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 end
