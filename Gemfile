@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem  'mysql2'
 gem "simple_form"
+gem 'dynamic_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,6 +18,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'sorcery'
 
 # Use unicorn as the web server
 # gem 'unicorn'

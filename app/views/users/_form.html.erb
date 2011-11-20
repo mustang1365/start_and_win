@@ -1,0 +1,28 @@
+<%= form_for @user do |f| %>
+    <%= f.error_messages %>
+    <div class="field">
+      <%= f.label :login %>
+      <br/>
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <br/>
+      <%= f.text_field :email %>
+    </div>
+    <% if f.object.new_record? %>
+        <div class="field">
+          <%= f.label :password %>
+          <br/>
+          <%= f.password_field :password %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <br/>
+          <%= f.password_field :password_confirmation %>
+        </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

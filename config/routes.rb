@@ -1,5 +1,13 @@
 StartAndWin::Application.routes.draw do
   root :to => 'home#index'
+
+  resources :users
+  resources :user_sessions
+  resources :password_resets
+
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+  get "signup" => "users#new", :as => "signup"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

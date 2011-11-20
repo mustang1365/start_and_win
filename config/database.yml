@@ -2,7 +2,7 @@ login: &login
   adapter: mysql2
   host: localhost
   username: root
-  password: rem
+  password: root
 
 development: &development
   database: dev_m3

@@ -27,4 +27,14 @@ StartAndWin::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  ActionMailer::Base.smtp_settings = {
+    :tls => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :domain => "localhost",
+    :authentication => :plain,
+    :user_name => "m3.developers",
+    :password => "m3_developers"
+  }
 end
