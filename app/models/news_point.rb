@@ -1,3 +1,4 @@
 class NewsPoint < ActiveRecord::Base
-  has_one :image, :dependent => :destroy
+  validates :title, :presence => true
+  belongs_to :image, :dependent => :destroy
 end

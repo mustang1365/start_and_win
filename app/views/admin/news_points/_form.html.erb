@@ -1,10 +1,9 @@
-<%= simple_form_for(@news_point) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
     <%= f.input :title %>
     <div class="image_container">
-      <img src="" alt="обложка" id="cover"> <br/>
+      <img src="<%= f.object.image.try(:image_url) %>" alt="обложка" id="cover"> <br/>
       <%= link_to_function "удалить", "delete_image()" %>
     </div>
 
@@ -18,8 +17,8 @@
 
   <div class="actions">
     <%= f.button :submit %>
+    <%= link_to 'Back', admin_news_points_path, :class => 'button', :style => "float:left" %>
   </div>
-<% end %>
 
 <script type="text/javascript">
     <% session_key = Rails.application.config.session_options[:key] %>

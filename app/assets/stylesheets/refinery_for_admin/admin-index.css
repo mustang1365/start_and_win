@@ -1,0 +1,47 @@
+    table.grid {
+        width: 100%;
+    }
+
+    table.grid tr th {
+        color: #fff;
+        background-color: #22A7F2;
+        height: 35px;
+    }
+
+    table.grid tr th.gridBorderLeft {
+        border-top-left-radius: 6px;
+    }
+
+    table.grid tr th.gridBorderRight {
+        border-top-right-radius: 6px;
+    }
+
+    table.grid tr th a {
+        color: #fff;
+    }
+
+    .grid th .current {
+        padding-right: 12px;
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+
+    .grid th .asc {
+        background-image: url(/images/up_arrow.gif);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+    .grid th .desc {
+        background-image: url(/images/down_arrow.gif);
+    }
+
+    .ordinary {
+        padding:9px;
+    }
+
+    .ordinary-middle {
+        padding:9px;
+        text-align:center;
+
+    }

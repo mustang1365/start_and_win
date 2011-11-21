@@ -3,10 +3,13 @@ StartAndWin::Application.routes.draw do
     match "/admin" => "admin_home#index"
   end
 
+  namespace :admin do
+    resources :news_points
+  end
+
   put "image_uploader/async_upload_with_index"
   post "image_uploader/delete_image"
 
-  resources :news_points
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

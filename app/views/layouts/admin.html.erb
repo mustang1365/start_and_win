@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StartAndWin</title>
-  assets/ckeditor/_source/core/_source/core/htmlparser/comment.js
-  <%= stylesheet_link_tag "refinery_for_admin/refinery", "refinery_for_admin/site_bar", "refinery_for_admin/ui" %>
+  <title>TrainYourBrain</title>
+  <%= stylesheet_link_tag "refinery_for_admin/refinery", "refinery_for_admin/site_bar",
+                          "refinery_for_admin/ui","refinery_for_admin/admin-index" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject", "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" %>
+  <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject",
+                             "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
@@ -43,8 +44,7 @@
             </div>
         <% end %>
       </div>
-
-      <h1>Мы победим!</h1>
+      <%= yield %>
     </div>
   </div>
 </div>

@@ -1,0 +1,4 @@
+<h1>Редактировать новостей</h1>
+<%= simple_form_for @news_point, :url => url_for(:action => :update, :controller => :news_points, :namespace => :admin, :method => :put) do |f| %>
+    <%= render 'form', :f => f%>
+<% end %>
