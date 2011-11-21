@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StartAndWin</title>
+  assets/ckeditor/_source/core/_source/core/htmlparser/comment.js
+  <%= stylesheet_link_tag "refinery_for_admin/refinery", "refinery_for_admin/site_bar", "refinery_for_admin/ui" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject", "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+
+<body class='index'>
+<div id='site_bar'>
+  <div id='site_bar_content' class='clearfix'>
+    <div id='editor_switch'>
+      <a href="/">Switch to your website</a></div>
+    <div id='site_bar_branding'>
+        <span id='site_bar_company_name'>
+          TrainYourBrain
+        </span>
+
+      <a href="/logout" id="logout">Log out</a>
+    </div>
+  </div>
+</div>
+
+<div id='tooltip_container'></div>
+<header>
+  <nav id="menu">
+    <a href="/admin"  <%= "class='active'" if controller_name == 'admin_home' %>>Главная</a>
+    <a href="/admin/news_points" <%= "class='active'" if controller_name == 'news_points' %>>Новости</a>
+  </nav>
+
+</header>
+<div id="page_container">
+  <div id="page">
+    <div id="content" class="clearfix">
+      <div id="flash_container">
+        <% if flash[:notice] %>
+            <div id='flash' class="flash flash_notice">
+              <%= flash[:notice] %>
+            </div>
+        <% end %>
+      </div>
+
+      <h1>Мы победим!</h1>
+    </div>
+  </div>
+</div>
+</body>
+</html>

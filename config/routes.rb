@@ -1,4 +1,8 @@
 StartAndWin::Application.routes.draw do
+  scope :module => "admin" do
+    match "/admin" => "admin_home#index"
+  end
+
   put "image_uploader/async_upload_with_index"
   post "image_uploader/delete_image"
 
