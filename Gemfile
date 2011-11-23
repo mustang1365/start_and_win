@@ -17,6 +17,12 @@ group :assets do
   gem 'uglifier'
 end
 
+group :console do
+  gem 'hirb'
+  gem 'wirble'
+  gem 'awesome_print'
+end
+
 gem 'jquery-rails'
 gem 'sorcery'
 

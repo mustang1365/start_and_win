@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113204503) do
+ActiveRecord::Schema.define(:version => 20111123180952) do
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "images", :force => true do |t|
+    t.text     "image_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "news_points", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "image_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -30,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20111113204503) do
     t.datetime "last_activity_at"
     t.integer  "failed_logins_count",             :default => 0
     t.datetime "lock_expires_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"
