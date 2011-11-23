@@ -2,10 +2,10 @@ login: &login
   adapter: mysql2
   host: localhost
   username: root
-  password: root
+  password: rem
 
 development: &development
-  database: dev_m3
+  database: tb_dev
   <<: *login
 
 test: &test
