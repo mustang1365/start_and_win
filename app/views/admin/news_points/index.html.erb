@@ -1,0 +1,33 @@
+<h1>Новости сайта</h1>
+<div id='records' style="width:75%">
+  <div class='pagination_container'>
+    <table class="grid" cellspacing="0">
+      <tr align="center">
+        <th class="gridBorderLeft"> Обложка</th>
+        <th> Название</th>
+        <th> Описание</th>
+        <th> Дата истечения</th>
+        <th class="gridBorderRight" style="width:10%"> Действия</th>
+      </tr>
+      <%= render :partial => 'news_point', :collection => @news_points %>
+    </table>
+  </div>
+</div>
+<div id='actions' style="width:23%">
+  <ul>
+    <li>
+      <form method="GET" action="#" class="search_form">
+        <input id="search" name="search" size="22" type="search" value=""/>
+        <input id="dialog" name="dialog" type="hidden" value="false"/>
+        <input type="submit" value="Search"/>
+      </form>
+
+    </li>
+    <li>
+      <%= link_to 'Добавить новость', new_admin_news_point_path %>
+    </li>
+  </ul>
+</div>
+
+
+

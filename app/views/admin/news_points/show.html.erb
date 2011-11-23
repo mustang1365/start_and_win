@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @news_point.title %>
+</p>
+
+<p>
+  <%= image_tag(@news_point.image.try(:image_url)) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @news_point.description.html_safe %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @news_point.end_date %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_admin_news_point_path(@news_point) %> |
+<%= link_to 'Назад', admin_news_points_path %>
