@@ -1,0 +1,15 @@
+<% if defined?(main_category) %>
+    </tr>
+
+    <tr align="center">
+      <td align="left"> <%= link_to main_category.try(:title) , admin_main_category_path(main_category) %></td>
+      <td></td>
+      <td>
+          <span class='actions' style="position:inherit; text-align:center; width: 123px;">
+            <a href="<%= edit_admin_main_category_path(main_category) %>" title="Edit"><img alt="Application_edit" height="16" src="/images/refinery/icons/application_edit.png" width="16"/></a>
+            <a href="<%= admin_main_category_path(main_category) %>" class="cancel confirm-delete" data-confirm="Вы уверены что хотите удалить <%= main_category.try(:title) %>?" data-method="delete" rel="nofollow" title="Remove this entrant forever"><img alt="Delete" height="16" src="/images/refinery/icons/delete.png" width="16"/></a>
+            <%= link_to 'Показать', admin_main_category_path(main_category) %>
+          </span>
+      </td>
+    </tr>
+<% end %>

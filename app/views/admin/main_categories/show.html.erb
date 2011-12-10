@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Название:</b>
+  <%= @main_category.title %>
+</p>
+
+
+<%= link_to 'Отредактировать', edit_admin_main_category_path(@main_category) %> |
+<%= link_to 'Назад', admin_main_categories_path %>
+
