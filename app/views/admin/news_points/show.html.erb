@@ -11,7 +11,7 @@
 
 <p>
   <b>Description:</b>
-  <%= @news_point.description.html_safe %>
+  <%= @news_point.description.try(:html_safe) %>
 </p>
 
 <p>

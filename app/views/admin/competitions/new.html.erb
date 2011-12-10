@@ -1,0 +1,6 @@
+<h1>Добавить Соревнование</h1>
+<%= simple_form_for @competition, :url => url_for(:action => :create, :controller => :competitions, :namespace => :admin, :method => :post) do |f| %>
+
+<%= render 'form', :f => f %>
+
+<% end %>

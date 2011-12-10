@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @competition.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @competition.description.try(:html_safe) %>
+</p>
+
+<p>
+  <b>Image:</b><br/>
+  <%= image_tag(@competition.image.try(:image_url))  %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @competition.user.try(:login) %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_admin_competition_path(@competition) %> |
+<%= link_to 'Назад', admin_competitions_path %>

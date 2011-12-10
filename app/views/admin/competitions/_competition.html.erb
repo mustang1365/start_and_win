@@ -1,0 +1,17 @@
+<% if defined?(competition) %>
+    </tr>
+
+    <tr align="center">
+      <td align="left"><%= image_tag(competition.image.try(:image_url)) %></td>
+      <td align="left"><%= link_to competition.try(:title) , admin_competition_path(competition) %></td>
+      <td><%= competition.try(:description).html_safe%></td>
+      <td><%= competition.user.try(:login) %></td>
+      <td>
+          <span class='actions' style="position:inherit; text-align:center; width: 123px;">
+            <a href="<%= edit_admin_competition_path(competition) %>" title="Edit"><img alt="Application_edit" height="16" src="/images/refinery/icons/application_edit.png" width="16"/></a>
+            <a href="<%= admin_competition_path(competition) %>" class="cancel confirm-delete" data-confirm="Вы уверены что хотите удалить <%= competition.try(:title) %>?" data-method="delete" rel="nofollow" title="Remove this entrant forever"><img alt="Delete" height="16" src="/images/refinery/icons/delete.png" width="16"/></a>
+            <%= link_to 'Показать', admin_competition_path(competition) %>
+          </span>
+      </td>
+    </tr>
+<% end %>
