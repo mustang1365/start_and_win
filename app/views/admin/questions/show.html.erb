@@ -8,7 +8,7 @@
   <b>Варианты:</b>
    <ul>
       <% @question.variants.each do |variant| %>
-         <li> <%= variant.try(:text) %></li>
+         <li> <%= variant.try(:text) %><%= ' (правильный)' if variant.answer? %></li>
       <% end %>
    </ul>
 </p>

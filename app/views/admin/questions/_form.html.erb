@@ -1,15 +1,36 @@
 <%= f.error_notification %>
-
+<% if f.object.errors && f.object.errors[:base] && f.object.errors[:base].any? %>
+    <% f.object.errors[:base].each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
 <div class="inputs">
   <%= f.input :text %>
 </div>
 
-<div class="inputs">
+<div class="inputs variants_div" style="margin-top: 15px; margin-bottom: 10px">
   <%= f.fields_for :variants do |sub_form| %>
-    <%= sub_form.text_field :text %>
-    <%= sub_form.link_to_remove "Удалить вариант" %>
+      <table>
+        <tr>
+          <th>Текст ответа</th>
+          <th>Пометить верный</th>
+          <th></th>
+        </tr>
+        <tr>
+
+          <td>
+            <%= sub_form.text_field :text, :class => 'question_text' %>
+          </td>
+          <td align="center">
+            <%= sub_form.input :answer, :label => false %>
+          </td>
+          <td>
+            <%= sub_form.link_to_remove "Удалить вариант" %>
+          </td>
+        </tr>
+      </table>
   <% end %>
-  <p><%= f.link_to_add "Добавить вариант", :variants %></p>
+  <%= f.link_to_add "Добавить вариант", :variants %>
 </div>
 
 <div class="actions">
@@ -18,4 +39,23 @@
 </div>
 
 
+<script type="text/javascript">
+    $(function () {
+        toggle_add_link_if_need($('.variants_div'));
+        $('.add_nested_fields').live('click', function () {
+            toggle_add_link_if_need($('.variants_div'));
+        });
+        $('.remove_nested_fields').live('click', function () {
+            toggle_add_link_if_need($('.variants_div'));
+        });
+    });
 
+    function toggle_add_link_if_need(elem) {
+        if (elem.find('.question_text:visible').length == 4) {
+            elem.find('.add_nested_fields').hide();
+        }
+        else {
+            elem.find('.add_nested_fields').show();
+        }
+    }
+</script>
