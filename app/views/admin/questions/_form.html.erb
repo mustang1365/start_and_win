@@ -1,0 +1,21 @@
+<%= f.error_notification %>
+
+<div class="inputs">
+  <%= f.input :text %>
+</div>
+
+<div class="inputs">
+  <%= f.fields_for :variants do |sub_form| %>
+    <%= sub_form.text_field :text %>
+    <%= sub_form.link_to_remove "Удалить вариант" %>
+  <% end %>
+  <p><%= f.link_to_add "Добавить вариант", :variants %></p>
+</div>
+
+<div class="actions">
+  <%= f.button :submit %>
+  <%= link_to 'Назад', admin_questions_path, :class => 'button', :style => "float:left" %>
+</div>
+
+
+

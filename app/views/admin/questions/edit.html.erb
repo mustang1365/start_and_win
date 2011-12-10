@@ -1,0 +1,5 @@
+<h1>Редактирование вопроса</h1>
+<%= simple_nested_form_for @question, :url => url_for(:action => :update, :controller => :questions, :namespace => :admin, :method => :post) do |f| %>
+    <%= render 'form', :f => f %>
+<% end %>
+

@@ -1,0 +1,28 @@
+<h1>Вопросы</h1>
+<div id='records' style="width:75%">
+  <div class='pagination_container'>
+    <table class="grid" cellspacing="0">
+      <tr align="center">
+        <th class="gridBorderLeft"> Вопрос</th>
+        <th> Количество ответов</th>
+        <th class="gridBorderRight" style="width:10%"> Действия</th>
+      </tr>
+      <%= render :partial => 'question', :collection => @questions %>
+    </table>
+  </div>
+</div>
+<div id='actions' style="width:23%">
+  <ul>
+    <li>
+      <form method="GET" action="#" class="search_form">
+        <input id="search" name="search" size="22" type="search" value=""/>
+        <input id="dialog" name="dialog" type="hidden" value="false"/>
+        <input type="submit" value="Search"/>
+      </form>
+
+    </li>
+    <li>
+      <%= link_to 'Добавить вопрос', new_admin_question_path %>
+    </li>
+  </ul>
+</div>

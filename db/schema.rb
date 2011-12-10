@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210152746) do
+ActiveRecord::Schema.define(:version => 20111210180248) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20111210152746) do
     t.integer  "image_id"
   end
 
+  create_table "questions", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sub_categories", :force => true do |t|
     t.string   "title"
     t.integer  "main_category_id"
@@ -90,5 +96,13 @@ ActiveRecord::Schema.define(:version => 20111210152746) do
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+
+  create_table "variants", :force => true do |t|
+    t.string   "text"
+    t.integer  "question_id"
+    t.boolean  "answer",      :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
