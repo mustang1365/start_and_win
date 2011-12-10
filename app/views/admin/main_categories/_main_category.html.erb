@@ -3,7 +3,7 @@
 
     <tr align="center">
       <td align="left"> <%= link_to main_category.try(:title) , admin_main_category_path(main_category) %></td>
-      <td></td>
+      <td><%=  main_category.sub_categories.count %></td>
       <td>
           <span class='actions' style="position:inherit; text-align:center; width: 123px;">
             <a href="<%= edit_admin_main_category_path(main_category) %>" title="Edit"><img alt="Application_edit" height="16" src="/images/refinery/icons/application_edit.png" width="16"/></a>

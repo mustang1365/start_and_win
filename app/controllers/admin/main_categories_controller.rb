@@ -38,8 +38,6 @@ class Admin::MainCategoriesController < Admin::ApplicationController
   end
 
   def update
-    @main_category = MainCategory.find(params[:id])
-
     respond_to do |format|
       if @main_category.update_attributes(params[:main_category])
         format.html { redirect_to admin_main_categories_path, notice: 'Main category was successfully updated.' }

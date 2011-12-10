@@ -4,6 +4,14 @@
   <%= f.input :title %>
 </div>
 
+<div class="inputs">
+  <%= f.fields_for :sub_categories do |sub_form| %>
+    <%= sub_form.text_field :title %>
+    <%= sub_form.link_to_remove "Удалить подкатегорию" %>
+  <% end %>
+  <p><%= f.link_to_add "Добавить подкатегорию", :sub_categories %></p>
+</div>
+
 <div class="actions">
   <%= f.button :submit %>
   <%= link_to 'Назад', admin_main_categories_path, :class => 'button', :style => "float:left" %>

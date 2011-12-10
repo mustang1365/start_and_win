@@ -5,6 +5,15 @@
   <%= @main_category.title %>
 </p>
 
+<p>
+  <b>Пoдкатегории:</b>
+   <ul>
+      <% @main_category.sub_categories.each do |sub_category| %>
+         <li> <%= sub_category.try(:title) %></li>
+      <% end %>
+   </ul>
+</p>
+
 
 <%= link_to 'Отредактировать', edit_admin_main_category_path(@main_category) %> |
 <%= link_to 'Назад', admin_main_categories_path %>
