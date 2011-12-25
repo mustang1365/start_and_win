@@ -1,0 +1,51 @@
+-
+  question: В каком соревнований нет участника с номером 13?
+  category: Люди
+  sub_categories: Страхи,Предрассудки
+  variants:
+    -
+      name: В гонках Формулы-1 нет автомобиля с номером 13.
+      answer: true
+    -
+      name: "В конных скачках нет лошади с номером 13."
+      answer: false
+    -
+      name: "В тараканих бегах не выставляют такракана с номером 13."
+      answer: false
+    -
+      name: "В триатлоне участнику никогда не выдадут номер 13."
+      answer: false
+-
+  question: "Кока-кола, изобретенная доктором Джоном Пембертоном в 1885 изначально продавалась как:"
+  category: "Наука"
+  sub_categories:  "Изобретения"
+  variants:
+    -
+      name: очиститель для хрома
+      answer: false
+    -
+      name: напиток для разбавления виски
+      answer: false
+    -
+      name: бодрящий напиток для ума
+      answer: true
+    -
+      name: успокаивающее средство для детей
+      answer: false
+-
+  question: "Какое мясо в Древнем Риме считалось грехом употреблять в пищу?"
+  category: "Люди"
+  sub_categories: "Запреты и табу"
+  variants:
+    -
+      name: мясо баранов
+      answer: false
+    -
+      name:  мясо дятлов
+      answer: true
+    -
+      name: мясо жирафов
+      answer: false
+    -
+      name: мясо свиней
+      answer: false

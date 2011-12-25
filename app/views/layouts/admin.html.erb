@@ -3,10 +3,11 @@
 <head>
   <title>TrainYourBrain</title>
   <%= stylesheet_link_tag "refinery_for_admin/refinery", "refinery_for_admin/site_bar",
-                          "refinery_for_admin/ui","refinery_for_admin/admin-index" %>
+                          "refinery_for_admin/ui","refinery_for_admin/admin-index", "jquery-ui-1.8.16.custom.css" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject",
-                             "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" , "/javascripts/nested_form"%>
+                             "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" , "/javascripts/nested_form",
+                             "jquery-ui-1.8.16.custom.min.js"%>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>

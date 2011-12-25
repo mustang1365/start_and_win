@@ -5,3 +5,4 @@ $ ->
   $('#question_model_to_main_category_attributes_main_category_id').change ->
     data = 'category_id=' + $('select#question_model_to_main_category_attributes_main_category_id option:selected').val() + '&model_type=question'
     $.get('/admin/admin_shared/load_subcategories',data)
+

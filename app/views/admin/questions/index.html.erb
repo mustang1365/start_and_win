@@ -25,5 +25,11 @@
     <li>
       <%= link_to 'Добавить вопрос', new_admin_question_path %>
     </li>
+    <li>
+      <%= link_to_function 'Загрузить *.YML файл с вопросами', "$('#upload_dialog').dialog('open'); return false;"  %>
+    </li>
   </ul>
 </div>
+<%= render :partial => '/shared/upload_dialog', :locals => {:upload_path => multiple_upload_admin_questions_path}%>
+
+

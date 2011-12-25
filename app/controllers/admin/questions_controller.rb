@@ -60,6 +60,13 @@ class Admin::QuestionsController < Admin::ApplicationController
     end
   end
 
+  def multiple_upload
+     if params[:upload_file_id].present? && (file = PrivateFile.find_by_id(params[:upload_file_id])).present?
+      Question.create_from_hash( YAML::load(File.open(file.file_content_url)))
+       @success = true
+     end
+  end
+
   private
 
   def find_question
