@@ -100,7 +100,7 @@ CKEDITOR.dom.range = function( document )
 			range.startOffset == range.endOffset );
 	};
 
-	// This is a shared function used to delete, extract and clone the range
+	// This is a admin_shared function used to delete, extract and clone the range
 	// contents.
 	// V2
 	var execContentsAction = function( range, action, docFrag, mergeThen )

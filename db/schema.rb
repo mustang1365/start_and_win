@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210180248) do
+ActiveRecord::Schema.define(:version => 20111225121125) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -50,6 +50,27 @@ ActiveRecord::Schema.define(:version => 20111210180248) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "model_to_main_categories", :force => true do |t|
+    t.integer  "main_category_id"
+    t.integer  "model_id"
+    t.string   "model_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "model_to_main_categories", ["main_category_id"], :name => "main_category_index"
+  add_index "model_to_main_categories", ["model_id", "model_type"], :name => "model_cat_index"
+
+  create_table "model_to_main_category_to_sub_categories", :id => false, :force => true do |t|
+    t.integer  "sub_category_id"
+    t.integer  "model_to_main_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "model_to_main_category_to_sub_categories", ["model_to_main_category_id"], :name => "model_to_main_category_index"
+  add_index "model_to_main_category_to_sub_categories", ["sub_category_id"], :name => "sub_category_index"
 
   create_table "news_points", :force => true do |t|
     t.string   "title"

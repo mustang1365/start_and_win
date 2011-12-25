@@ -7,6 +7,17 @@
 <div class="inputs">
   <%= f.input :text %>
 </div>
+<div class="inputs category_div" style="margin-top: 15px; margin-bottom: 10px">
+  <%= f.fields_for :model_to_main_category do |sub_form| %>
+      <%= sub_form.association :main_category, :collection => @categories, :prompt => false %>
+  <% end %>
+</div>
+
+<div class="inputs sub_categories_div">
+  <%= render :partial => "/shared/sub_categories", :locals =>
+                {:category => @selected_category.present? ? @selected_category : @categories.first, :model =>'question',
+                 :selected_array => @selected_sub_categories} %>
+</div>
 
 <div class="inputs variants_div" style="margin-top: 15px; margin-bottom: 10px">
   <%= f.fields_for :variants do |sub_form| %>

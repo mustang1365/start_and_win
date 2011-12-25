@@ -1,0 +1,3 @@
+<% if @success %>
+    $('.sub_categories_div').html(<%= raw (render :partial => '/shared/sub_categories', :locals => {:category => @category, :model =>@model_type}).inspect %>);
+<% end %>

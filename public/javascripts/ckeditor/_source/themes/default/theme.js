@@ -49,7 +49,7 @@ CKEDITOR.themes.add( 'default', (function()
 			// Get the deeper inner <div>.
 			container = mainContainer.getChild( [0,0,0,0] );
 
-			// Save a reference to the shared space container.
+			// Save a reference to the admin_shared space container.
 			!editor.sharedSpaces && ( editor.sharedSpaces = {} );
 			editor.sharedSpaces[ spaceName ] = container;
 
@@ -183,7 +183,7 @@ CKEDITOR.themes.add( 'default', (function()
 
 				container.getChild( 1 )[ func ]( 'cke_mixed_dir_content' );
 
-				// Put the mixed direction class on the respective element also for shared spaces.
+				// Put the mixed direction class on the respective element also for admin_shared spaces.
 				var toolbarSpace = this.sharedSpaces && this.sharedSpaces[ this.config.toolbarLocation ];
 				toolbarSpace && toolbarSpace.getParent().getParent()[ func ]( 'cke_mixed_dir_content' );
 			});
@@ -376,7 +376,7 @@ CKEDITOR.editor.prototype.getResizable = function( forContents )
 /**
  * Makes it possible to place some of the editor UI blocks, like the toolbar
  * and the elements path, into any element in the page.
- * The elements used to hold the UI blocks can be shared among several editor
+ * The elements used to hold the UI blocks can be admin_shared among several editor
  * instances. In that case, only the blocks of the active editor instance will
  * display.
  * @name CKEDITOR.config.sharedSpaces

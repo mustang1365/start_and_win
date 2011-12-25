@@ -1,5 +1,6 @@
 StartAndWin::Application.routes.draw do
 
+
   scope :module => "admin" do
     match "/admin" => "admin_home#index", :as => :admin_root
   end
@@ -9,6 +10,7 @@ StartAndWin::Application.routes.draw do
     resources :main_categories
     resources :competitions
     resources :questions
+    get "admin_shared/load_subcategories"
   end
 
   put "image_uploader/async_upload_with_index"

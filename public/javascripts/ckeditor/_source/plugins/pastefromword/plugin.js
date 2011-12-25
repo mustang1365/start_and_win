@@ -129,7 +129,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 /**
  * The file that provides the MS Word cleanup function for pasting operations.
- * Note: This is a global configuration shared by all editor instances present
+ * Note: This is a global configuration admin_shared by all editor instances present
  * in the page.
  * @name CKEDITOR.config.pasteFromWordCleanupFile
  * @since 3.1
