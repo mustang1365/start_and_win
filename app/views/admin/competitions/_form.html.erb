@@ -11,6 +11,10 @@
   <div id="file_select">
     <%= file_field_tag "file" %>
   </div>
+
+  <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'competitions'} %>
+
+
   <%= f.input :description, :as => :ckeditor , :input_html => { :toolbar => 'Full', :style => "width:400px" } , :label => false %>
   <%= f.input :win_points %>
   <%= f.input :participation_points %>

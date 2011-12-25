@@ -4,6 +4,7 @@
     <tr align="center">
       <td align="left"><%= image_tag(competition.image.try(:image_url)) %></td>
       <td align="left"><%= link_to competition.try(:title) , admin_competition_path(competition) %></td>
+      <td><%= competition.main_category.try(:title)%></td>
       <td><%= competition.try(:description).html_safe%></td>
       <td><%= competition.user.try(:login) %></td>
       <td>
