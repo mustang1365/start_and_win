@@ -68,6 +68,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 
   def set_variables_for_form
     @categories = MainCategory.all
+    @difficulty_levels = DifficultyLevel.all
   end
 
   def set_selected_category

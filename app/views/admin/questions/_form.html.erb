@@ -9,31 +9,7 @@
 </div>
 
 <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'question'} %>
-
-<div class="inputs variants_div" style="margin-top: 15px; margin-bottom: 10px">
-  <%= f.fields_for :variants do |sub_form| %>
-      <table>
-        <tr>
-          <th>Текст ответа</th>
-          <th>Пометить верный</th>
-          <th></th>
-        </tr>
-        <tr>
-
-          <td>
-            <%= sub_form.text_field :text, :class => 'question_text' %>
-          </td>
-          <td align="center">
-            <%= sub_form.input :answer, :label => false %>
-          </td>
-          <td>
-            <%= sub_form.link_to_remove "Удалить вариант" %>
-          </td>
-        </tr>
-      </table>
-  <% end %>
-  <%= f.link_to_add "Добавить вариант", :variants %>
-</div>
+<%= render :partial => '/admin/questions/form_parts/variants', :locals => {:f => f} %>
 
 <div class="actions">
   <%= f.button :submit %>

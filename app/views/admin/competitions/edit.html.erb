@@ -1,4 +1,4 @@
 <h1>Редактировать соревнования</h1>
-<%= simple_form_for @competition, :url => url_for(:action => :update, :controller => :competitions, :namespace => :admin, :method => :put) do |f| %>
+<%= simple_nested_form_for @competition, :url => url_for(:action => :update, :controller => :competitions, :namespace => :admin, :method => :put) do |f| %>
     <%= render 'form', :f => f%>
 <% end %>

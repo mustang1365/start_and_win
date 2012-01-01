@@ -14,8 +14,23 @@
 
   <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'competitions'} %>
 
+  <div id="level_select" style="margin-bottom: 15px">
+    <%= f.association :difficulty_level, :collection => @difficulty_levels, :prompt => "Выбирите уровень сложности"  %>
+  </div>
+
 
   <%= f.input :description, :as => :ckeditor , :input_html => { :toolbar => 'Full', :style => "width:400px" } , :label => false %>
+
+  <div class="inputs questions_div" style="margin-top: 15px; margin-bottom: 10px">
+    <%= f.fields_for :questions do |question_form| %>
+        <%= question_form.input :text %>
+        <%= render :partial => '/admin/questions/form_parts/variants', :locals => {:f => question_form} %>
+    <% end %>
+    <%= f.link_to_add "Добавить вопрос", :questions %>
+  </div>
+
+
+  <%= f.input :competition_points %>
   <%= f.input :win_points %>
   <%= f.input :participation_points %>
   <%= f.hidden_field :user_id,:value => current_user.try(:id) %>
@@ -85,5 +100,22 @@
           }
       });
   });
+      $(function () {
+          toggle_add_link_if_need($('.variants_div'));
+          $('.add_nested_fields').live('click', function () {
+              toggle_add_link_if_need($('.variants_div'));
+          });
+          $('.remove_nested_fields').live('click', function () {
+              toggle_add_link_if_need($('.variants_div'));
+          });
+      });
 
+      function toggle_add_link_if_need(elem) {
+          if (elem.find('.question_text:visible').length == 4) {
+              elem.find('.add_nested_fields').hide();
+          }
+          else {
+              elem.find('.add_nested_fields').show();
+          }
+      }
 </script>
