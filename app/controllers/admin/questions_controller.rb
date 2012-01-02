@@ -32,7 +32,7 @@ class Admin::QuestionsController < Admin::ApplicationController
   def create
     @question = Question.new
     @question.attributes = params[:question]
-    @selected_category = @question.main_category
+    @selected_category = @question.model_to_main_category.main_category
     @selected_sub_categories = @question.model_to_main_category.model_to_main_category_to_sub_categories.map(&:sub_category_id)
     respond_to do |format|
       if @question.save

@@ -1,3 +1,4 @@
+#encoding: utf-8
 #+----------------------+--------------+------+-----+---------+----------------+
 #| Field                | Type         | Null | Key | Default | Extra          |
 #+----------------------+--------------+------+-----+---------+----------------+
@@ -14,6 +15,8 @@
 #+----------------------+--------------+------+-----+---------+----------------+
 
 class Competition < ActiveRecord::Base
+  QUESTION_AMOUNT = 10
+
   include CategoryModule
 
 
@@ -25,5 +28,10 @@ class Competition < ActiveRecord::Base
   belongs_to :image, :dependent => :destroy
   belongs_to :difficulty_level
 
-  validates :title, :presence => true
+  validates :title,:difficulty_level, :presence => true
+  validate :check_question_amount
+
+  def check_question_amount
+      errors.add(:base, "Количество вопросов должно быть #{QUESTION_AMOUNT}") if questions.count != QUESTION_AMOUNT
+  end
 end

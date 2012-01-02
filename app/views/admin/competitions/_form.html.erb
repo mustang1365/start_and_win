@@ -1,5 +1,9 @@
 <%= f.error_notification %>
-
+<% if f.object.errors && f.object.errors[:base] && f.object.errors[:base].any? %>
+    <% f.object.errors.each do |key, value| %>
+        <%= value %>  <br/>
+    <% end %>
+<% end %>
 <div class="inputs">
   <%= f.input :title %>
   <div class="image_container">
@@ -12,7 +16,7 @@
     <%= file_field_tag "file" %>
   </div>
 
-  <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'competitions'} %>
+  <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'competition'} %>
 
   <div id="level_select" style="margin-bottom: 15px">
     <%= f.association :difficulty_level, :collection => @difficulty_levels, :prompt => "Выбирите уровень сложности"  %>

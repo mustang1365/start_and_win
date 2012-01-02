@@ -32,7 +32,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
   def create
     @competition = Competition.new
     @competition.attributes = params[:competition]
-    @selected_category = @competition.main_category
+    @selected_category = @competition.model_to_main_category.main_category
     @selected_sub_categories = @competition.model_to_main_category.model_to_main_category_to_sub_categories.map(&:sub_category_id)
     respond_to do |format|
       if @competition.save
