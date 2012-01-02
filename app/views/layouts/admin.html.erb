@@ -35,6 +35,8 @@
     <a href="/admin/main_categories" <%= "class='active'" if controller_name == 'main_categories' %>>Категории</a>
     <a href="/admin/competitions" <%= "class='active'" if controller_name == 'competitions' %>>Соревнования</a>
     <a href="/admin/questions" <%= "class='active'" if controller_name == 'questions' %>>Вопросы</a>
+    <a href="/admin/settings" <%= "class='active'" if %w[settings difficulty_level_settings].include?(controller_name) %>>Настройки</a>
+
   </nav>
 
 </header>

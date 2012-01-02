@@ -20,8 +20,8 @@ class Competition < ActiveRecord::Base
   include CategoryModule
 
 
-  has_many :competition_to_questions
-  has_many :questions, :through => :competition_to_questions
+  has_many :competition_to_questions, :dependent => :destroy
+  has_many :questions, :through => :competition_to_questions, :dependent => :destroy
   accepts_nested_attributes_for :questions
 
   belongs_to :user

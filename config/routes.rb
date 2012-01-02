@@ -8,6 +8,12 @@ StartAndWin::Application.routes.draw do
     resources :news_points
     resources :main_categories
     resources :competitions
+    resources :difficulty_level_settings, :only => [:index] do
+      collection do
+              post :update_all_settings
+      end
+    end
+    resources :settings, :only => [:index]
     resources :questions do
       collection do
         post :multiple_upload

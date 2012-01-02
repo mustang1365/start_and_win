@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
 
   has_many :variants, :limit => VARIANT_NUMBER, :dependent => :destroy
   accepts_nested_attributes_for :variants, :allow_destroy => true, :reject_if => proc { |attributes| attributes['text'].blank? }
-  has_many :competition_to_questions
+  has_many :competition_to_questions, :dependent => :destroy
   has_many :competitions, :through => :competition_to_questions
 
   validates :text, :presence => true

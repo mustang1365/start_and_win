@@ -1,10 +1,15 @@
 -
   name: Легкий
+  iq_level: 15
 -
   name: Средний
+  iq_level: 80
 -
   name: Сложный
+  iq_level: 105
 -
   name: Супер Сложный
+  iq_level: 115
 -
   name: Профессионал
+  iq_level: 145
