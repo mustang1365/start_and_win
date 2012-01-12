@@ -11,6 +11,7 @@ class ImageUploaderController < ApplicationController
   end
 
   def delete_image
+    @no_action_needed = true if params[:no_action].present?
     if (image = Image.find_by_id(params[:id])).present?
       image.destroy
       @success = true

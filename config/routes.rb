@@ -31,7 +31,7 @@ StartAndWin::Application.routes.draw do
   resources :users
   resources :user_sessions
   resources :password_resets
-
+  resources :user_profile, :only => [:edit, :update, :show]
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   get "signup" => "users#new", :as => "signup"

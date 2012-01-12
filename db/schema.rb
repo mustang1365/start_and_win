@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102163736) do
+ActiveRecord::Schema.define(:version => 20120111191548) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -63,6 +63,22 @@ ActiveRecord::Schema.define(:version => 20120102163736) do
     t.datetime "updated_at"
   end
 
+  create_table "education_levels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "financial_accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.decimal  "points_amount",   :precision => 8, :scale => 0
+    t.decimal  "reserved_points", :precision => 8, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "financial_accounts", ["user_id"], :name => "f_user_index"
+
   create_table "images", :force => true do |t|
     t.text     "image_content"
     t.datetime "created_at"
@@ -110,6 +126,19 @@ ActiveRecord::Schema.define(:version => 20120102163736) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "photo_id"
+    t.integer  "user_id"
+    t.text     "short_description"
+    t.integer  "education_level_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["education_level_id"], :name => "education_level_index"
+  add_index "profiles", ["photo_id"], :name => "photo_index"
+  add_index "profiles", ["user_id"], :name => "users_index"
 
   create_table "questions", :force => true do |t|
     t.string   "text"

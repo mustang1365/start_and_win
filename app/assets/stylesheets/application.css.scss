@@ -5,6 +5,7 @@
  *= require_self
  *= uploadify .
 */
+/*
 $table-color: #05173d;
 $border-style: 1px solid white;
 $content-table-width: 675px;
@@ -111,7 +112,9 @@ body {
    #table_left_part{
       @include content_table_color;
       vertical-align:top;
-      /*border-right: $border-style;*/
+      */
+/*border-right: $border-style;*//*
+
       width:$left-menu-width;
       padding:10px;
    }
@@ -136,3 +139,6 @@ body {
     color:white;
     font-size:16px;
 }
+*/
+
+#main_head {color: red; font-size: 16px;}

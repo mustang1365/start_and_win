@@ -6,8 +6,6 @@ class Image < ActiveRecord::Base
   def image_url
     if File.exists?("public/"+ self.image_content_url)
       self.image_content_url
-    else
-      "default_url"
     end
   end
 end

@@ -8,7 +8,7 @@
   <%= f.input :title %>
   <div class="image_container">
     <img src="<%= f.object.image.try(:image_url) %>" alt="обложка" id="cover"> <br/>
-    <%= link_to_function "удалить", "delete_image()" %>
+    <%= link_to_function "удалить", "delete_image($('#competition_image_id'), '#{image_uploader_delete_image_path}')" %>
   </div>
 
   <%= f.hidden_field "image_id" %>
@@ -47,10 +47,7 @@
 
 <script type="text/javascript">
   <% session_key = Rails.application.config.session_options[:key] %>
-  function delete_image(){
-      var data = 'id=' +  $("#news_point_image_id").val();
-      $.post('<%= image_uploader_delete_image_path %>',data);
-  }
+
 
   $(function() {
       if ($('#cover').attr('src') == '') {

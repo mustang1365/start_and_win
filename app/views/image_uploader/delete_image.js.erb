@@ -1,6 +1,8 @@
-<% if @success %>
-$('#file_select').show();
-$('.image_container').hide();
-<% else %>
-alert('Ошибка при удалений');
+<% unless @no_action_needed %>
+    <% if @success %>
+        $('#file_select').show();
+        $('.image_container').hide();
+    <% else %>
+        alert('Ошибка при удалений');
+    <% end  %>
 <% end  %>

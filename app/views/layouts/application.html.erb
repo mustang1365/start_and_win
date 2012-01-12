@@ -1,82 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%">
 <head>
   <title>StartAndWin</title>
-  assets/ckeditor/_source/core/_source/core/htmlparser/comment.js
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "common_functions" %>
   <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject", "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
-<body>
-<table id='body_table'>
-  <tr>
-    <td id='left_body_part'></td>
-    <td id="main_body_part">
-      <table id="align_center">
+<body style="height: 100%">
+<table style="width: 100%; height: 100%;" cellpadding='0' cellspacing='0'>
+  <tr style="height: 150px">
+    <td colspan="2" width='70%'><p></p></td>
+    <td style="vertical-align: top; float: right; height: 150px">
+      <div id="top_part" style="text-align: right; border: 1px solid black; height: 100px; width: 300px;">
+        <% if current_user %>
+            <%= yield :top_part %>
+        <% else %>
+            <%= render '/user_sessions/form' %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+  <tr style="height: 120px">
+    <td colspan="3">
+      <table style="width: 100%" cellpadding='0' cellspacing='0'>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td id='content_td'>
-            <table id="content_table">
-              <tr>
-                <td colspan="4" id='table_title'>
-                  <table id="for_tile">
-                    <tr>
-                      <td id="left_td"></td>
-                      <td id="middle_td">Start & Win</td>
-                      <td id="right_td"></td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr id='menu'>
-                <td class="with_width"></td>
-                <td colspan="2" id="table_menu">
-                  <%= render 'shared/top_menu' %>
-                </td>
-                <td class="with_width"></td>
-              </tr>
-              <tr>
-                <td class="with_width"></td>
-                <td id="table_left_part">
-                   <% if @current_user.present? %>
-                      <%= render 'shared/users_left_panel'%>
-                   <% else %>
-                      <%= render 'shared/login_panel'%>
-                   <% end %>
-                </td>
-                <td id='table_main_part'>
-                  <%= yield %>
-                </td>
-                <td class="with_width"></td>
-              </tr>
-              <tr id="footer">
-                <td class="with_width"></td>
-                <td colspan="2" id="table_footer">
-                  Минск, 2011
-                </td>
-                <td class="with_width"></td>
-              </tr>
-            </table>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><p></p></td>
+          <td class="menu_td"><p></p></td>
+          <td><p></p></td>
+          <td class="menu_td"><p></p></td>
+          <td><p></p></td>
+          <td class="menu_td"><p></p></td>
+          <td><p></p></td>
+          <td class="menu_td"><p></p></td>
+          <td><p></p></td>
         </tr>
       </table>
-
     </td>
-    <td id='right_body_part'></td>
+  </tr>
+  <tr style="height: 50px">
+    <td colspan="3" style="height: 50px;"></td>
+  </tr>
+  <tr>
+    <td style="width: 20%;"><p></p></td>
+    <td style="border: 1px solid black">
+      <div id="main_head">
+        <%= yield :main_head %>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </td>
+    <td style="width: 20%;"><p></p></td>
   </tr>
 </table>
 </body>
 </html>
+
+<style type="text/css">
+    .menu_td {
+        border: 1px solid black;
+        width: 150px;
+        height: 100px;
+    }
+</style>

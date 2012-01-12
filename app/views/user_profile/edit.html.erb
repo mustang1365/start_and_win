@@ -1,0 +1,81 @@
+<%= content_for :main_head do %>
+    Редактирование профиля
+<% end %>
+
+<%= simple_nested_form_for @profile, :url => {:controller_name => :user_profile, :action_name => :update} do |f| %>
+    <%= render :partial => '/shared/errors', :locals => {:object => f.object} %>
+    <div class="image_container">
+      <img src="<%= f.object.photo_url %>" alt="обложка" id="photo"> <br/>
+    </div>
+    <%= f.hidden_field "photo_id" %>
+    <div id="file_select">
+      <%= file_field_tag "file" %>
+    </div>
+
+    <%= f.input :short_description, :input_html => { :style => 'width:150px; height:100px;' }%>
+    <%= f.association :education_level%>
+
+    <div class="inputs category_div" style="margin-top: 15px; margin-bottom: 10px">
+      <%= f.fields_for :model_to_main_categories do |sub_form| %>
+          <%= sub_form.association :main_category, :collection => @categories, :prompt => false %>
+          <%= sub_form.link_to_remove "Удалить категорию" %>
+      <% end %>
+      <%= f.link_to_add "Добавить категорию", :model_to_main_categories %>
+    </div>
+
+    <div class="inputs sub_categories_div">
+      <%#= render :partial => "/shared/sub_categories", :locals =>
+              {:category => @selected_category.present? ? @selected_category : @categories.first, :model => model_type,
+               :selected_array => @selected_sub_categories} %>
+    </div>
+
+
+    <%= f.button :submit %>
+<% end %>
+
+<script type="text/javascript">
+    <% session_key = Rails.application.config.session_options[:key] %>
+    $(function () {
+        var uploadify_script_data = {};
+
+        // Fetch the CSRF meta tag data
+        var csrf_token = $('meta[name=csrf-token]').attr('content');
+        var csrf_param = $('meta[name=csrf-param]').attr('content');
+
+        // Now associate the data in the config, encoding the data safely
+        uploadify_script_data[csrf_token] = encodeURI(csrf_param);
+
+        // Associate the session information
+        uploadify_script_data['<%= session_key %>'] = '<%= cookies[session_key] %>';
+        $('#file').uploadify({
+            'uploader':'/javascripts/uploadify/uploadify.swf',
+            'script':'<%= image_uploader_async_upload_with_index_path %>.json',
+            'cancelImg':'/images/cancel.png',
+            'fileExt':'*.jpg; *.jpeg; *.png; *.gif',
+            'fileDesc':'Images',
+            'folder':'/uploads',
+            'auto':true,
+            //100Mb limit
+            'sizeLimit':104857600,
+            'scriptData':{
+                '_http_accept':'application/javascript',
+                '_method':'put',
+                '<%= session_key %>':encodeURIComponent('<%= u cookies[session_key] %>'),
+                'authenticity_token':encodeURIComponent('<%= u form_authenticity_token %>')
+            },
+            'onComplete':function (event, ID, fileObj, response, data) {
+                var goodies = jQuery.parseJSON(response);
+                if (goodies.status == 1) {
+                    var post_data = 'no_action=true' + '&id=' + $("#profile_photo_id").val();
+                    $('#photo').attr('src', goodies.file_url);
+                    $('.image_container').show();
+                    $("#profile_photo_id").val(goodies.file_id);
+                    $.post('<%= image_uploader_delete_image_path %>', post_data);
+                }
+                else {
+
+                }
+            }
+        });
+    });
+</script>
