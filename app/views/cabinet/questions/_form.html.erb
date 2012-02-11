@@ -1,0 +1,40 @@
+
+<%= f.error_notification %>
+<% if f.object.errors && f.object.errors[:base] && f.object.errors[:base].any? %>
+    <% f.object.errors[:base].each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
+<div class="inputs">
+  <%= f.input :text %>
+</div>
+
+<%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'question'} %>
+<%= render :partial => '/admin/questions/form_parts/variants', :locals => {:f => f} %>
+
+<div class="actions">
+  <%= f.button :submit %>
+  <%= link_to 'Назад', cabinet_questions_path, :class => 'button', :style => "float:left" %>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        toggle_add_link_if_need($('.variants_div'));
+        $('.add_nested_fields').live('click', function () {
+            toggle_add_link_if_need($('.variants_div'));
+        });
+        $('.remove_nested_fields').live('click', function () {
+            toggle_add_link_if_need($('.variants_div'));
+        });
+    });
+
+    function toggle_add_link_if_need(elem) {
+        if (elem.find('.question_text:visible').length == 4) {
+            elem.find('.add_nested_fields').hide();
+        }
+        else {
+            elem.find('.add_nested_fields').show();
+        }
+    }
+</script>

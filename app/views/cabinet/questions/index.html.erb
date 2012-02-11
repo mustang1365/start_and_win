@@ -1,0 +1,22 @@
+<h1>Вопросы</h1>
+<%= link_to 'Активные' %>
+<%= link_to "Завершенные", cabinet_questions_path(:listing_type => 'inactive') %>
+<%= link_to 'Задать вопрос', new_cabinet_question_path, :style => 'float:right;' %>
+<br/>
+<% if @questions.any? %>
+<div id='records' style="width:100%">
+  <div class='pagination_container'>
+    <table class="grid" cellspacing="0">
+      <tr align="center">
+        <th class="gridBorderLeft"> Вопрос</th>
+        <th> Категория</th>
+        <th> Количество ответов</th>
+        <th class="gridBorderRight" style="width:10%"> Действия</th>
+      </tr>
+      <%= render :partial => 'question', :collection => @questions %>
+    </table>
+  </div>
+</div>
+<% else %>
+    Вопросов нет.
+<% end %>

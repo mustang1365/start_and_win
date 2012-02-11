@@ -1,4 +1,4 @@
 #encoding: utf-8
-class Cabinet::ApplicationController < ActionController::Base
+class Cabinet::ApplicationController < ApplicationController
   layout 'cabinet'
 end

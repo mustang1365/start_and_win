@@ -1,16 +1,27 @@
 <%= form_tag update_all_settings_admin_difficulty_level_settings_path do %>
-    <table width="400px">
+    <table width="100%">
       <tr>
         <th>Название</th>
         <th>Необходимый уровень IQ</th>
+        <th>Максимальное кол-во очков за участие в соревнований</th>
+        <th>Максимальное кол-во очков за участие в вопросе</th>
       </tr>
-   <% @difficulty_levels.each do |level| %>
-        <tr>
-                <td><%= level.name %></td>
-                <td><%= text_field_tag "[levels]#{level.id}", level.difficulty_level_setting.iq_level %></td>
-              </tr>
-    <% end %>
+      <% @difficulty_levels.each do |level| %>
+          <tr>
+            <td><%= level.name %></td>
+            <td>
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][iq_level]", level.difficulty_level_setting.iq_level %>
+            </td>
+            <td>
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][competition_max_points]", level.difficulty_level_setting.competition_max_points %>
+            </td>
+            <td>
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][question_max_points]", level.difficulty_level_setting.question_max_points %>
+
+            </td>
+          </tr>
+      <% end %>
     </table>
     <%= submit_tag 'Обновить' %>
-    <%=link_to 'Отменить', admin_settings_path %>
+    <%= link_to 'Отменить', admin_settings_path %>
 <% end %>

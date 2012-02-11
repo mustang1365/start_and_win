@@ -10,9 +10,9 @@ class Admin::DifficultyLevelSettingsController < Admin::ApplicationController
 
   def update_all_settings
     if params[:levels].present? && params[:levels].any?
-      params[:levels].each do |level_id, level_iq|
+      params[:levels].each do |level_id, level_params|
         if (level = DifficultyLevel.find_by_id(level_id)).present?
-          level.difficulty_level_setting.update_attribute(:iq_level, level_iq)
+          level.difficulty_level_setting.update_attributes(level_params['difficulty_level_setting'])
         end
       end
       redirect_to admin_difficulty_level_settings_path

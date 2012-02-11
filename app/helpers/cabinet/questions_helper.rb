@@ -1,0 +1,2 @@
+module Cabinet::QuestionsHelper
+end

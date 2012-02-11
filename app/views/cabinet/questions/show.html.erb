@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @question.text %>
+</p>
+
+<p>
+  <b>Варианты:</b>
+   <ul>
+      <% @question.variants.each do |variant| %>
+         <li> <%= variant.try(:text) %><%= ' (правильный)' if variant.answer? %></li>
+      <% end %>
+   </ul>
+</p>
+
+
+<%= link_to 'Отредактировать', edit_admin_question_path(@question) %> |
+<%= link_to 'Назад', admin_questions_path %>

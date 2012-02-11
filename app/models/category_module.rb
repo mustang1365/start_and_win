@@ -11,8 +11,10 @@ module CategoryModule
           sub_categories_attributes = attrs.delete(:sub_categories_attributes)
           super(attrs)
           model_to_main_category.model_to_main_category_to_sub_categories.destroy_all
-          sub_categories_attributes.keys.each do |sub_category_id|
-            model_to_main_category.model_to_main_category_to_sub_categories.build(:sub_category_id => sub_category_id )
+          if  sub_categories_attributes.present?
+            sub_categories_attributes.keys.each do |sub_category_id|
+              model_to_main_category.model_to_main_category_to_sub_categories.build(:sub_category_id => sub_category_id)
+            end
           end
         end
       end
