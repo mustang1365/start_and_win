@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <title>StartAndWin</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", "common_functions" %>
+  <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js", "/javascripts/uploadify/swfobject", "/javascripts/uploadify/jquery.uploadify.v2.1.4.min.js" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body style="height: 100%">
+<div style="height: 450px; margin-top: 200px;">
+  <div id="left" style="height: 450px; border: 1px solid black; width: 200px; margin-right: 90px; float: left">
+    <%= link_to 'Main', '/cabinet/main' %><br/>
+    <%= link_to 'Messages', cabinet_messages_path %><br/>
+    <%= link_to '#Competitions', '#' %><br/>
+    <%= link_to '#Questions', '#' %><br/>
+    <%= link_to '#Statistic', '#' %><br/>
+    <%= link_to '#Profile', '#' %><br/>
+  </div>
+  <div id="right" style="height: 450px; border: 1px solid black; width: 700px;float: left;">  <%= yield %></div>
+
+</div>
+</body>
+</html>

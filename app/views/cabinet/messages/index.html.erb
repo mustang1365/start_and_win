@@ -1,0 +1,32 @@
+<div class="message_listing">
+  <div class="top_buttons">
+    <%= link_to 'Compose new', new_cabinet_message_path %>
+    <%= link_to 'Mark as read', 'javascript:void(0)', :class => 'message_button', :id => 'read' %>
+    <%= link_to 'Mark as unread', 'javascript:void(0)', :class => 'message_button', :id => 'unread' %>
+    <%= link_to 'Mark as deleted', 'javascript:void(0)', :class => 'message_button', :id => 'deleted' unless params[:message_type] == 'trash' %>
+  </div>
+  <div class="left_menu">
+    <%= link_to @unread_messages_count.to_i > 0 ? "Inbox(#{@unread_messages_count})" : 'Inbox', cabinet_messages_path %> <br/>
+    <%= link_to 'Sent', cabinet_messages_path(:message_type =>'sent') %> <br/>
+    <%= link_to 'Trash', cabinet_messages_path(:message_type => 'trash') %> <br/>
+  </div>
+  <div class="messages">
+    <%= form_tag mark_as_cabinet_messages_path, :id => 'messages_form' do %>
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <thead>
+          <tr>
+            <th class="first"><%= check_box_tag :check_all %></th>
+            <th><%= params[:message_type] == 'sent' ? 'To' : 'From' %></th>
+            <th>Subject</th>
+            <th>Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render :partial => 'message', :collection => @messages %>
+          </tbody>
+        </table>
+        <%= hidden_field_tag :message_status %>
+        <%= hidden_field_tag :message_type, params[:message_type] %>
+    <% end %>
+  </div>
+</div>

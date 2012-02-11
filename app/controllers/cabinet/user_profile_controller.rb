@@ -1,4 +1,4 @@
-class UserProfileController < ApplicationController
+class Cabinet::UserProfileController < Cabinet::ApplicationController
   before_filter :find_profile
 
   def show

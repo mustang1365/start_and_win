@@ -1,0 +1,15 @@
+.message_listing {
+  .top_buttons {width: 100%; text-align:right;height:30px; a {padding: 10px;}}
+  .left_menu {float: left; width: 15%}
+  .messages {
+    float: left;
+    width: 85%;
+    .first {text-align: left;}   
+    th {text-align: left;}
+    .unread td a{font-weight: bold}
+  }
+}
+
+#message_new {
+  label {width: 85px; display: inline-block; padding: 3px; vertical-align: top;}
+}

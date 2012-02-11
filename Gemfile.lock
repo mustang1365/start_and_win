@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/ZhKostev/SimpleInbox.git
+  revision: d3f69b8ba34fdbdc4133bb7b1e05d4d4ac368d27
+  specs:
+    simple_inbox (0.0.1)
+      rails (~> 3.1)
+
+GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: 57f32788f1952bcd633057b4b56b69b51df17610
   specs:
@@ -156,6 +163,7 @@ DEPENDENCIES
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   simple_form
+  simple_inbox!
   sorcery
   uglifier
   wirble

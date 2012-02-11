@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111191548) do
+ActiveRecord::Schema.define(:version => 20120205205547) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -87,6 +87,27 @@ ActiveRecord::Schema.define(:version => 20120111191548) do
 
   create_table "main_categories", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "message_copies", :force => true do |t|
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
+    t.integer  "message_id"
+    t.boolean  "deleted",      :default => false
+    t.datetime "read_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "message_copies", ["message_id"], :name => "copy_message_index"
+  add_index "message_copies", ["recipient_id"], :name => "copy_recipient_index"
+  add_index "message_copies", ["sender_id"], :name => "copy_sender_index"
+
+  create_table "messages", :force => true do |t|
+    t.text     "body"
+    t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

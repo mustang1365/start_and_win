@@ -1,0 +1,16 @@
+<div id="message_new">
+  <%= form_for @message, :url =>  cabinet_messages_path do |f| %>
+      <!--TODO place for errors-->
+      <%= label_tag :to %>
+      <%= text_field_tag :to, params[:to] %>
+      <br/>
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+      <br/>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+      <br/>
+      <%= f.submit 'Save' %>
+      <%= link_to 'Back', cabinet_messages_path %>
+  <% end %>
+</div>
