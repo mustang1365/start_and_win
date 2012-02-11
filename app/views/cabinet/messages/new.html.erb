@@ -2,7 +2,7 @@
   <%= form_for @message, :url =>  cabinet_messages_path do |f| %>
       <!--TODO place for errors-->
       <%= label_tag :to %>
-      <%= text_field_tag :to, params[:to] %>
+      <%= autocomplete_field_tag :to, params[:to], autocomplete_user_login_path, :size => 30, :id => 'message_recipients' %>
       <br/>
       <%= f.label :subject %>
       <%= f.text_field :subject %>
@@ -14,3 +14,11 @@
       <%= link_to 'Back', cabinet_messages_path %>
   <% end %>
 </div>
+
+<!--TODO delete or implement recipients as ids-->
+<script type="text/javascript">
+//    $('#message_recipients').bind('railsAutocomplete.select', function(event, data){
+//      /* Do something here */
+//      alert(data.item.id);
+//    });
+</script>

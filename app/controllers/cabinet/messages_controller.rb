@@ -3,14 +3,14 @@ class Cabinet::MessagesController < Cabinet::ApplicationController
 
   def index
     @messages = case params[:message_type]
-      when 'sent' then
-        MessageCopy.sent(current_user)
-      when 'trash' then
-        MessageCopy.trash(current_user)
-      else
-        MessageCopy.inbox(current_user)
+                  when 'sent' then
+                    MessageCopy.sent(current_user)
+                  when 'trash' then
+                    MessageCopy.trash(current_user)
+                  else
+                    MessageCopy.inbox(current_user)
                 end
-    @unread_messages_count = @messages.unread.count
+    @unread_messages_count = MessageCopy.inbox(current_user).unread.count
   end
 
   def new
@@ -34,9 +34,12 @@ class Cabinet::MessagesController < Cabinet::ApplicationController
 
   def mark_as
     method = case params[:message_status]
-               when 'read' then 'mark_as_read'
-               when 'unread' then 'mark_as_unread'
-               when 'deleted' then 'mark_as_deleted'
+               when 'read' then
+                 'mark_as_read'
+               when 'unread' then
+                 'mark_as_unread'
+               when 'deleted' then
+                 'mark_as_deleted'
              end
     mark_messages(params[:messages_ids], method)
     redirect_to cabinet_messages_path(:message_type => params[:message_type]), :notice => "Message was marked as #{params[:message_status]}."
@@ -49,8 +52,11 @@ class Cabinet::MessagesController < Cabinet::ApplicationController
 
   #extract recipients from params
   def prepare_message_recipients
-    #TODO stub change it to your's autocomplete or smth else
-    @message.to = params[:to]
+    params[:to].split(',').each do |user_login|
+      if (user = User.find_by_login(user_login)).present?
+        @message.recipients << user
+      end
+    end
   end
 
   #find message copies and send to them method

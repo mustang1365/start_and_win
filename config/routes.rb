@@ -36,6 +36,9 @@ StartAndWin::Application.routes.draw do
 ########################### end cabinet for user routes ########
 
 ################ technical routes ####################
+  ###autocomplete
+  get 'autocomplete_user_login' => 'autocomplete#autocomplete_user_login'
+  ###end autocomplete
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   get "signup" => "users#new", :as => "signup"

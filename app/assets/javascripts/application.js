@@ -5,5 +5,8 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui-1.8.16.custom.min
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
 //= require_tree .

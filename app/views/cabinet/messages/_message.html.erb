@@ -3,10 +3,10 @@
     <%= check_box_tag 'messages_ids[]', message.id, false, :class => message.read? ? 'read_checkbox' : 'unread_checkbox' %>
   </td>
   <td>
-    <%= params[:message_type] == 'sent' ? message.all_recipients_without_sender.map(&:full_name).join('<br/>').html_safe : message.sender_full_name %>
+    <%= params[:message_type] == 'sent' ? message.all_recipients_without_sender.map(&:login).join('<br/>').html_safe : message.sender_full_name %>
   </td>
   <td>
-    <a href="<%= message_path(message) %>"><%= truncate(message.subject) %></a><br/>
+    <a href="<%= cabinet_message_path(message) %>"><%= truncate(message.subject) %></a><br/>
   </td>
   <td class="last"> <%= message.created_at.strftime('%m/%d/%Y') %></td>
 </tr>

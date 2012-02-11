@@ -93,7 +93,7 @@ class Message < ActiveRecord::Base
 
   #return sender name
   def sender_full_name
-    self.sender_id == SITE_SENDER_ID ? SITE_SENDER_NAME : sender.full_name
+    self.sender_id == SITE_SENDER_ID ? SITE_SENDER_NAME : sender.login
   end
 
   private

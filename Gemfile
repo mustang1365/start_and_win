@@ -2,9 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
-#for inbox messages
-gem 'simple_inbox', :git => 'git://github.com/ZhKostev/SimpleInbox.git'
-
+#for autocomplete
+gem 'rails3-jquery-autocomplete'
 #use mysql
   gem  'mysql2'
 #to use simple form methods
