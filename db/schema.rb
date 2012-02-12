@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212110517) do
+ActiveRecord::Schema.define(:version => 20120212175723) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -192,6 +192,18 @@ ActiveRecord::Schema.define(:version => 20120212110517) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.decimal  "amount",       :precision => 8, :scale => 2, :default => 0.0
+    t.string   "point_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["recipient_id"], :name => "transactions_recipient_index"
+  add_index "transactions", ["sender_id"], :name => "transactions_sender_index"
 
   create_table "user_to_their_questions", :id => false, :force => true do |t|
     t.integer  "user_id"
