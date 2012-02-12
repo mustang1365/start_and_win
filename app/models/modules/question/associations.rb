@@ -6,8 +6,8 @@ module Modules::Question::Associations
       accepts_nested_attributes_for :variants, :allow_destroy => true, :reject_if => proc { |attributes| attributes['text'].blank? }
       has_many :competition_to_questions, :dependent => :destroy
       has_many :competitions, :through => :competition_to_questions
-      has_one :user_to_their_question, :dependent => :destroy
-      has_one :user, :through => :user_to_their_question
+      belongs_to :user
+      has_one :financial_account, :as => :model, :dependent => :destroy
     end
   end
 end

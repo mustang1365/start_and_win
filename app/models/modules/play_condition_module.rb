@@ -7,8 +7,6 @@ module Modules::PlayConditionModule
 
       validate :condition_validation
 
-      model_class = self.class
-      class_name = model_class.to_s
       #validate play_condition(difficulty level, points)
       private
       def condition_validation
@@ -16,12 +14,15 @@ module Modules::PlayConditionModule
           difficulty_level_validation
           participation_validation
           max_win_points_validation
+          user_points_validation
         end
       end
 
       #validate iq level of user and difficulty level of model(question, competition)
       def difficulty_level_validation
-        unless DifficultyLevel.for_iq_level(self.user.try(:iq_level).to_f).include?(play_condition.difficulty_level)
+        if play_condition.difficulty_level.blank?
+          self.errors.add(:base, "Пожалуйста, выберите уровень сложности.")
+        elsif !DifficultyLevel.for_iq_level(self.user.try(:iq_level).to_f).include?(play_condition.difficulty_level)
           self.errors.add(:base, "У вас недостаточный уровень для создания вопросов с таким уровнем сложности")
         end
       end
@@ -30,8 +31,8 @@ module Modules::PlayConditionModule
       def participation_validation
         if play_condition.participation_points.blank?
           self.errors.add(:base, "Количество очков за участие должно быть больше 0")
-        elsif play_condition.difficulty_level.present? && difficulty_level.difficulty_level_settings.send("#{class_name.underscore}_max_points").to_f > play_condition.participation_points.to_f
-          self.errors.add(:base, "Количество очков за участие должно быть не больше #{difficulty_level.difficulty_level_settings.send("#{class_name.underscore}_max_points")}")
+        elsif play_condition.difficulty_level.present? && play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_points").to_f > play_condition.participation_points.to_f
+          self.errors.add(:base, "Количество очков за участие должно быть не больше #{play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_points")}")
         end
       end
 
@@ -39,11 +40,15 @@ module Modules::PlayConditionModule
       def max_win_points_validation
         if play_condition.win_points.blank?
           self.errors.add(:base, "Количество очков за победу должно быть больше 0")
-        elsif play_condition.difficulty_level.present? && difficulty_level.difficulty_level_settings.send("#{class_name.underscore}_max_win_points").to_f > play_condition.win_points.to_f
-          self.errors.add(:base, "Количество очков за победу должно быть не больше #{difficulty_level.difficulty_level_settings.send("#{class_name.underscore}_max_win_points")}")
+        elsif play_condition.difficulty_level.present? && play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_win_points").to_f < play_condition.win_points.to_f
+          self.errors.add(:base, "Количество очков за победу должно быть не больше #{play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_win_points")}")
         elsif play_condition.win_points.to_f <=  play_condition.participation_points.to_f
           self.errors.add(:base, "Количество очков за победу должно быть больше, чем количество очков за участие.")
         end
+      end
+
+      def user_points_validation
+        self.errors.add(:base, "У вас недостаточно средств для создания вопроса.") if self.user.try(:financial_account).try(:points_amount).to_f < self.play_condition.points_to_play
       end
     end
   end

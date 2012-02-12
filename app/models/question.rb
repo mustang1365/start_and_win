@@ -6,6 +6,7 @@
 #| text       | varchar(255) | YES  |     | NULL     |                |
 #| created_at | datetime     | YES  |     | NULL     |                |
 #| updated_at | datetime     | YES  |     | NULL     |                |
+#| user_id    | int(11)      | YES  |     | NULL     |                |
 #| status     | varchar(255) | YES  |     | Активный |                |
 #+------------+--------------+------+-----+----------+----------------+
 class Question < ActiveRecord::Base

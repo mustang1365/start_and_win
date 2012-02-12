@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212175723) do
+ActiveRecord::Schema.define(:version => 20120212211145) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -79,8 +79,11 @@ ActiveRecord::Schema.define(:version => 20120212175723) do
     t.decimal  "reserved_points", :precision => 8, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "model_id"
+    t.string   "model_type"
   end
 
+  add_index "financial_accounts", ["model_id", "model_type"], :name => "financial_account_model_index"
   add_index "financial_accounts", ["user_id"], :name => "f_user_index"
 
   create_table "images", :force => true do |t|
@@ -184,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20120212175723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",     :default => "Активный"
+    t.integer  "user_id"
   end
 
   create_table "sub_categories", :force => true do |t|
@@ -200,17 +204,14 @@ ActiveRecord::Schema.define(:version => 20120212175723) do
     t.string   "point_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "model_id"
+    t.string   "model_type"
   end
 
+  add_index "transactions", ["model_id", "model_type"], :name => "transaction_model_index"
   add_index "transactions", ["recipient_id"], :name => "transactions_recipient_index"
   add_index "transactions", ["sender_id"], :name => "transactions_sender_index"
-
-  create_table "user_to_their_questions", :id => false, :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", :force => true do |t|
     t.string   "login"

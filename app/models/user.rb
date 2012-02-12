@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   has_one :profile, :dependent => :destroy
   has_one :financial_account, :dependent => :destroy
-  has_many :user_to_their_questions, :dependent => :destroy
-  has_many :questions, :through => :user_to_their_questions, :dependent => :destroy
+  has_many :questions, :dependent => :destroy
 
   validates :email, :presence => true, :uniqueness => true, :format => {:with => /^[a-zA-Z](([.]?([a-zA-Z0-9_-]+))*)?@([a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,4}$/}
   validates :login, :presence => true
@@ -16,6 +15,11 @@ class User < ActiveRecord::Base
     DifficultyLevel.for_iq_level(self.iq_level)
   end
 
+  #return financial account for user
+  def financial_account
+      FinancialAccount.find_account(self)
+  end
+
   private
   #creates some necessary models for user after create
   def build_necessary_models
@@ -24,5 +28,6 @@ class User < ActiveRecord::Base
       FinancialAccount.create(:user => self)
     end
   end
+
 
 end

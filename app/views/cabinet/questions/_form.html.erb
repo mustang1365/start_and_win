@@ -8,7 +8,7 @@
 <div class="inputs">
   <%= f.input :text %>
 </div>
-
+ <%= f.hidden_field :user_id %>
 <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'question'} %>
 <%= render :partial => '/admin/questions/form_parts/variants', :locals => {:f => f} %>
 <%= render :partial => '/admin/questions/form_parts/play_condition', :locals => {:f => f} %>

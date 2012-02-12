@@ -9,9 +9,9 @@ module Modules::FinancialAccount::FinancialAccountClassMethods
       #FinancialAccount.find_account(-1) - return  fin account for ADMIN_FUND
       def self.find_account(user)
         if user.instance_of?(User)
-          user.admin? ?  FinancialAccount.find_by_user_id(FinancialAccount::ADMIN_FUND[:user_id])  : user.financial_account
+          FinancialAccount.for_users.find_by_user_id(user.admin? ?  FinancialAccount::ADMIN_FUND[:user_id] : user.id)
         else
-          FinancialAccount.find_by_user_id(user)
+          FinancialAccount.for_users.find_by_user_id(user)
         end
       end
     end

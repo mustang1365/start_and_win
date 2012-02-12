@@ -1,9 +1,8 @@
 #encoding: utf-8
 class Cabinet::QuestionsController < Cabinet::ApplicationController
-  before_filter :find_question, :only => [:show, :edit, :update, :destroy]
-  before_filter :set_variables_for_form, :only => [:new, :edit, :update, :create]
-  before_filter :set_selected_category, :only => [:edit, :update]
-  before_filter :require_iq, :only => [:new, :update, :edit, :create]
+  before_filter :find_question, :only => [:show, :destroy]
+  before_filter :set_variables_for_form, :only => [:new, :create]
+  before_filter :require_iq, :only => [:new, :create]
 
   include QuestionControllerLib
 
@@ -17,7 +16,7 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
   end
 
   def new
-    @question = current_user.questions.build
+    @question = Question.new(:user => current_user)
     @question.build_model_to_main_category
     @question.build_play_condition
   end
@@ -26,7 +25,9 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
     @question = Question.new
     @question.attributes = params[:question]
     if @question.save
-      current_user.questions << @question
+      fin_account = FinancialAccount.create(:user_id => current_user, :model => @question, :points_amount => 0)
+      PaymentSystem.process_payment(current_user, fin_account, @question.play_condition.points_to_play,
+                                    "Перевод на временный фонд для вопроса '#{@question.text}'", @question)
       redirect_to cabinet_questions_path, :notice => 'Вопрос успешно создан.'
     else
       @selected_category = @question.model_to_main_category.main_category
