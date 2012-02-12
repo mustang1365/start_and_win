@@ -1,8 +1,15 @@
 #encoding: utf-8
-#PaymentSystem.process_payment(sender, recipient, amount) - transfer funds from sender to recipient
+#PaymentSystem.process_payment(sender, recipient, amount) - transfer points from sender to recipient
+#PaymentSystem.process_payment_from_admin - process payment from admin fin account to user
+#PaymentSystem.process_payment_from_site - process payment from site fin account to user
+#PaymentSystem.process_payment_from_temp_fund - process payment from temp fund fin account to user
+#PaymentSystem.process_payment_to_admin - process payment to admin fin account from user
+#PaymentSystem.process_payment_to_site - process payment to site fin account from user
+#PaymentSystem.process_payment_to_temp_fund - process payment to temp fund fin account from user
 class PaymentSystem
+  extend Modules::PaymentSystem::PaymentSystemDynamicMethods
 
-  #transfer funds from sender to recipient
+  #transfer points from sender to recipient
   #by default transfer site points
   def self.process_payment(sender, recipient, amount)
     sender_fin_account, recipient_fin_account, result_hash = find_accounts(sender, recipient)
@@ -14,7 +21,11 @@ class PaymentSystem
         Transaction.create(:sender_id => sender_fin_account.user_id, :recipient_id => recipient_fin_account.user_id, :amount => amount)
       end
     rescue Exception => e
+      Rails.logger.error('*'*100)
+      Rails.logger.error(e.message)
+      Rails.logger.error('*'*100)
       result_hash[:result] = false
+      #result_hash[:errors] << e.message
       result_hash[:errors] << 'Произошла непредвиденная ошибка. Попробуйте позже'
     end
     result_hash[:result] = result_hash[:errors].empty?

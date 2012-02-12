@@ -14,9 +14,6 @@ module Modules::FinancialAccount::FinancialAccountInstanceMethods
 
       #increase points amount return hash{:result => true/false, :errors => []}
       def increase_balance(amount)
-        q = Question.last
-              q.status = '123'
-              q.save!
         #return {:result => false, :errors => ['Недостаточно средств']} if self.points_amount.to_f < amount.to_f
         self.points_amount += amount.to_f
         self.save!
