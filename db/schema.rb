@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211222021) do
+ActiveRecord::Schema.define(:version => 20120212110517) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(:version => 20120211222021) do
     t.integer  "difficulty_level_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "competition_max_points", :precision => 8, :scale => 2, :default => 0.0
-    t.decimal  "question_max_points",    :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "competition_max_points",     :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "question_max_points",        :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "competition_max_win_points", :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "question_max_win_points",    :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "difficulty_levels", :force => true do |t|
@@ -152,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20120211222021) do
     t.integer  "difficulty_level_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "win_points",           :precision => 8, :scale => 2, :default => 0.0
   end
 
   add_index "play_conditions", ["difficulty_level_id"], :name => "play_difficulty_level_index"

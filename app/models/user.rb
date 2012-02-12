@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
 
   after_create :build_necessary_models
 
+  def available_difficulty_levels
+    DifficultyLevel.for_iq_level(self.iq_level)
+  end
+
+  private
+  #creates some necessary models for user after create
   def build_necessary_models
     unless admin?
       Profile.create(:user => self)

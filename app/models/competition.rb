@@ -17,7 +17,7 @@
 class Competition < ActiveRecord::Base
   QUESTION_AMOUNT = 10
 
-  include CategoryModule
+  include Modules::CategoryModule
 
 
   has_many :competition_to_questions, :dependent => :destroy

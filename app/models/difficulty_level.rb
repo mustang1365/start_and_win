@@ -13,6 +13,10 @@ class DifficultyLevel < ActiveRecord::Base
 
   after_create :create_difficulty_level_setting_if_need
 
+  #return all DifficultyLevels which available for current iq level
+  def self.for_iq_level(iq_level)
+    joins(:difficulty_level_setting).where('difficulty_level_settings.iq_level < ?', iq_level)
+  end
 
   def create_difficulty_level_setting_if_need
     DifficultyLevelSetting.create(:iq_level => 0, :difficulty_level => self ) if difficulty_level_setting.nil?

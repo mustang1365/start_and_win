@@ -3,8 +3,10 @@
       <tr>
         <th>Название</th>
         <th>Необходимый уровень IQ</th>
-        <th>Максимальное кол-во очков за участие в соревнований</th>
-        <th>Максимальное кол-во очков за участие в вопросе</th>
+        <th>Максимальное кол-во очков<br/> за участие в соревнований</th>
+        <th>Максимальное кол-во очков<br/> за победу в соревнований</th>
+        <th>Максимальное кол-во очков<br/> за участие в вопросе</th>
+        <th>Максимальное кол-во очков<br/> за победу в вопросе</th>
       </tr>
       <% @difficulty_levels.each do |level| %>
           <tr>
@@ -16,9 +18,15 @@
               <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][competition_max_points]", level.difficulty_level_setting.competition_max_points %>
             </td>
             <td>
-              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][question_max_points]", level.difficulty_level_setting.question_max_points %>
-
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][competition_max_win_points]", level.difficulty_level_setting.competition_max_win_points %>
             </td>
+            <td>
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][question_max_points]", level.difficulty_level_setting.question_max_points %>
+            </td>
+            <td>
+              <%= text_field_tag "[levels][#{level.id}][difficulty_level_setting][question_max_win_points]", level.difficulty_level_setting.question_max_win_points %>
+            </td>
+
           </tr>
       <% end %>
     </table>

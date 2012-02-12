@@ -1,6 +1,16 @@
 #encoding: utf-8
+#+------------+--------------+------+-----+----------+----------------+
+#| Field      | Type         | Null | Key | Default  | Extra          |
+#+------------+--------------+------+-----+----------+----------------+
+#| id         | int(11)      | NO   | PRI | NULL     | auto_increment |
+#| text       | varchar(255) | YES  |     | NULL     |                |
+#| created_at | datetime     | YES  |     | NULL     |                |
+#| updated_at | datetime     | YES  |     | NULL     |                |
+#| status     | varchar(255) | YES  |     | Активный |                |
+#+------------+--------------+------+-----+----------+----------------+
 class Question < ActiveRecord::Base
-  include CategoryModule
+  include Modules::CategoryModule
+  include Modules::PlayConditionModule
 
   STATUSES_HASH = {:open => 'Активный', :close => 'Завершен'}
   VARIANT_NUMBER = 4
@@ -9,9 +19,8 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :variants, :allow_destroy => true, :reject_if => proc { |attributes| attributes['text'].blank? }
   has_many :competition_to_questions, :dependent => :destroy
   has_many :competitions, :through => :competition_to_questions
-  has_many :user_to_their_questions, :dependent => :destroy
-  has_many :users, :through => :user_to_their_questions
-
+  has_one :user_to_their_question, :dependent => :destroy
+  has_one :user, :through => :user_to_their_question
 
   validates :text, :presence => true
   validate :only_one_right_variant

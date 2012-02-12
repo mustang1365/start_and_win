@@ -1,0 +1,10 @@
+<% if defined?(f)%>
+    <div class="inputs category_div" style="margin-top: 15px; margin-bottom: 10px">
+      <%= f.fields_for :play_condition do |condition_form| %>
+          <%= condition_form.input :difficulty_level_id, :as => :select, :collection => current_user.available_difficulty_levels %>
+          <%= condition_form.input :points_to_play %>
+          <%= condition_form.input :participation_points %>
+          <%= condition_form.input :win_points %>
+      <% end %>
+    </div>
+<% end %>

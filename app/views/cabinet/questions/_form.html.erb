@@ -11,7 +11,7 @@
 
 <%= render :partial =>'/shared/category_partial', :locals => {:f => f, :model_type => 'question'} %>
 <%= render :partial => '/admin/questions/form_parts/variants', :locals => {:f => f} %>
-
+<%= render :partial => '/admin/questions/form_parts/play_condition', :locals => {:f => f} %>
 <div class="actions">
   <%= f.button :submit %>
   <%= link_to 'Назад', cabinet_questions_path, :class => 'button', :style => "float:left" %>

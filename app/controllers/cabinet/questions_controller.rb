@@ -19,6 +19,7 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
   def new
     @question = current_user.questions.build
     @question.build_model_to_main_category
+    @question.build_play_condition
   end
 
   def create
