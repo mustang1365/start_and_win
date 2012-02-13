@@ -6,6 +6,9 @@ module Modules::Question::Scopes
       scope :active, where(:status => Question::STATUSES_HASH[:open])
       #select question which finished or closed
       scope :inactive, where(:status => Question::STATUSES_HASH[:close])
+      #select questions with difficulty_level available for user
+      scope :available_for_user, lambda{|user| joins(:play_condition).
+                  where('play_condition.difficulty_level_id in (?)', user.available_difficulty_levels.map(&:id))}
 
     end
   end

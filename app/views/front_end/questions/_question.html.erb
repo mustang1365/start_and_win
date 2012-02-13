@@ -1,0 +1,13 @@
+<tr>
+  <td><%= question.user.try(:login) %></td>
+  <td><%= question.created_at.strftime('%d/%m%Y') %></td>
+  <td><%= 'stub' %></td>
+  <td><%= question.play_condition.participation_points %></td>
+  <td><%= question.play_condition.win_points %></td>
+  <td><%= question.main_category.try(:title) %>/<br/>
+    <%= question.sub_categories.map(&:title).join(', ') %>
+  </td>
+  <td>
+    <%= link_to 'Подробнее', question_path(question), :remote => true %>
+  </td>
+</tr>

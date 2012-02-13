@@ -31,15 +31,26 @@ StartAndWin::Application.routes.draw do
     resources :questions
     resources :user_profile, :only => [:edit, :update, :show]
     resources :messages, :only => [:index, :show, :new, :create] do
-        post :mark_as, :on => :collection
+      post :mark_as, :on => :collection
     end
   end
 ########################### end cabinet for user routes ########
 
+###########################front routes######################
+  scope :module => "front_end" do
+    resources :questions, :only => [:index, :show] do
+      member do
+        get :start_play
+      end
+    end
+  end
+###########################end front routes###############
+
+
 ################ technical routes ####################
-  ###autocomplete
+###autocomplete
   get 'autocomplete_user_login' => 'autocomplete#autocomplete_user_login'
-  ###end autocomplete
+###end autocomplete
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   get "signup" => "users#new", :as => "signup"

@@ -1,0 +1,2 @@
+module FrontEnd::QuestionsHelper
+end
