@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
+
+gem "heroku"
+
 #for autocomplete
 gem 'rails3-jquery-autocomplete'
 #use mysql
