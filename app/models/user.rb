@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   #creates some necessary models for user after create
   def build_necessary_models
     unless admin?
-      Profile.create(:user => self, :points_amount => 0)
+      Profile.create(:user => self)
       FinancialAccount.create(:user => self)
     end
   end
