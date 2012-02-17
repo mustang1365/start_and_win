@@ -2,7 +2,7 @@ login: &login
   adapter: mysql2
   host: localhost
   username: root
-  password: rem
+  password:
 
 development: &development
   database: tb_dev
@@ -16,5 +16,5 @@ production: &production
   adapter: mysql2
   host: localhost
   database: prod_m3
-  username: your_production_database_login
-  password: your_production_database_password
+  username: root
+  password:
