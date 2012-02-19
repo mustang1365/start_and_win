@@ -1,5 +1,8 @@
 StartAndWin::Application.routes.draw do
 
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
 ########################### admin routes ###################
   scope :module => "admin" do
     match "/admin" => "admin_home#index", :as => :admin_root

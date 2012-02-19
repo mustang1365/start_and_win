@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212211145) do
+ActiveRecord::Schema.define(:version => 20120219154002) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "provider",   :null => false
+    t.string   "uid",        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -230,8 +238,11 @@ ActiveRecord::Schema.define(:version => 20120212211145) do
     t.datetime "last_activity_at"
     t.integer  "failed_logins_count",                                           :default => 0
     t.datetime "lock_expires_at"
-    t.boolean  "admin"
+    t.boolean  "admin",                                                         :default => false
     t.decimal  "iq_level",                        :precision => 8, :scale => 2, :default => 0.0
+    t.string   "first_name",                                                    :default => "",    :null => false
+    t.string   "last_name",                                                     :default => "",    :null => false
+    t.string   "gender",                                                        :default => "",    :null => false
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"
