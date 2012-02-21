@@ -1,0 +1,11 @@
+<div class="news">
+  <img src="<%= news_point.news_point_image_url %>" class="pic left"/>
+
+  <p class="date margin_top"><%= standard_date(news_point.created_at) %></p>
+
+  <p>
+    <%= truncate_html(news_point.description, :length => 250, :omission => "...(<a href='#'>#Читать далее</a>)") %>
+  </p>
+
+  <div class="clr"><!-- --></div>
+</div>

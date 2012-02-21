@@ -1,21 +1,25 @@
-<%= form_tag user_sessions_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email_or_login, 'Email or Login' %>
-    <%= text_field_tag :email_or_login %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-    <%= link_to "Sign up", signup_path %>
-  </div>
-  <div>
-  	<%= label_tag "keep me logged in" %>
-    <%= check_box_tag :remember %>
-  </div>
-<% end %>
-<br>
-<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+<div class="login">
+  <p class="autorization">Авторизация</p>
 
+  <%= form_tag user_sessions_path, :method => :post do %>
+
+      <p class="label left margin1">Логин</p>
+      <%= text_field_tag :email_or_login %>
+
+      <div class="clr"><!-- --></div>
+
+      <p class="label left">Пароль</p>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "", :class => 'button' %>
+
+      <div class="clr"><!-- --></div>
+
+      <%= link_to "Зарегистрироваться!", signup_path, :class => 'reg' %>
+
+
+      <div class="clr"><!-- --></div>
+  <% end %>
+  <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook), :style => 'margin-left:100px;' %>
+
+</div>

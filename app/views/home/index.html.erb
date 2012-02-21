@@ -1,10 +1,20 @@
-<h2>Привет! Train You brain Now!</h2>
-<%# if current_user %>
-   <!--Logged in as-->  <%#= current_user.login %>.
-    <%#= link_to "Log out", logout_path %>
-<%# else %>
-    <%#= link_to "Sign up", signup_path %> <!--or-->
-    <%#= link_to "Log in", login_path %>.
-<%# end %>
+<div class="top_list">
+  <div class="news">
+    <img src="<%= @main_news_point.news_point_image_url %>" class="pic left"/>
+    <h4>Наши новости</h4>
 
+    <p class="date"><%= standard_date(@main_news_point.created_at) %> </p>
+
+    <p>
+      <%= truncate_html(@main_news_point.description, :length => 250, :omission => "...(<a href='#'>#Читать далее</a>)") %>
+    </p>
+
+    <div class="clr"><!-- --></div>
+  </div>
+
+</div>
+
+<div class="list">
+  <%= render :partial => 'shared/news_point', :collection => @news_points %>
+</div>
 

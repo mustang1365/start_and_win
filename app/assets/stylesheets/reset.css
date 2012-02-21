@@ -1,0 +1,41 @@
+html,body,h1,h2,h3,h4,h5,h6,p,em,strong,abbr,acronym,blockquote,q,cite,ins,del,dfn,a,div,span,pre,hr,address,br,b,i,sub,sup,big,small,tt,table,tr,caption,thead,tbody,tfoot,col,colgroup,form,input,label,texarea,button,
+fieldset,legend,select,option,optiongroup,ul,ol,li,dl,dt,dd,code,var,kdb,samp,img,object,param,map,area,bdo /* td, th */ /* XHTML 1.0 Strict Semantic */ {	
+	padding:0;	
+	margin:0; 
+	border:none; 
+}
+h1, h2, h3, h4, h5, h6, p, td, th {
+	font-size:1em; 
+	font-weight:normal; 
+}
+a:link,a:visited, a:hover, a:active{
+	cursor: pointer;
+	cursor: hand;
+}
+:-moz-any-link:focus, input {outline: none;}
+a img {	border: none;}
+table, td ,tr ,th{
+	border-collapse:collapse;
+	border:none;
+}
+ul,li {
+	list-style: none;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+ol li {list-style-type:decimal;}
+
+input, select, textarea {
+	border: 1px #3a3a3a solid;
+	color:#595959;
+	font-size:12px;
+	font-family:Arial;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	vertical-align:middle;
+}

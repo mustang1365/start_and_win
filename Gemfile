@@ -9,6 +9,8 @@ group :production do
   gem 'therubyracer'
   gem 'pg'
 end
+#for truncate data
+gem 'truncate_html'
 
 #for autocomplete
 gem 'rails3-jquery-autocomplete'
