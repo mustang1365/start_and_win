@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {background: 0 0 url(fon.jpg) repeat;}
+.wrapper {width:1000px;
+	margin:0 auto;
+	background: 0px 274px url(formula1.png) no-repeat;}
+.clr {clear:both;}
+.left {float:left;}
+.right {float:right;}
+	
+/*autorization*/
+div.login {width:330px;
+	height:168px;
+	padding-top:15px;
+	float:right;
+	background-image:url(login_fon.png);
+	background: right 0px url(login_fon.png) no-repeat;}
+.autorization {font: normal 22px Verdana, Arial, Helvetica, sans-serif;
+	color:#fff;
+	padding:11px 6px 6px 97px;}
+.label {font: normal 20px Verdana, Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	width:82px;}
+input {border:none;
+	background: 0 0 url(label.png) no-repeat;
+	height:25px;
+	width:179px;
+	padding:5px 15px;}
+.margin1 {padding-left:12px;
+	width:70px;}
+.button {background: 0 0 url(button.png) no-repeat;
+	width:30px;
+	height:16px;
+	margin-top:6px;}
+a.reg {font: normal 18px Verdana, Arial, Helvetica, sans-serif;
+	color:#131313;
+	margin-left:94px;}
+a.reg:hover {text-decoration:none;}
+
+/*logo*/
+div.logo {width:361px;
+	height:163px;
+	margin-top:15px;
+	margin-left:105px;}
+
+/*menu*/
+.top_menu{background: 0 0 url(top_menu.png) no-repeat;
+	width:854px;
+	height:12px;}
+.main_menu {background: 0 0 url(menu.png) repeat-y;
+padding:0 40px;}
+.bottom_menu {background: 0 0 url(bottom_menu.png) no-repeat;
+	width:854px;
+	height:18px;}
+.menu {margin:20px 0 23px 70px;}
+.col1, .col2, .col3 {width:240px;
+	float:left;
+	padding-top:20px;
+	padding-bottom:67px;}
+.col1 {padding-left:30px;
+	padding-right:30px;
+	width:210px;}
+.col3 {padding-left:60px;
+	width:180px;}
+.col1 h3, .col2 h3, .col3 h3 {color:#fbfafa;
+	font:normal 20px Verdana, Arial, Helvetica, sans-serif;
+	margin-bottom:20px;}
+.col1 a, .col2 a, .col3 a {font: normal 16px Verdana, Arial, Helvetica, sans-serif;
+	color:#dfdfdf;
+	text-decoration:none;
+	line-height:27px;}
+.col1 a:hover, .col2 a:hover, .col3 a:hover {text-decoration:underline;}
+a.aktiv {color:#d80706;}
+a.aktiv:hover {text-decoration:none;}
+.nol {background: 715px bottom url(nol.png) no-repeat;}
+
+/*list*/
+.main_list {margin-left:120px;}
+.top_list {background: 0 0 url(list_top.png) no-repeat;
+	height:221px;
+	width:750px;}
+.list {width:750px;
+	background:0 0 url(list.png) repeat-y;}
+.pic {margin:36px 48px 0 60px;
+	width:150px;
+	height:182px;}
+.main_list h4 {padding-top:58px;
+	font: normal 18px Verdana, Arial, Helvetica, sans-serif;
+	color:#d80706;}
+.main_list p, .news p {font: normal 14px Verdana, Arial, Helvetica, sans-serif;
+	color:#131313;
+	margin-right:20px;}
+.main_list p.date {font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	color:#a6a6a6;
+	line-height:30px;}
+.margin_top {padding-top:40px;}
