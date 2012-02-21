@@ -1,12 +1,12 @@
 <div class="top_list">
   <div class="news">
-    <img src="<%= @main_news_point.news_point_image_url %>" class="pic left"/>
+    <img src="<%= @main_news_point.try(:news_point_image_url) %>" class="pic left"/>
     <h4>Наши новости</h4>
 
-    <p class="date"><%= standard_date(@main_news_point.created_at) %> </p>
+    <p class="date"><%= standard_date(@main_news_point.try(:created_at)) %> </p>
 
     <p>
-      <%= truncate_html(@main_news_point.description, :length => 250, :omission => "...(<a href='#'>#Читать далее</a>)") %>
+      <%= truncate_html(@main_news_point.try(:description), :length => 250, :omission => "...(<a href='#'>#Читать далее</a>)") %>
     </p>
 
     <div class="clr"><!-- --></div>
