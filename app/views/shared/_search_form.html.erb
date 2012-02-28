@@ -1,0 +1,4 @@
+<%= form_for questions_path, :method => :get, :html => {:class => 'search_form'} do %>
+    <%= text_field_tag :search_value %>
+    <a href="javascript:void(0);" onclick="$('.search_form').submit();" class="css3button">Искать</a>
+<% end %>

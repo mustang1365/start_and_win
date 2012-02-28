@@ -1,0 +1,32 @@
+.listing {
+  margin-top: -155px;
+  padding: 0 40px 100px 40px;
+  .listing_content{
+    .top_line{
+      .search_form {float: right;padding-bottom:10px;}
+    }
+    .listing_table {
+      padding: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      border-top: 1px solid #CCC;
+      border-right: 1px solid #CCC;
+      td, th{
+        border-left: 1px solid #CCC;
+        border-bottom: 1px solid #CCC;
+        padding: 0; /* 'cellpadding' equivalent */
+        text-align: center;
+        }
+
+    }
+  }
+}
+
+ul.sub_categories {
+  padding-left:20px;
+  li{list-style: square !important;
+  list-style-position:outside;
+  list-style-type:square !important; }
+  font-size: smaller;
+  color: #41403C;
+}

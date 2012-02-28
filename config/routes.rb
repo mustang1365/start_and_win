@@ -31,7 +31,11 @@ StartAndWin::Application.routes.draw do
 ########################### cabinet for user routes ############
   namespace :cabinet do
     match 'main' => 'user_cabinet#index', :as => :user_root
-    resources :questions
+    resources :questions do
+      member do
+        get :close_question
+      end
+    end
     resources :user_profile, :only => [:edit, :update, :show]
     resources :messages, :only => [:index, :show, :new, :create] do
       post :mark_as, :on => :collection

@@ -1,22 +1,46 @@
-<table>
-  <tr>
-    <th>Создатель(рейтинг)</th>
-    <th>Дата создание</th>
-    <th>Рейтинг вопроса</th>
-    <th>Очков за участие</th>
-    <th>Очков за победу</th>
-    <th>Категория/<br/>подкатегории</th>
-    <th></th>
-  </tr>
-  <%= render :partial => 'question', :collection => @questions %>
-</table>
+<div class="top_list">
 
-<div id="show_question_dialog" style="display: none">
+</div>
+<div class="list">
+  <div class="listing">
+    <div class="listing_head">
 
+    </div>
+    <div class="listing_content">
+      <div class="top_line">
+        <a href="javascript:void(0);" onclick="alert('Удача!')" class="css3button2 left">Мне повезет!</a>
+        <%= render 'shared/search_form' %>
+      </div>
+      <div class="clr"><!-- --></div>
+
+      <table class="listing_table">
+        <tr>
+          <th rowspan="2">Категория</th>
+          <th colspan="2">Очков</th>
+          <th rowspan="2">Рейтинг</th>
+          <th rowspan="2">Создан</th>
+          <th rowspan="2"></th>
+        </tr>
+        <tr>
+          <th>за участие</th>
+          <th>за победу</th>
+        </tr>
+        <%= render :partial => 'question', :collection => @questions %>
+      </table>
+    </div>
+  </div>
+</div>
+<!--TODO Условия  игры-->
+<div id="show_terms_dialog" style="display: none">
+   Условия  игры!
+  <%= link_to 'Играть!', '#' %>
 </div>
 
 <script type="text/javascript">
-  $(function() {
-     $('#show_question_dialog').dialog({autoOpen: false, modal: true})
-  });
+    $(function () {
+        $('#show_terms_dialog').dialog({autoOpen:false, modal:true})
+    });
+    function open_terms_dialog(){
+        $('#show_terms_dialog').dialog('open');
+    }
 </script>

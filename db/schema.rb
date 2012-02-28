@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219154002) do
+ActiveRecord::Schema.define(:version => 20120228143253) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "win_points",           :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "time_limit",                                         :default => 10
   end
 
   add_index "play_conditions", ["difficulty_level_id"], :name => "play_difficulty_level_index"
@@ -238,11 +239,11 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
     t.datetime "last_activity_at"
     t.integer  "failed_logins_count",                                           :default => 0
     t.datetime "lock_expires_at"
-    t.boolean  "admin",                                                         :default => false
+    t.boolean  "admin"
     t.decimal  "iq_level",                        :precision => 8, :scale => 2, :default => 0.0
-    t.string   "first_name",                                                    :default => "",    :null => false
-    t.string   "last_name",                                                     :default => "",    :null => false
-    t.string   "gender",                                                        :default => "",    :null => false
+    t.string   "first_name",                                                    :default => "",  :null => false
+    t.string   "last_name",                                                     :default => "",  :null => false
+    t.string   "gender",                                                        :default => "",  :null => false
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

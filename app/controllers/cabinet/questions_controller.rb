@@ -1,6 +1,6 @@
 #encoding: utf-8
 class Cabinet::QuestionsController < Cabinet::ApplicationController
-  before_filter :find_question, :only => [:show, :destroy]
+  before_filter :find_question, :only => [:show, :close_question]
   before_filter :set_variables_for_form, :only => [:new, :create]
   before_filter :require_iq, :only => [:new, :create]
 
@@ -34,5 +34,10 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
       @selected_sub_categories = @question.model_to_main_category.model_to_main_category_to_sub_categories.map(&:sub_category_id)
       render :action => :new
     end
+  end
+
+  def close_question
+    @question.update_column(:status, Question::STATUSES_HASH[:close])
+    redirect_to cabinet_questions_path
   end
 end

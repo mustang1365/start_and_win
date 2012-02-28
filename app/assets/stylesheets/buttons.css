@@ -1,0 +1,65 @@
+a.start_link {
+    text-decoration: none;
+    background: url('start-button.jpg') no-repeat;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+a.css3button {text-decoration: none;}
+.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	padding: 5px 12px;
+	background: -moz-linear-gradient(
+		top,
+		#a8a8a8 0%,
+		#757064);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#a8a8a8),
+		to(#757064));
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border: 3px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+a.css3button2 {text-decoration: none;}
+.css3button2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #050505;
+	padding: 8px 15px;
+	background: -moz-linear-gradient(
+		top,
+		#ff2600 0%,
+		#f7ff00);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ff2600),
+		to(#f7ff00));
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border: 3px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
