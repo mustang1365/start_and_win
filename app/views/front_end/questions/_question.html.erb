@@ -27,6 +27,6 @@
     <%= link_to question.user.login, '#' %>
   </td>
   <td>
-    <%= link_to_function '',"open_terms_dialog()", :class => 'start_link' %>
+    <%= link_to '',start_play_question_path(question), :class => 'start_link' %>
   </td>
 </tr>

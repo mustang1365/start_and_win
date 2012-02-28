@@ -48,6 +48,8 @@ StartAndWin::Application.routes.draw do
     resources :questions, :only => [:index, :show] do
       member do
         get :start_play
+        post :process_results
+        post :set_rating_and_finish
       end
     end
   end

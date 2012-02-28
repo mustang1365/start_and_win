@@ -1,0 +1,14 @@
+.standard_form{
+  margin-top: -155px;
+  padding: 0 40px 100px 40px;
+  .title {}
+  .head {font-size: larger; padding-bottom: 20px;}
+  .content {
+    .row_value {
+      input {width: 20px;}
+    }
+    .buttons{
+        text-align: center;
+    }
+  }
+}

@@ -3,10 +3,6 @@
 // be included in the compiled file accessible from http://example.com/assets/application.js
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
-//
-//
-//= require fix
-//= require fix2
 //= require jquery
 //= require jquery-ui-1.8.16.custom.min
 //= require jquery_ujs

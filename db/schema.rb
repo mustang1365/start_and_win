@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228143253) do
+ActiveRecord::Schema.define(:version => 20120228195541) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -172,6 +172,22 @@ ActiveRecord::Schema.define(:version => 20120228143253) do
   add_index "play_conditions", ["difficulty_level_id"], :name => "play_difficulty_level_index"
   add_index "play_conditions", ["model_id", "model_type"], :name => "play_model_index"
 
+  create_table "play_results", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "competition_type"
+    t.integer  "competition_id"
+    t.string   "answers"
+    t.boolean  "won",              :default => false
+    t.boolean  "payed",            :default => false
+    t.integer  "rating_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "play_results", ["competition_type", "competition_id"], :name => "result_competition_index"
+  add_index "play_results", ["rating_id"], :name => "result_rating_index"
+  add_index "play_results", ["user_id"], :name => "result_user_index"
+
   create_table "private_files", :force => true do |t|
     t.text     "file_content"
     t.datetime "created_at"
@@ -197,6 +213,15 @@ ActiveRecord::Schema.define(:version => 20120228143253) do
     t.datetime "updated_at"
     t.string   "status",     :default => "Активный"
     t.integer  "user_id"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.float    "total_score",      :default => 0.0
+    t.float    "general_score",    :default => 0.0
+    t.float    "difficulty_score", :default => 0.0
+    t.float    "time_score",       :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sub_categories", :force => true do |t|
