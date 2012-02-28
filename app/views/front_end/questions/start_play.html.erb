@@ -5,6 +5,7 @@
   <%= form_tag process_results_question_path(@question), :class => 'standard_form', :id => 'question_answer_form' do %>
       <div class="title"></div>
       <div class="head">
+        <div id="counter"></div>
         <div class="question_text">
           <%= @question.text %>
         </div>
@@ -22,3 +23,18 @@
       </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+//      $("#counter").flipCounter({
+//                  number:100, // the initial number the counter should display, overrides the hidden field
+//                  digitHeight:40, // the height of each digit in the flipCounter-medium.png sprite image
+//                  digitWidth:30, // the width of each digit in the flipCounter-medium.png sprite image
+//                  imagePath:"/assets/flipCounter-medium.png", // the path to the sprite image relative to your html document
+//                  easing: false, // the easing function to apply to animations, you can override this with a jQuery.easing method
+//                  duration: 10000 // duration of animations
+//          });
+//      $("#counter").flipCounter('startAnimation', {end_number: 0})
+  })
+
+</script>

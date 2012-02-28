@@ -5,3 +5,5 @@
 .no_padding_no_marging { padding: 0 !important; margin: 0 !important;}
 .with_left_margin { margin-left: 10px;}
 .rating{height: 15px; width: 15px; float: left; background: url('rating.png') no-repeat; margin: 0 2px;}
+
+.very_long_label{ width: 255px; display: inline-block;}

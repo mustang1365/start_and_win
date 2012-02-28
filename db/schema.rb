@@ -217,9 +217,9 @@ ActiveRecord::Schema.define(:version => 20120228195541) do
 
   create_table "ratings", :force => true do |t|
     t.float    "total_score",      :default => 0.0
-    t.float    "general_score",    :default => 0.0
-    t.float    "difficulty_score", :default => 0.0
-    t.float    "time_score",       :default => 0.0
+    t.integer  "general_score",    :default => 5
+    t.integer  "difficulty_score", :default => 5
+    t.integer  "time_score",       :default => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -17,4 +17,6 @@ class PlayResult < ActiveRecord::Base
   belongs_to :rating
 
   validates :user_id, :competition_id, :competition_type, :answers, :presence => true
+
+  scope :find_for_user, lambda {|user, competition| where(:user => user, :competition => competition).first}
 end

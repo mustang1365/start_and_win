@@ -17,6 +17,7 @@ class FrontEnd::QuestionsController <  FrontEnd::ApplicationController
 
   #after user answer the question
   def process_results
+    #TODO after F5 creates a new record => check and redirect(not render form) if user already set rating
     PlayResult.create(:user => current_user, :competition => @question, :answers => params[:answer],
                       :won => @question.variants.find_by_id(params[:answer]).try(:answer?))
     @rating = Rating.new
@@ -24,8 +25,17 @@ class FrontEnd::QuestionsController <  FrontEnd::ApplicationController
   end
 
   #save question rating, process payment and finish
+  #TODO send email to admin if payment failed
+  #TODO pay amount depends on rating
   def set_rating_and_finish
-
+    play_result = PlayResult.find_for_user(current_user, @question)
+    rating = Rating.new(params[:rating])
+    play_result.rating = rating
+    if play_result.save &&
+        play_result.update_column(:payed, true)
+        @notice = 'Соревнование закнчилось. Пробуйте другие соревнования.'
+    end
+    redirect_to questions_path, :notice => @notice || 'Произошла ошибка при завершений соревнования. Администрация сайта уведомлена. Ошибка будет исправления. Приносим свои извинения.'
   end
 
 

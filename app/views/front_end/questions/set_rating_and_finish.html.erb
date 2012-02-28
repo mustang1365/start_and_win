@@ -1,1 +1,27 @@
-SET RATING
+<div class="top_list">
+
+</div>
+<div class="list">
+  <%= form_for @rating, :url => set_rating_and_finish_question_path(@question), :html => {:class => 'standard_form', :id => 'question_rating_form'} do |f|%>
+      <div class="title"></div>
+      <div class="head">
+        <div id="counter"></div>
+        <div class="question_text">
+          Полалуйста, оцените данный вопрос.
+        </div>
+      </div>
+      <div class="content">
+        <% Rating::SCORE_ARRAY.each do |score| %>
+            <div class="row_value">
+              <%= f.label score, Rating::SCORE_TRANSLATE[score], :class => 'very_long_label left' %>
+              <% 5.times do |i| %>
+                  <%= f.radio_button score.to_sym, i + 1, :class => 'rating' %>
+              <% end %>
+            </div> <br/>
+        <% end %>
+        <div class="buttons">
+          <%= submit_tag 'Оценить', :class => 'css3button' %>
+        </div>
+      </div>
+  <% end %>
+</div>
