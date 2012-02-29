@@ -17,6 +17,11 @@ StartAndWin::Application.routes.draw do
         post :update_all_settings
       end
     end
+    resources :rating_rate_settings, :only => [:index] do
+      collection do
+        post :update_all_settings
+      end
+    end
     resources :settings, :only => [:index]
     resources :questions do
       collection do

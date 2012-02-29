@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120228195541) do
+ActiveRecord::Schema.define(:version => 20120229062016) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -213,6 +213,14 @@ ActiveRecord::Schema.define(:version => 20120228195541) do
     t.datetime "updated_at"
     t.string   "status",     :default => "Активный"
     t.integer  "user_id"
+  end
+
+  create_table "rating_rates", :force => true do |t|
+    t.float    "begin_rating",    :default => 0.0
+    t.float    "end_rating",      :default => 0.0
+    t.float    "rate_of_payment", :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", :force => true do |t|
