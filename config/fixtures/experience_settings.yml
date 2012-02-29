@@ -1,0 +1,8 @@
+-
+  competition_name: Блиц вопрос
+  iq_for_participant: 0.1
+  iq_for_creator: 0.03
+-
+  competition_name: Соревнование
+  iq_for_participant: 1
+  iq_for_creator: 0.35

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229062016) do
+ActiveRecord::Schema.define(:version => 20120229191005) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -77,6 +77,14 @@ ActiveRecord::Schema.define(:version => 20120229062016) do
 
   create_table "education_levels", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experience_settings", :force => true do |t|
+    t.string   "competition_name"
+    t.float    "iq_for_participant", :default => 0.0
+    t.float    "iq_for_creator",     :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,24 @@
+<%= form_tag update_all_settings_admin_experience_settings_path do %>
+    <table width="300px">
+      <tr>
+        <th align="center">Тип соревнования</th>
+        <th align="center">IQ для участника</th>
+        <th align="center">IQ для создателя</th>
+      </tr>
+      <% @settings.each do |settings| %>
+          <tr>
+            <td align="center">
+              <%= text_field_tag "[settings][#{settings.id}][competition_name]", settings.competition_name %>
+            </td>
+            <td align="center">
+              <%= text_field_tag "[settings][#{settings.id}][iq_for_participant]", settings.iq_for_participant %>
+            </td>
+            <td align="center">
+              <%= text_field_tag "[settings][#{settings.id}][iq_for_creator]", settings.iq_for_creator %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <%= submit_tag 'Обновить' %>
+    <%= link_to 'Отменить', admin_settings_path %>
+<% end %>
