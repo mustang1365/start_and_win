@@ -8,7 +8,10 @@
     </div>
     <div class="listing_content">
       <div class="top_line">
-        <a href="<%= start_play_question_path(@lucky_question) %>" onclick="alert('Удача!')" class="css3button2 left">Мне повезет!</a>
+        <% if @lucky_question %>
+            <a href="<%= start_play_question_path(@lucky_question) %>" onclick="alert('Удача!')" class="css3button2 left">Мне
+              повезет!</a>
+        <% end %>
         <%= render 'shared/search_form' %>
       </div>
       <div class="clr"><!-- --></div>
@@ -32,7 +35,7 @@
 </div>
 <!--TODO Условия  игры-->
 <div id="show_terms_dialog" style="display: none">
-   Условия  игры!
+  Условия игры!
   <%#= link_to 'Играть!', start_play_question(@lucky_question) %>
 </div>
 
@@ -40,7 +43,7 @@
     $(function () {
         $('#show_terms_dialog').dialog({autoOpen:false, modal:true})
     });
-    function open_terms_dialog(){
+    function open_terms_dialog() {
         $('#show_terms_dialog').dialog('open');
     }
 </script>

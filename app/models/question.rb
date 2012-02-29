@@ -20,4 +20,5 @@ class Question < ActiveRecord::Base
   include Modules::Question::Scopes
   include Modules::Question::QuestionClassMethods
   include Modules::Question::QuestionInstanceMethods
+  include Modules::Question::QuestionCallbacks
 end

@@ -5,7 +5,7 @@ module ViewsHelper
   def rating_container(rating)
     rating_body = ''
     rating.to_i.times do
-      rating_body += content_tag(:div,'',:class => 'rating')
+      rating_body += content_tag(:div,'',:class => 'one_rating')
     end
     content_tag(:div, rating_body.html_safe, :class => 'rating_container').html_safe
   end

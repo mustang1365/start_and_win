@@ -12,9 +12,11 @@ class PaymentSystem
   #transfer points from sender to recipient
   #by default transfer site points. Sender/Recipient can be User, user id, or financial account
   def self.process_payment(sender, recipient, amount, description = '', transaction_model = nil)
+    p '*'*100
     sender_fin_account, recipient_fin_account, result_hash = find_accounts(sender, recipient)
     return result_hash unless result_hash[:result]
     begin
+      p '+'*100
       ActiveRecord::Base.transaction do
         result_hash[:errors] += sender_fin_account.decrease_balance(amount)[:errors]
         result_hash[:errors] += recipient_fin_account.increase_balance(amount)[:errors]
@@ -22,6 +24,7 @@ class PaymentSystem
                            :amount => amount, :description => description ,:model => transaction_model)
       end
     rescue Exception => e
+      p '-'*100
       Rails.logger.error('*'*100)
       Rails.logger.error(e.message)
       Rails.logger.error('*'*100)
@@ -44,6 +47,7 @@ class PaymentSystem
                   else
                     {:result => true, :errors => []}
                   end
+     p [sender_fin_acc, recipient_fin_acc, result_hash]
     [sender_fin_acc, recipient_fin_acc, result_hash]
   end
 

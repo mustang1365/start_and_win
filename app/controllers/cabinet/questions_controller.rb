@@ -25,9 +25,6 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
     @question = Question.new
     @question.attributes = params[:question]
     if @question.save
-      fin_account = FinancialAccount.create(:user_id => current_user, :model => @question, :points_amount => 0)
-      PaymentSystem.process_payment(current_user, fin_account, @question.play_condition.points_to_play,
-                                    "Перевод на временный фонд для вопроса '#{@question.text}'", @question)
       redirect_to cabinet_questions_path, :notice => 'Вопрос успешно создан.'
     else
       @selected_category = @question.model_to_main_category.main_category

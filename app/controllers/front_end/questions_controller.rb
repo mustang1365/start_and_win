@@ -1,3 +1,4 @@
+#encoding: utf-8
 class FrontEnd::QuestionsController <  FrontEnd::ApplicationController
   before_filter(:only => [:show, :start_play, :process_results, :set_rating_and_finish]) { |c| c.find_model_or_404 Question }
 
