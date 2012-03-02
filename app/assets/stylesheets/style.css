@@ -87,7 +87,9 @@ a.aktiv:hover {text-decoration:none;}
 	height:182px;}
 .main_list h4 {padding-top:58px;
 	font: normal 18px Verdana, Arial, Helvetica, sans-serif;
-	color:#d80706;}
+	color:#d80706;
+    padding-bottom: 10px;
+}
 .main_list p, .news p {font: normal 14px Verdana, Arial, Helvetica, sans-serif;
 	color:#131313;
 	margin-right:20px;}
