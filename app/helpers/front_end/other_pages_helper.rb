@@ -1,0 +1,2 @@
+module FrontEnd::OtherPagesHelper
+end
