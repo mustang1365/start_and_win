@@ -7,10 +7,6 @@ class FrontEnd::QuestionsController <  FrontEnd::ApplicationController
     @lucky_question = @questions.order('RAND()').first
   end
 
-  def show
-
-  end
-
   #after user press 'Play' button after reading conditions
   def start_play
 

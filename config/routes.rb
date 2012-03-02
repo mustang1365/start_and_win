@@ -1,9 +1,6 @@
 StartAndWin::Application.routes.draw do
 
-  match "oauth/callback" => "oauths#callback"
-  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-
-########################### admin routes ###################
+ ########################### admin routes ###################
   scope :module => "admin" do
     match "/admin" => "admin_home#index", :as => :admin_root
   end
@@ -62,6 +59,9 @@ StartAndWin::Application.routes.draw do
         post :set_rating_and_finish
       end
     end
+    match 'about_us' => 'other_pages#about_us'
+    match 'contract_us' => 'other_pages#contract_form'
+    match 'rules' => 'other_pages#rules'
   end
 ###########################end front routes###############
 
@@ -75,6 +75,8 @@ StartAndWin::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   put "image_uploader/async_upload_with_index"
   post "image_uploader/delete_image"
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 ############### end technical routes ####################
 
 
