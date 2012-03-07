@@ -62,6 +62,7 @@ StartAndWin::Application.routes.draw do
     match 'about_us' => 'other_pages#about_us'
     match 'contract_us' => 'other_pages#contract_form'
     match 'rules' => 'other_pages#rules'
+    match 'send_feedback' => 'other_pages#send_feedback'
   end
 ###########################end front routes###############
 

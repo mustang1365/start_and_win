@@ -1,5 +1,6 @@
 #rating_container(rating) -return container witch contains image for rating. rating - integer value of rating
 #menu_link(title, path, active_hash = {}) - return link for top menu
+#form_input_wrapper(builder, name, type, options = {}) - Generate wrapper for forms input
 module ViewsHelper
   #return container witch contains image for rating. rating - integer value of rating
   def rating_container(rating)
@@ -28,5 +29,23 @@ module ViewsHelper
 
   def page_title(text)
     content_tag(:h4, text).html_safe
+  end
+
+  #Generate wrapper for forms input
+  #bulder - object class FormBuilder
+  #name - field name
+  #type - filed type(text_field, text_area e.t.c)
+  #options[:label_name] - define label for input
+  #options[:label_class] - set addition class to labels(for example 'required')
+  def form_input_wrapper(builder, name, type, options = {})
+    input = ''
+    input += content_tag(:div, content_tag(:p,
+                               options[:label_name].present? ? options[:label_name] : name.to_s.humanize,
+                               :class => "label left #{options[:label_class].to_s}") + builder.send(type, name.to_sym),
+                        :class => 'form_row'
+                        )
+    input +=  content_tag(:div, '', :class => 'clr')
+
+    input.html_safe
   end
 end

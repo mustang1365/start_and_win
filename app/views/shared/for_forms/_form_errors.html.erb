@@ -1,0 +1,5 @@
+<% if defined?(f) %>
+    <% f.object.errors.each do |attribute, msg| %>
+        <%= attribute %> <%= msg %>  <br/>
+    <% end %>
+<% end %>

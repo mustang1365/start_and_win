@@ -1,10 +1,4 @@
-
-<%= f.error_notification %>
-<% if f.object.errors && f.object.errors[:base] && f.object.errors[:base].any? %>
-    <% f.object.errors[:base].each do |error| %>
-        <%= error %>
-    <% end %>
-<% end %>
+<%= render :partial => 'shared/for_forms/form_errors', :locals => {:f => f} %>
 <div class="inputs">
   <%= f.input :text %>
 </div>

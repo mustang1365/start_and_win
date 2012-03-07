@@ -12,4 +12,14 @@
         text-align: center;
     }
   }
+  .form_row {
+    padding: 5px 0;
+  }
+
+}
+
+#contact_form {
+  .form_row {
+    p.label {width: 160px;}
+  }
 }
