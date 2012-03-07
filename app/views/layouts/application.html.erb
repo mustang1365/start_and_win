@@ -13,6 +13,17 @@
 
 
 <body>
+<% if flash[:notice].present? %>
+  <div id="flash_notice" style="display: none">
+    <%= flash[:notice]  %>
+  </div>
+<% end %>
+<% if flash[:alert].present? %>
+    <div id="flash_alert" style="display: none">
+        <%= flash[:alert]  %>
+      </div>
+<% end %>
+
 
 <div class="wrapper">
   <% if current_user %>

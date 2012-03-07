@@ -8,5 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
+//= require jquery.jgrowl
+//= require main
 //= require_tree .
 

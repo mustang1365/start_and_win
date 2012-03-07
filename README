@@ -4,6 +4,7 @@
 [Gem] - add/remove gem from Gemfile
 [Model:model_name] - add/update/remove model
 [Controller:controller_name] - add/update/remove controller
+[Helper:helper_name] - add/remove method to helper
 [New feature:feature_name] - add some features to project(for example uploader)
 [Other] - whatever you want
 ex: "[Gem] Add gem "active_attr" + [Model:Question] Add scope all_question_for_play(user)
