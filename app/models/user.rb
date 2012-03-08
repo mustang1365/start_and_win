@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   def build_necessary_models
     unless admin?
       Profile.create(:user => self)
-      FinancialAccount.create(:user => self)
+      FinancialAccount.create(:user => self, :model => self)
     end
   end
 

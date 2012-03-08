@@ -32,3 +32,4 @@ if User.find_by_email('cm_maker@test.tt').nil?
   fin_account.save!
   user.save!
 end
+

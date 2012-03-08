@@ -1,6 +1,9 @@
 Ну что-то похожее на документацию.
+1) Теги для комитов в гит:
+2) Расположение и содержание служебных файлов
 
-Теги для комитов в гит:
+-----------------------------------------------
+1)Теги для комитов в гит:
 [Gem] - add/remove gem from Gemfile
 [Model:model_name] - add/update/remove model
 [Controller:controller_name] - add/update/remove controller
@@ -8,3 +11,17 @@
 [New feature:feature_name] - add some features to project(for example uploader)
 [Other] - whatever you want
 ex: "[Gem] Add gem "active_attr" + [Model:Question] Add scope all_question_for_play(user)
+-----------------------------------------------
+
+2) Расположение и содержание служебных файлов:
+На сайте 3 namespace:
+- Admin
+- Cabinet
+- FrontEnd
+Конроллер в каждом из этих неймспайсов наследуется от ApplicationController соответствующего неймспейса.
+
+В ApplicationHelper содержиться коментарий о всех остальных хелперах, а в начале каждого
+хелпера немного информации о методах, которые он содержит.
+
+В корне проекта лежит файл Accounts.txt который содержит все хользователей создаваемых сидами.
+-------------------------------------------------
