@@ -1,0 +1,23 @@
+<div class="top_list">
+
+</div>
+<div class="list">
+  <div class="standard_form">
+    <%= page_title("Форма обратной связи.") %>
+    <%= simple_form_for @message, :url => send_feedback_path, :html => {:id => 'contact_form'} do |f| %>
+        <div class="title"></div>
+        <div class="head">
+          <%= render :partial => 'shared/for_forms/form_errors', :locals => {:f => f} %>
+        </div>
+        <div class="content">
+          <%= form_input_wrapper(f, :subject, 'text_field', {:label_name => 'Тема:', :label_class => 'required'}) %>
+          <%= form_input_wrapper(f, :body, 'text_area', {:label_name => 'Сообщение:', :label_class => 'required'}) %>
+          <%= form_input_wrapper(f, :user_email, 'text_field', {:label_name => 'Выслать ответ на email:'}) %>
+          <div class="buttons">
+            <%= submit_tag 'Отправить', :class => 'css3button' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+

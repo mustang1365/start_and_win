@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to edit_user_profile_path(@user.profile), :notice => 'Registration successfull.'
+      redirect_to edit_cabinet_user_profile_path(@user.profile), :notice => 'Registration successfull.'
     else
       render :action => "new"
     end

@@ -1,13 +1,32 @@
 <tr>
-  <td><%= question.user.try(:login) %></td>
-  <td><%= question.created_at.strftime('%d/%m%Y') %></td>
-  <td><%= 'stub' %></td>
-  <td><%= question.play_condition.participation_points %></td>
-  <td><%= question.play_condition.win_points %></td>
-  <td><%= question.main_category.try(:title) %>/<br/>
-    <%= question.sub_categories.map(&:title).join(', ') %>
+  <td style="text-align: left">
+    <span class="main_category with_left_margin">
+      <%= question.try(:main_category).title %>
+    </span>
+    <% if question.sub_categories.any? %>
+        <ul class="sub_categories">
+          <% question.sub_categories.each do |sc|%>
+              <li><%= sc.title %></li>
+          <% end %>
+        </ul>
+    <% end %>
   </td>
   <td>
-    <%= link_to 'Подробнее', question_path(question), :remote => true %>
+    <%= question.play_condition.participation_points %>
+  </td>
+  <td>
+    <%= question.play_condition.win_points %>
+  </td>
+  <td>
+    <!--TODO REMOVE STUB-->
+    <%= rating_container(5) %>(4,9)
+  </td>
+  <td>
+    <%= standard_date(question.created_at) %><br/>
+    <!--TODO implement link to user profile-->
+    <%= link_to question.user.login, '#' %>
+  </td>
+  <td>
+    <%= link_to '',start_play_question_path(question), :class => 'start_link' %>
   </td>
 </tr>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219154002) do
+ActiveRecord::Schema.define(:version => 20120229191005) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -77,6 +77,14 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
 
   create_table "education_levels", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experience_settings", :force => true do |t|
+    t.string   "competition_name"
+    t.float    "iq_for_participant", :default => 0.0
+    t.float    "iq_for_creator",     :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -166,10 +174,27 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "win_points",           :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "time_limit",                                         :default => 10
   end
 
   add_index "play_conditions", ["difficulty_level_id"], :name => "play_difficulty_level_index"
   add_index "play_conditions", ["model_id", "model_type"], :name => "play_model_index"
+
+  create_table "play_results", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "competition_type"
+    t.integer  "competition_id"
+    t.string   "answers"
+    t.boolean  "won",              :default => false
+    t.boolean  "payed",            :default => false
+    t.integer  "rating_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "play_results", ["competition_type", "competition_id"], :name => "result_competition_index"
+  add_index "play_results", ["rating_id"], :name => "result_rating_index"
+  add_index "play_results", ["user_id"], :name => "result_user_index"
 
   create_table "private_files", :force => true do |t|
     t.text     "file_content"
@@ -196,6 +221,23 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
     t.datetime "updated_at"
     t.string   "status",     :default => "Активный"
     t.integer  "user_id"
+  end
+
+  create_table "rating_rates", :force => true do |t|
+    t.float    "begin_rating",    :default => 0.0
+    t.float    "end_rating",      :default => 0.0
+    t.float    "rate_of_payment", :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.float    "total_score",      :default => 0.0
+    t.integer  "general_score",    :default => 5
+    t.integer  "difficulty_score", :default => 5
+    t.integer  "time_score",       :default => 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sub_categories", :force => true do |t|
@@ -238,11 +280,11 @@ ActiveRecord::Schema.define(:version => 20120219154002) do
     t.datetime "last_activity_at"
     t.integer  "failed_logins_count",                                           :default => 0
     t.datetime "lock_expires_at"
-    t.boolean  "admin",                                                         :default => false
+    t.boolean  "admin"
     t.decimal  "iq_level",                        :precision => 8, :scale => 2, :default => 0.0
-    t.string   "first_name",                                                    :default => "",    :null => false
-    t.string   "last_name",                                                     :default => "",    :null => false
-    t.string   "gender",                                                        :default => "",    :null => false
+    t.string   "first_name",                                                    :default => "",  :null => false
+    t.string   "last_name",                                                     :default => "",  :null => false
+    t.string   "gender",                                                        :default => "",  :null => false
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

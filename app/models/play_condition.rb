@@ -8,6 +8,7 @@
 #| points_to_play       | decimal(8,2) | YES  |     | 0.00    |                |
 #| difficulty_level_id  | int(11)      | YES  | MUL | NULL    |                |
 #| win_points           | decimal(8,2) | YES  |     | 0.00    |                |
+#| time_limit           | int(11)      | YES  |     | 10      |                |
 #+----------------------+--------------+------+-----+---------+----------------+
 class PlayCondition < ActiveRecord::Base
   belongs_to :model, :polymorphic => true

@@ -31,7 +31,7 @@ module Modules::PlayConditionModule
       def participation_validation
         if play_condition.participation_points.blank?
           self.errors.add(:base, "Количество очков за участие должно быть больше 0")
-        elsif play_condition.difficulty_level.present? && play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_points").to_f > play_condition.participation_points.to_f
+        elsif play_condition.difficulty_level.present? && play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_points").to_f < play_condition.participation_points.to_f
           self.errors.add(:base, "Количество очков за участие должно быть не больше #{play_condition.difficulty_level.difficulty_level_setting.send("#{self.class.to_s.underscore}_max_points")}")
         end
       end

@@ -13,6 +13,17 @@
 
 
 <body>
+<% if flash[:notice].present? %>
+  <div id="flash_notice" style="display: none">
+    <%= flash[:notice]  %>
+  </div>
+<% end %>
+<% if flash[:alert].present? %>
+    <div id="flash_alert" style="display: none">
+        <%= flash[:alert]  %>
+      </div>
+<% end %>
+
 
 <div class="wrapper">
   <% if current_user %>
@@ -30,19 +41,21 @@
     <div class="main_menu">
       <div class="nol">
         <div class="col1">
-          <h3>#Соревнования:</h3>
-          <a href="#">#Стандартная игра</a><br/>
-          <a href="#">#Победи других!</a>
+          <h3>Соревнования:</h3>
+          <%= menu_link 'Блиц вопрос', questions_path, {:questions => [:all]} %>
+          <%= menu_link '#Стандартная игра', '#' %>
+          <%= menu_link '#Победи других!', '#' %>
         </div>
         <div class="col2">
-          <h3>#Новости и статистика:</h3>
-          <a href="#" class="aktiv">Наши новости</a><br/>
-          <a href="#">#Лучшие из лучших</a>
+          <h3>Новости и статистика:</h3>
+          <%= menu_link 'Наши новости', '/', {:home => [:all]} %>
+          <%= menu_link '#Лучшие из лучших', '#' %>
         </div>
         <div class="col3">
-          <h3>#О сайте:</h3>
-          <a href="#">#Общая информация</a><br/>
-          <a href="#">#Правила игры</a>
+          <h3>О сайте:</h3>
+          <%= menu_link 'Правила игры', '/rules', {:other_pages => [:rules]} %>
+          <%= menu_link 'Связаться с нами', '/contract_us', {:other_pages => [:contract_form]} %>
+          <%= menu_link 'О проекте', '/about_us', {:other_pages => [:about_us]} %>
         </div>
         <div class="clr"><!-- --></div>
       </div>

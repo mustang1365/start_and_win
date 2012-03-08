@@ -14,9 +14,11 @@ class Question < ActiveRecord::Base
   VARIANT_NUMBER = 4
   include Modules::CategoryModule
   include Modules::PlayConditionModule
+  include Modules::PlayResultAndRating
   include Modules::Question::Validations
   include Modules::Question::Associations
   include Modules::Question::Scopes
   include Modules::Question::QuestionClassMethods
   include Modules::Question::QuestionInstanceMethods
+  include Modules::Question::QuestionCallbacks
 end

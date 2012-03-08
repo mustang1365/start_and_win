@@ -1,6 +1,6 @@
 #encoding: utf-8
 class Cabinet::QuestionsController < Cabinet::ApplicationController
-  before_filter :find_question, :only => [:show, :destroy]
+  before_filter :find_question, :only => [:show, :close_question]
   before_filter :set_variables_for_form, :only => [:new, :create]
   before_filter :require_iq, :only => [:new, :create]
 
@@ -25,14 +25,16 @@ class Cabinet::QuestionsController < Cabinet::ApplicationController
     @question = Question.new
     @question.attributes = params[:question]
     if @question.save
-      fin_account = FinancialAccount.create(:user_id => current_user, :model => @question, :points_amount => 0)
-      PaymentSystem.process_payment(current_user, fin_account, @question.play_condition.points_to_play,
-                                    "Перевод на временный фонд для вопроса '#{@question.text}'", @question)
       redirect_to cabinet_questions_path, :notice => 'Вопрос успешно создан.'
     else
       @selected_category = @question.model_to_main_category.main_category
       @selected_sub_categories = @question.model_to_main_category.model_to_main_category_to_sub_categories.map(&:sub_category_id)
       render :action => :new
     end
+  end
+
+  def close_question
+    @question.update_column(:status, Question::STATUSES_HASH[:close])
+    redirect_to cabinet_questions_path
   end
 end

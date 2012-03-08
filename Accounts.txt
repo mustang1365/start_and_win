@@ -1,0 +1,11 @@
+Администратор
+login: m3_group
+pwd: m3_admin
+
+Просто игрок
+login: player
+pwd: player
+
+#Пользователь уже создавший несколько вопросов
+login: cm_maker
+pwd: cm_maker

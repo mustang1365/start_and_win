@@ -6,6 +6,8 @@
 #PaymentSystem.process_payment_to_admin - process payment to admin fin account from user
 #PaymentSystem.process_payment_to_site - process payment to site fin account from user
 #PaymentSystem.process_payment_to_temp_fund - process payment to temp fund fin account from user
+#PaymentSystem.pay_for_competition(current_user, competition, rating, win) - transfer founds after user finished competition(transfer participation point and win points)
+
 class PaymentSystem
   extend Modules::PaymentSystem::PaymentSystemDynamicMethods
 
@@ -34,6 +36,14 @@ class PaymentSystem
   end
 
 
+  #transfer founds after user finished competition(transfer participation point and win points)
+  #e.g.
+  #PaymentSystem.pay_for_competition(current_user, @question, rating, true)
+  def pay_for_competition(current_user, competition, rating, win)
+    coef = 123
+  end
+
+
   private
   #return fin accounts for sender and recipient. Also return error hash
   def self.find_accounts(sender, recipient)
@@ -44,6 +54,7 @@ class PaymentSystem
                   else
                     {:result => true, :errors => []}
                   end
+     p [sender_fin_acc, recipient_fin_acc, result_hash]
     [sender_fin_acc, recipient_fin_acc, result_hash]
   end
 

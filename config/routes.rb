@@ -1,9 +1,6 @@
 StartAndWin::Application.routes.draw do
 
-  match "oauth/callback" => "oauths#callback"
-  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-
-########################### admin routes ###################
+ ########################### admin routes ###################
   scope :module => "admin" do
     match "/admin" => "admin_home#index", :as => :admin_root
   end
@@ -13,6 +10,16 @@ StartAndWin::Application.routes.draw do
     resources :main_categories
     resources :competitions
     resources :difficulty_level_settings, :only => [:index] do
+      collection do
+        post :update_all_settings
+      end
+    end
+    resources :rating_rate_settings, :only => [:index] do
+      collection do
+        post :update_all_settings
+      end
+    end
+    resources :experience_settings, :only => [:index] do
       collection do
         post :update_all_settings
       end
@@ -31,7 +38,11 @@ StartAndWin::Application.routes.draw do
 ########################### cabinet for user routes ############
   namespace :cabinet do
     match 'main' => 'user_cabinet#index', :as => :user_root
-    resources :questions
+    resources :questions do
+      member do
+        get :close_question
+      end
+    end
     resources :user_profile, :only => [:edit, :update, :show]
     resources :messages, :only => [:index, :show, :new, :create] do
       post :mark_as, :on => :collection
@@ -44,8 +55,14 @@ StartAndWin::Application.routes.draw do
     resources :questions, :only => [:index, :show] do
       member do
         get :start_play
+        post :process_results
+        post :set_rating_and_finish
       end
     end
+    match 'about_us' => 'other_pages#about_us'
+    match 'contract_us' => 'other_pages#contract_form'
+    match 'rules' => 'other_pages#rules'
+    match 'send_feedback' => 'other_pages#send_feedback'
   end
 ###########################end front routes###############
 
@@ -59,6 +76,8 @@ StartAndWin::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   put "image_uploader/async_upload_with_index"
   post "image_uploader/delete_image"
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 ############### end technical routes ####################
 
 

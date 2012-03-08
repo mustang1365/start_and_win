@@ -1,0 +1,27 @@
+<%= form_tag update_all_settings_admin_rating_rate_settings_path do %>
+    <table width="300px">
+      <tr>
+        <th colspan="2" align="center">Рейтинг</th>
+        <th rowspan="2" align="center">Коэффициент расчета</th>
+      </tr>
+      <tr>
+        <th align="center">от</th>
+        <th align="center">до</th>
+      </tr>
+      <% @rates.each do |rate| %>
+          <tr>
+            <td align="center">
+              <%= text_field_tag "[rates][#{rate.id}][begin_rating]", rate.begin_rating, :style => 'width:40px;' %>
+            </td>
+            <td align="center">
+              <%= text_field_tag "[rates][#{rate.id}][end_rating]", rate.end_rating, :style => 'width:40px;' %>
+            </td>
+            <td align="center">
+              <%= text_field_tag "[rates][#{rate.id}][rate_of_payment]", rate.rate_of_payment, :style => 'width:40px;' %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+    <%= submit_tag 'Обновить' %>
+    <%= link_to 'Отменить', admin_settings_path %>
+<% end %>

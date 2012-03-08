@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>Был оставлен новый отзыв:</h1>
+
+<p>
+  <%= @message.body %>
+</p>
+<% if @message.user_email? %>
+    <h3>Пользователь ожидает ответ на email: <%= @message.user_email %></h3>
+<% end %>
+</body>
+</html>

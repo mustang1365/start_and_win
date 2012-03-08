@@ -1,0 +1,92 @@
+-
+  question: В каком соревнований нет участника с номером 13?
+  category: Люди
+  sub_categories: Страхи,Предрассудки
+  variants:
+    -
+      name: В гонках Формулы-1 нет автомобиля с номером 13.
+      answer: true
+    -
+      name: "В конных скачках нет лошади с номером 13."
+      answer: false
+    -
+      name: "В тараканих бегах не выставляют таракана с номером 13."
+      answer: false
+    -
+      name: "В триатлоне участнику никогда не выдадут номер 13."
+      answer: false
+  play_condition:
+    participation_points: 15
+    points_to_play: 300
+    difficulty_level: Сложный
+    win_points: 50
+    time_limit: 10
+-
+  question: "Кока-кола, изобретенная доктором Джоном Пембертоном в 1885 изначально продавалась как:"
+  category: "Наука"
+  sub_categories:  "Изобретения"
+  variants:
+    -
+      name: очиститель для хрома
+      answer: false
+    -
+      name: напиток для разбавления виски
+      answer: false
+    -
+      name: бодрящий напиток для ума
+      answer: true
+    -
+      name: успокаивающее средство для детей
+      answer: false
+  play_condition:
+    participation_points: 10
+    points_to_play: 200
+    difficulty_level: Средний
+    win_points: 25
+    time_limit: 20
+-
+  question: "Какое мясо в Древнем Риме считалось грехом употреблять в пищу?"
+  category: "Люди"
+  sub_categories: "Запреты и табу"
+  variants:
+    -
+      name: мясо баранов
+      answer: false
+    -
+      name:  мясо дятлов
+      answer: true
+    -
+      name: мясо жирафов
+      answer: false
+    -
+      name: мясо свиней
+      answer: false
+  play_condition:
+    participation_points: 40
+    points_to_play: 400
+    difficulty_level: Супер Сложный
+    win_points: 200
+    time_limit: 20
+-
+  question: "На каком пальце носиться обручальное кольцо?"
+  category: "Люди"
+  sub_categories: "Запреты и табу"
+  variants:
+    -
+      name: на безымянном
+      answer: true
+    -
+      name:  на указательном
+      answer: false
+    -
+      name: yа большом
+      answer: false
+    -
+      name: на мизинце
+      answer: false
+  play_condition:
+    participation_points: 10
+    points_to_play: 100
+    difficulty_level: Легкий
+    win_points: 20
+    time_limit: 5
