@@ -36,7 +36,7 @@ levels_hash.each do |q_hash|
     if question.valid?
       question.save!
     else
-      puts "Can't save question with name #{question.text}!! #{question.errors}'"
+      puts "Can't save question with name #{question.text}!! #{question.errors.map{|attr,msg| "#{attr} : #{msg}"}.join(';  ')}'"
     end
   end
 end
