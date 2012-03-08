@@ -15,7 +15,9 @@ if User.find_by_email('test_player@test.tt').nil?
              :admin => false
              )
   user.iq_level = 80
-  user.financial_account.points_amount = 1000
+  fin_account = User.find_by_email('test_player@test.tt').financial_account
+  fin_account.points_amount = 1000
+  fin_account.save!
   user.save!
 end
 
@@ -27,7 +29,7 @@ if User.find_by_email('cm_maker@test.tt').nil?
              :admin => false
              )
   user.iq_level = 90
-  fin_account = user.financial_account
+  fin_account = User.find_by_email('cm_maker@test.tt').financial_account
   fin_account.points_amount = 1000
   fin_account.save!
   user.save!
