@@ -24,15 +24,19 @@ levels_hash.each do |q_hash|
     #create play condition
     if  q_hash['play_condition'].present?
       play_condition = PlayCondition.create(:participation_points => q_hash['play_condition']['participation_points'],
-                    :points_to_play => q_hash['play_condition']['points_to_play'],
-                    :win_points => q_hash['play_condition']['win_points'],
-                    :time_limit => q_hash['play_condition']['time_limit'],
-                    :difficulty_level_id => DifficultyLevel.find_by_name(q_hash['play_condition']['difficulty_level']).id,
+                                            :points_to_play => q_hash['play_condition']['points_to_play'],
+                                            :win_points => q_hash['play_condition']['win_points'],
+                                            :time_limit => q_hash['play_condition']['time_limit'],
+                                            :difficulty_level_id => DifficultyLevel.find_by_name(q_hash['play_condition']['difficulty_level']).id,
       )
     end
     user = User.find_by_email('cm_maker@test.tt')
     question.user = user if user
-    question.play_condition  = play_condition if play_condition
-    question.save!
+    question.play_condition = play_condition if play_condition
+    if question.valid?
+      question.save!
+    else
+      puts "Can't save question with name #{question.text}!! #{question.errors}'"
+    end
   end
 end
