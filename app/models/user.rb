@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
       FinancialAccount.find_account(self)
   end
 
+  def increase_iq(iq)
+    update_column(:iq_level, self.iq_level.to_f + iq.to_f)
+  end
+
   private
   #creates some necessary models for user after create
   def build_necessary_models

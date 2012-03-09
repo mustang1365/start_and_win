@@ -18,5 +18,12 @@ class PlayResult < ActiveRecord::Base
 
   validates :user_id, :competition_id, :competition_type, :answers, :presence => true
 
-  scope :find_for_user, lambda {|user, competition| where(:user => user, :competition => competition).first}
+  scope :find_for_user, lambda { |user, competition| where(:user => user, :competition => competition).first }
+
+  after_save :set_rating_to_competition
+
+  #set competition rating if has rating
+  def set_rating_to_competition
+    competition.recalculate_rating if rating.present?
+  end
 end
