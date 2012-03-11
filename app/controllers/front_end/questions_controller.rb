@@ -27,7 +27,6 @@ class FrontEnd::QuestionsController <  FrontEnd::ApplicationController
 
   #save question rating, process payment and finish
   #TODO send email to admin if payment failed
-  #TODO pay amount depends on rating
   def set_rating_and_finish
     play_result = PlayResult.find_for_user(current_user, @question)
     rating = Rating.new(params[:rating])

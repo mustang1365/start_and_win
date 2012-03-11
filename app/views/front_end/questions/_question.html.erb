@@ -18,8 +18,7 @@
     <%= question.play_condition.win_points %>
   </td>
   <td>
-    <!--TODO REMOVE STUB-->
-    <%= rating_container(5) %>(4,9)
+    <%= rating_container(question.rating.to_i) %>(<%= question.rating.round(1) %>)
   </td>
   <td>
     <%= standard_date(question.created_at) %><br/>

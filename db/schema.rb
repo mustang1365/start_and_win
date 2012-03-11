@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229191005) do
+ActiveRecord::Schema.define(:version => 20120309203933) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20120229191005) do
     t.datetime "updated_at"
     t.integer  "difficulty_level_id"
     t.decimal  "competition_points",   :precision => 8, :scale => 2, :default => 0.0
+    t.float    "rating",                                             :default => 0.0
   end
 
   add_index "competitions", ["difficulty_level_id"], :name => "difficulty_level_index"
@@ -221,6 +222,7 @@ ActiveRecord::Schema.define(:version => 20120229191005) do
     t.datetime "updated_at"
     t.string   "status",     :default => "Активный"
     t.integer  "user_id"
+    t.float    "rating",     :default => 0.0
   end
 
   create_table "rating_rates", :force => true do |t|

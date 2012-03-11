@@ -10,6 +10,7 @@
 #| user_id              | int(11)      | YES  |     | NULL    |                |
 #| win_points           | decimal(8,2) | YES  |     | 0.00    |                |
 #| participation_points | decimal(8,2) | YES  |     | 0.00    |                |
+#| rating               | float        | YES  |     | 0       |                |
 #| created_at           | datetime     | YES  |     | NULL    |                |
 #| updated_at           | datetime     | YES  |     | NULL    |                |
 #+----------------------+--------------+------+-----+---------+----------------+
